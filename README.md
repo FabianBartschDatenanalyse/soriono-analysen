@@ -1,7 +1,7 @@
 # Soriono Analysen
 
 Code und Ergebnisse der Analysen auf [soriono.ch/analysen](https://soriono.ch/analysen/).
-Jede Analyse liest nur aus dem offenen Schweizer Datenmodell ([soriono.ch/datenmodell](https://soriono.ch/datenmodell/))
+Jede Analyse liest nur aus dem offenen Datenmodell der Schweiz, [Prelude](https://soriono.ch/prelude/)
 und lässt sich damit vollständig nachrechnen.
 
 | Analyse | Ordner | Artikel |
