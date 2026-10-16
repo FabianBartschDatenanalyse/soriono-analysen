@@ -1,0 +1,4 @@
+state/
+__pycache__/
+ausgabe/panel*.csv
+ausgabe/lauf_*.log

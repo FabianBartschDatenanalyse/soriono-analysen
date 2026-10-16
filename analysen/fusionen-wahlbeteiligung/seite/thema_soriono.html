@@ -1,0 +1,58 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: Gestaltung von soriono.ch (Marineblau, Gold, Newsreader, Manrope); eine Lesespalte, Diagramme etwas breiter. Bewusst nur hell, wie die Startseite. */
+:root {
+  color-scheme: light;
+  --paper: #f7f7f4;
+  --panel: #efeee8;
+  --ink: #062a47;
+  --ink-2: #3f5a72;
+  --ink-3: #5f748a;
+  --rule: #d8dcdc;
+  --accent: #062a47;
+  --gold: #c6a36b;
+  --series-1: #1f5a8c;
+  --series-2: #b8862f;
+  --band: rgba(31, 90, 140, 0.08);
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-body: "Manrope", system-ui, "Helvetica Neue", Arial, sans-serif;
+  --font-ui: "Manrope", system-ui, "Helvetica Neue", Arial, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --step--1: 0.84rem;
+  --step-0: 1.04rem;
+  --step-1: 1.26rem;
+  --step-2: 2rem;
+  --step-3: clamp(2.4rem, 1.4rem + 3.8vw, 4.2rem);
+}
+::selection { background: #c6a36b; color: #062a47; }
+h1 { font-weight: 600 !important; letter-spacing: -0.012em !important; line-height: 1 !important; }
+h2, h3 { font-weight: 600 !important; letter-spacing: -0.01em; }
+.kicker { color: #9a7a43 !important; letter-spacing: 0.24em !important; font-family: var(--font-ui) !important; font-weight: 600 !important; }
+.kopf-linie { width: 76px; height: 2px; background: var(--gold); }
+.zahl { font-family: var(--font-display) !important; font-weight: 600 !important; }
+a { color: var(--ink); text-decoration-color: var(--gold); text-decoration-thickness: 1.5px; }
+.methode { background: var(--panel) !important; }
+.seitenkopf { border-bottom: 1px solid var(--rule); }
+.seitenkopf-innen { max-width: 54rem; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem 1.6rem; flex-wrap: wrap; padding-block: 1.1rem; font-family: var(--font-ui); }
+.marke { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+.marke > svg { width: 58px; height: auto; overflow: visible; flex-shrink: 0; display: block; }
+.marke-kreuz svg { width: 11px !important; height: 11px !important; display: block; overflow: hidden; }
+.marke-name { font-weight: 700; letter-spacing: 0.2em; font-size: 17px; }
+.marke-zusatz { display: flex; align-items: center; gap: 8px; }
+.marke-kreuz { width: 17px; height: 17px; background: #e30613; border-radius: 2px; display: inline-flex; align-items: center; justify-content: center; }
+.marke-zusatz span:last-child { font-weight: 600; letter-spacing: 0.22em; font-size: 9px; opacity: 0.82; white-space: nowrap; }
+.seitenkopf nav { display: flex; gap: 1.6rem; flex-wrap: wrap; }
+.seitenkopf nav a { font-weight: 500; font-size: 15px; letter-spacing: 0.03em; text-decoration: none; color: var(--ink); padding-bottom: 4px; border-bottom: 2px solid transparent; }
+.seitenkopf nav a:hover { border-bottom-color: var(--gold); }
+.seitenkopf nav a[aria-current="page"] { border-bottom-color: var(--ink); }
+.seitenfuss { background: #062a47; color: #f7f7f4; margin-top: 0;
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding: 2.6rem max(16px, env(safe-area-inset-right, 0px)) 2.6rem max(16px, env(safe-area-inset-left, 0px)); font-family: var(--font-ui); }
+.seitenfuss-innen { max-width: 54rem; margin-inline: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem 2rem; }
+.seitenfuss strong { font-weight: 700; letter-spacing: 0.2em; font-size: 18px; }
+.seitenfuss nav { display: flex; flex-wrap: wrap; gap: 0.6rem 1.6rem; }
+.seitenfuss a { color: rgba(255, 255, 255, 0.78); text-decoration: none; font-size: 14px; letter-spacing: 0.03em; }
+.seitenfuss a:hover { color: #c6a36b; }
+.seitenfuss p { width: 100%; margin: 0.6rem 0 0; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.12); font-size: 13px; color: rgba(255, 255, 255, 0.6); }

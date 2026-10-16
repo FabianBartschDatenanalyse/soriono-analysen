@@ -1,0 +1,362 @@
+<title>Fusionen und Stimmbeteiligung</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Nach Gemeindefusionen sinkt die Beteiligung an eidgenössischen Abstimmungen und Nationalratswahlen um knapp zwei Prozentpunkte, dauerhaft.">
+/*THEMA*/
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: var(--step-0);
+  line-height: 1.62; margin: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.spalte { max-width: 42rem; margin-inline: auto; }
+.breit { max-width: 54rem; margin-inline: auto; }
+header.kopf { padding-block: 3.2rem 1.6rem; display: grid; gap: 1rem; }
+.kicker { font-family: var(--font-ui); font-weight: 700; font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0; }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: var(--step-3); line-height: 1.06; letter-spacing: -0.015em; margin: 0; text-wrap: balance; }
+.lead { font-size: var(--step-1); line-height: 1.5; color: var(--ink-2); margin: 0; }
+.zeile { font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-3); margin: 0; }
+h2 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-2); line-height: 1.2; margin: 2.6rem 0 0.6rem; text-wrap: balance; }
+h3 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); margin: 1.8rem 0 0.4rem; }
+p { margin: 0 0 1rem; }
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.befund { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 0; border-block: 1px solid var(--rule); margin-block: 0.4rem 1.8rem; }
+.befund div { padding: 1rem 0.9rem 1rem 0; display: grid; gap: 0.2rem; align-content: start; min-width: 0; }
+.befund div + div { padding-left: 0.9rem; border-left: 1px solid var(--rule); }
+.zahl { font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); line-height: 1; font-variant-numeric: tabular-nums; }
+.zahl-text { font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-2); line-height: 1.35; }
+figure { margin: 1.6rem auto 2rem; }
+figcaption { font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-2); line-height: 1.45; margin-top: 0.5rem; max-width: 42rem; }
+.diagramm-titel { font-family: var(--font-ui); font-weight: 700; font-size: var(--step-0); margin: 0 0 0.15rem; }
+.diagramm-unter { font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-3); margin: 0 0 0.6rem; }
+.legende { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-2); margin: 0 0 0.4rem; }
+.legende span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.legende i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.flaeche { position: relative; }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+svg text { font-family: var(--font-data); font-size: 11px; fill: var(--ink-3); }
+svg text.zeilenname { font-family: var(--font-ui); font-size: 13px; fill: var(--ink); }
+svg .achse { stroke: var(--rule); stroke-width: 1; }
+svg .null { stroke: var(--ink-3); stroke-width: 1; }
+svg .trenner { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 3 3; }
+.tip { position: absolute; pointer-events: none; background: var(--paper); color: var(--ink); border: 1px solid var(--rule); border-radius: 6px; padding: 0.4rem 0.55rem; font-family: var(--font-ui); font-size: var(--step--1); line-height: 1.35; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12); white-space: nowrap; }
+details.tabelle { margin-top: 0.5rem; font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-2); }
+details.tabelle summary { cursor: pointer; }
+.tabellen-rahmen { overflow-x: auto; }
+table { border-collapse: collapse; font-variant-numeric: tabular-nums; font-family: var(--font-ui); font-size: var(--step--1); width: 100%; margin-top: 0.5rem; }
+th, td { text-align: right; padding: 0.3rem 0.6rem; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; white-space: normal; }
+th { color: var(--ink-2); font-weight: 700; }
+.entstehung { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding-block: 0.4rem 0.6rem; margin-block: 2rem; }
+.entstehung h3 { margin-top: 0.8rem; font-family: var(--font-ui); font-size: var(--step-0); }
+.entstehung p { font-size: 0.98rem; color: var(--ink-2); }
+.methode { background: var(--panel); margin-top: 3rem; padding-block: 0.6rem 2.4rem;
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.methode p, .methode li { font-size: 0.98rem; }
+.methode ul { padding-left: 1.2rem; margin: 0 0 1rem; }
+.methode li { margin-bottom: 0.4rem; }
+footer { padding-block: 2rem 3rem; font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-3); }
+footer ol { padding-left: 1.2rem; }
+@media (prefers-reduced-motion: no-preference) { .tip { transition: opacity 80ms linear; } }
+</style>
+
+/*SITE_KOPF*/
+<article>
+  <header class="kopf spalte">
+    <p class="kicker">Analyse · Gemeinden und Demokratie</p>
+    <h1>Nach einer Gemeindefusion gehen weniger Menschen abstimmen</h1>
+    <p class="lead">Seit 1960 ist fast jede dritte Schweizer Gemeinde in einer anderen aufgegangen. Eine Auswertung aller eidgenössischen Abstimmungen und Nationalratswahlen zeigt: Nach der Fusion sinkt die Beteiligung um knapp zwei Prozentpunkte. Auch acht Jahre später hat sie sich nicht erholt.</p>
+    <p class="zeile">16. Oktober 2026 · Von Fabian Bartsch, mit Claude Opus 5.5 (Anthropic) · Daten: Bundesamt für Statistik</p>
+  </header>
+
+  <div class="spalte">
+    <div class="befund" role="list">
+      <div role="listitem"><span class="zahl">−1,9</span><span class="zahl-text">Prozentpunkte Stimmbeteiligung bei eidgenössischen Abstimmungen</span></div>
+      <div role="listitem"><span class="zahl">−1,7</span><span class="zahl-text">Prozentpunkte Wahlbeteiligung bei Nationalratswahlen</span></div>
+      <div role="listitem"><span class="zahl">8 Jahre</span><span class="zahl-text">nach der Fusion noch keine Erholung</span></div>
+      <div role="listitem"><span class="zahl">328</span><span class="zahl-text">fusionierte Gemeinden ausgewertet, 191 Abstimmungstage</span></div>
+    </div>
+
+    <p>Gemeindefusionen sind in der Schweiz Alltag geworden. Kantone fördern sie mit Geld und Gesetzen, weil grössere Gemeinden ihre Aufgaben leichter erfüllen und Ämter leichter besetzen können. Gegen Fusionen wird oft eingewendet, dass die Demokratie darunter leide: Wer sich nicht mehr mit seiner Gemeinde identifiziert, geht seltener an die Urne.</p>
+    <p>Ob das stimmt, lässt sich messen. Das Bundesamt für Statistik rechnet die Resultate aller eidgenössischen Abstimmungen seit 1960 und aller Nationalratswahlen seit 1971 auf die heutigen Gemeinden um. Eine heutige Gemeinde umfasst darum in jedem Jahr dasselbe Gebiet: Vor der Fusion zählen die Stimmen ihrer späteren Ortsteile zusammen, danach die Stimmen der neuen Gemeinde.</p>
+  </div>
+
+  <figure class="breit" id="fig-gemeinden">
+    <p class="diagramm-titel">Politische Gemeinden der Schweiz am 1. Januar</p>
+    <p class="diagramm-unter">Anzahl, 1960–2026</p>
+    <div class="flaeche" data-chart="gemeinden"></div>
+    <figcaption>Bis Mitte der 1990er Jahre blieb die Zahl fast gleich. Seither sank sie von 3'013 auf 2'110. Allein der Kanton Glarus legte 2011 seine 25 Gemeinden zu drei zusammen. Quelle: historisiertes Gemeindeverzeichnis des BFS.</figcaption>
+  </figure>
+
+  <div class="spalte">
+    <h2>Der Vergleich: dieselbe Abstimmung, derselbe Kanton</h2>
+    <p>Die Auswertung vergleicht jede Gemeinde, die fusioniert hat, mit Gemeinden desselben Kantons, die zur selben Zeit nicht fusioniert haben, und zwar am selben Abstimmungstag. So spielen weder eine besonders umstrittene Vorlage noch kantonale Eigenheiten wie die Stimmpflicht in Schaffhausen eine Rolle. Gemessen wird nur, ob sich die Beteiligung der fusionierten Gemeinde anders entwickelt als die ihrer Nachbarn.</p>
+  </div>
+
+  <figure class="breit" id="fig-abstimmungen">
+    <p class="diagramm-titel">Stimmbeteiligung vor und nach der Fusion</p>
+    <p class="diagramm-unter">Abweichung gegenüber vergleichbaren Gemeinden, in Prozentpunkten; Jahr vor der Fusion = 0</p>
+    <div class="flaeche" data-chart="ereignis" data-reihe="abst"></div>
+    <figcaption>Punkte: geschätzte Abweichung je Jahr; Linien: 95-Prozent-Vertrauensbereich. 328 fusionierte Gemeinden, 191 Abstimmungstage 1960–2026. Vor der Fusion verlaufen beide Gruppen fast gleich, danach liegt die Beteiligung der fusionierten Gemeinden um 1,5 bis 2 Punkte tiefer.</figcaption>
+    <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="ereignis" data-reihe="abst"></div></details>
+  </figure>
+
+  <div class="spalte">
+    <p>Das Muster ist deutlich. In den Jahren vor der Fusion unterscheiden sich die Gemeinden kaum von ihren Nachbarn. Im ersten Jahr nach der Fusion sinkt ihre Beteiligung um 1,9 Prozentpunkte und bleibt danach auf diesem tieferen Niveau. Bei einer Ausgangsbeteiligung von 46 Prozent gehen damit rund 4 Prozent der Stimmenden verloren.</p>
+    <p>Kurz vor der Fusion steigt die Beteiligung leicht an, um etwa 0,4 Punkte. Das passt dazu, dass die Fusion selbst zur Abstimmung kommt und die Gemeinde in dieser Zeit stark beschäftigt. Weiter unten zeigen wir, dass das Ergebnis nicht von diesem Anstieg abhängt.</p>
+
+    <h2>Bei den Nationalratswahlen dasselbe Bild</h2>
+    <p>Die Wahlen sind eine zweite, unabhängige Probe: andere Daten, ein anderer Gemeindestand (2023 statt 2026) und nur alle vier Jahre ein Termin. Das Ergebnis ist fast gleich. Nach der Fusion liegt die Wahlbeteiligung um 1,7 Prozentpunkte tiefer, und vor der Fusion gibt es keinen Vorlauf.</p>
+  </div>
+
+  <figure class="breit" id="fig-wahlen">
+    <p class="diagramm-titel">Wahlbeteiligung vor und nach der Fusion</p>
+    <p class="diagramm-unter">Abweichung gegenüber vergleichbaren Gemeinden, in Prozentpunkten; letzte Wahl vor der Fusion = 0</p>
+    <div class="flaeche" data-chart="ereignis" data-reihe="wahl"></div>
+    <figcaption>316 fusionierte Gemeinden, Nationalratswahlen 1971–2023. Die äussersten Punkte fassen alle früheren bzw. späteren Wahlen zusammen.</figcaption>
+    <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="ereignis" data-reihe="wahl"></div></details>
+  </figure>
+
+  <div class="spalte">
+    <h2>Kleine Gemeinden verlieren am meisten</h2>
+    <p>Der Rückgang hängt von der Grösse ab. Wo vor der Fusion weniger als 1'000 Personen stimmberechtigt waren, sinkt die Beteiligung um rund 2 Punkte. Bei Gemeinden ab 5'000 Stimmberechtigten ist er kleiner und statistisch nicht mehr von null zu unterscheiden. Das deckt sich mit einer früheren Schweizer Studie zu Gemeindewahlen (Rochat und Koch 2017).</p>
+  </div>
+
+  <figure class="breit" id="fig-groesse">
+    <p class="diagramm-titel">Wirkung nach Grösse der Gemeinde vor der Fusion</p>
+    <p class="diagramm-unter">Veränderung der Beteiligung in Prozentpunkten, mit 95-Prozent-Vertrauensbereich</p>
+    <div class="legende" aria-hidden="true"><span><i style="background: var(--series-1)"></i>Abstimmungen</span><span><i style="background: var(--series-2)"></i>Nationalratswahlen</span></div>
+    <div class="flaeche" data-chart="gruppen" data-daten="groesse"></div>
+    <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="gruppen" data-daten="groesse"></div></details>
+  </figure>
+
+  <div class="spalte">
+    <p>Überraschend ist, dass die Beteiligung auch dann sinkt, wenn eine grosse Gemeinde ein kleines Dorf aufnimmt. Wo weniger als ein Fünftel der Bevölkerung seine Gemeinde verloren hat, sinkt die Beteiligung der ganzen neuen Gemeinde um 1,5 bis 1,9 Punkte. Allein mit den eingemeindeten Dörfern lässt sich das kaum erklären. Vermutlich gehen auch in der aufnehmenden Gemeinde weniger Menschen abstimmen. Mit diesen Daten lässt sich das aber nicht direkt prüfen, weil sie für alle Jahre nur die heutige Gemeinde als Ganzes zeigen.</p>
+
+    <h2>Wie sicher ist das Ergebnis?</h2>
+    <p>Wir haben die Auswertung auf die Arten geprüft, die man in der Forschung für solche Fragen verlangt. Jede Prüfung ändert eine Annahme und rechnet neu. Das wichtigste Ergebnis zuerst: Ein erfundenes Fusionsdatum vier Jahre zu früh zeigt keine Wirkung. Der Rückgang tritt also erst mit der echten Fusion auf.</p>
+  </div>
+
+  <figure class="breit" id="fig-robust">
+    <p class="diagramm-titel">Geschätzte Wirkung unter verschiedenen Annahmen</p>
+    <p class="diagramm-unter">Veränderung der Beteiligung in Prozentpunkten, mit 95-Prozent-Vertrauensbereich</p>
+    <div class="legende" aria-hidden="true"><span><i style="background: var(--series-1)"></i>Abstimmungen</span><span><i style="background: var(--series-2)"></i>Nationalratswahlen</span></div>
+    <div class="flaeche" data-chart="gruppen" data-daten="robust"></div>
+    <figcaption>Jede Zeile ist eine eigene Berechnung. Die Placebo-Zeile sollte bei null liegen, alle anderen zeigen, wie stark das Ergebnis von einer Annahme abhängt. Einzelheiten im Methodenteil.</figcaption>
+    <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="gruppen" data-daten="robust"></div></details>
+  </figure>
+
+  <div class="spalte">
+    <p id="text-robust">ROBUST_TEXT</p>
+
+    <h2>Was das für Fusionen heisst</h2>
+    <p>Fusionen haben gute Gründe, und diese Auswertung spricht nicht gegen sie. Sie beziffert aber einen Preis, der in Fusionsabstimmungen selten genannt wird: Nach der Fusion stimmen dauerhaft 3 bis 4 Prozent weniger Menschen ab, bei nationalen Fragen, die mit der Gemeinde gar nichts zu tun haben. In kleinen Gemeinden ist der Verlust grösser.</p>
+    <p>Wer eine Fusion plant, kann diesen Preis vermutlich verkleinern, indem er Nähe erhält: Urnen in den bisherigen Ortsteilen, Ortsteilvertretungen und gezielte Information über die Stimmabgabe in der neuen Gemeinde. Ob solche Massnahmen wirken, wäre die nächste Frage, die sich mit denselben Daten untersuchen lässt.</p>
+
+    <aside class="entstehung" aria-labelledby="entstehung-titel">
+      <h3 id="entstehung-titel">Wie dieser Artikel entstand</h3>
+      <p>Die Hauptarbeit an dieser Analyse hat Claude Opus 5.5 geleistet, ein KI-Modell von Anthropic: die Aufbereitung der BFS-Daten im Datenmodell, die statistische Auswertung mit allen Prüfungen, den Code und diesen Text. Fabian Bartsch hat die Fragestellung vorgegeben, die Arbeit begleitet und entschieden, was veröffentlicht wird. Jede Zahl lässt sich aus den öffentlichen Daten nachrechnen.</p>
+    </aside>
+
+    <h2>Was diese Auswertung nicht zeigt</h2>
+    <p>Die Daten zeigen Gemeinden, nicht Personen. Ob dieselben Menschen seltener abstimmen oder ob sich die Bevölkerung verändert, bleibt offen. Fusionen werden nicht zufällig beschlossen. Dass sich die Gemeinden vor der Fusion wie ihre Nachbarn entwickeln, spricht gegen verborgene Unterschiede, schliesst aber gleichzeitige Veränderungen nicht aus, etwa geschlossene Wahllokale. Diese wären allerdings eher ein Teil der Wirkung als ein Fehler. Gemeinde- und Kantonswahlen sind nicht Teil dieser Auswertung.</p>
+  </div>
+
+  <section class="methode" aria-labelledby="methode-titel">
+    <div class="spalte">
+      <h2 id="methode-titel">Methode im Detail</h2>
+      <p>Dieser Abschnitt richtet sich an Fachleute. Die Auswertung ist kein begutachteter Fachartikel, folgt aber dem Vorgehen, das für solche Fragen in der Forschung üblich ist.</p>
+
+      <h3>Daten</h3>
+      <ul>
+        <li><strong>Abstimmungen:</strong> abgegebene Stimmen und Stimmberechtigte aller 511 eidgenössischen Vorlagen 1960–2026 je Gemeinde (BFS, px-x-1703030000_101), vom BFS auf den Gemeindestand vom 1.1.2026 umgerechnet. Je Gemeinde und Abstimmungstag zählt die Vorlage mit den meisten abgegebenen Stimmen; die Vorlagen eines Tages unterscheiden sich kaum (Median der Spanne 0 Punkte, 90 Prozent unter 0,8 Punkten). 1960–1980 fehlen die Gemeinden von AG, FR und TI.</li>
+        <li><strong>Wahlen:</strong> Wählende und Wahlberechtigte der Nationalratswahlen 1971–2023 je Gemeinde (BFS, px-x-1702020000_101), umgerechnet auf den Stand vom 1.7.2023.</li>
+        <li><strong>Fusionen:</strong> historisiertes Gemeindeverzeichnis des BFS. Eine Fusion ist eine Mutation mit mindestens zwei politischen Gemeinden vorher und genau einer nachher. Behandelt ist eine Gemeinde ab dem ersten Termin nach ihrer ersten Fusion; ein Abstimmungstag am Fusionstag selbst (im Tessin üblich) fällt weg.</li>
+        <li><strong>Bestandteile:</strong> Bevölkerung der Volkszählung 2000, über alle Mutationen auf die heutigen Gemeinden übertragen; daraus der Anteil der Bevölkerung, deren Gemeinde aufging (nur für Fusionen nach dem 5.12.2000).</li>
+        <li><strong>Ausgeschlossen:</strong> Gemeinden mit Gebietsabtausch oder Teilung (17 bzw. 11), Courrendlin bis zum Kantonswechsel von Vellerat (30.6.1996), Moutier (Fusion und Kantonswechsel am 1.1.2026) und Gemeinden mit weniger als zwei Beobachtungen vor der Fusion. Es bleiben 368'508 Abstimmungsbeobachtungen aus 2'068 Gemeinden (328 mit Fusion) und 29'272 Wahlbeobachtungen aus 2'103 Gemeinden (316 mit Fusion).</li>
+      </ul>
+
+      <h3>Schätzung</h3>
+      <p>Gestaffelte Differenz-in-Differenzen mit festen Effekten für Gemeinde und Kanton × Termin; der Kanton ist jener am Termin (Jura bis 1978 und Laufen bis 1993 bei Bern). Hauptschätzer ist das zweistufige Verfahren von Gardner (2022): Die festen Effekte werden nur aus unbehandelten Beobachtungen geschätzt, die Wirkung ist das Mittel der bereinigten Beteiligung über die behandelten Beobachtungen. Das vermeidet die bekannte Verzerrung gewöhnlicher Panelregressionen bei gestaffelter Einführung. Standardfehler: Cluster-Bootstrap über Gemeinden mit 200 Ziehungen, beide Stufen jeweils neu geschätzt. Am Wahlpanel stimmen Punktschätzung und Standardfehler mit der analytischen Lösung von <code>pyfixest.did2s</code> überein (−1,68; Standardfehler 0,33 gegenüber 0,36).</p>
+
+      <h3>Robustheit</h3>
+      <div class="tabellen-rahmen" data-table="robust-voll"></div>
+      <p style="margin-top: 1rem">ROBUST_METHODE</p>
+
+      <h3>Daten und Code</h3>
+      <p>Alle Zahlen stammen aus dem öffentlichen Schweizer Datenmodell, das amtliche BFS-Daten unverändert und versioniert bereitstellt (<a href="https://files.soriono.ch/lab/data-model/model-catalog/current.json">Katalog</a>). Die Auswertung lässt sich mit fünf Python-Skripten aus diesem Modell nachrechnen. CODE_TEXT</p>
+    </div>
+  </section>
+
+  <footer class="spalte">
+    <p>Quellen</p>
+    <ol>
+      <li>Bundesamt für Statistik: Volksabstimmungen, Ergebnisse auf Ebene Gemeinde seit 1960 (px-x-1703030000_101); Nationalratswahlen nach Gemeinden (px-x-1702020000_101); historisiertes Gemeindeverzeichnis; Volkszählung.</li>
+      <li>Rochat, P. und Koch, P. (2017): The effects of local government consolidation on turnout: evidence from a quasi-experiment in Switzerland. Swiss Political Science Review 23(3), 215–230. <a href="https://digitalcollection.zhaw.ch/handle/11475/16794">ZHAW digitalcollection</a></li>
+      <li>Gardner, J. (2022): Two-stage differences in differences. Arbeitspapier, <a href="https://arxiv.org/abs/2207.05943">arXiv 2207.05943</a>.</li>
+      <li>Cengiz, D., Dube, A., Lindner, A. und Zipperer, B. (2019): The effect of minimum wages on low-wage jobs. Quarterly Journal of Economics 134(3), 1405–1454 (gestapelte Differenz-in-Differenzen).</li>
+    </ol>
+  </footer>
+</article>
+/*SITE_FUSS*/
+
+<script>
+const DATEN = /*DATEN*/null;
+
+const fmt = (v, d = 1) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(d).replace(".", ",");
+const NS = "http://www.w3.org/2000/svg";
+function el(name, attrs = {}, parent) {
+  const e = document.createElementNS(NS, name);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function tooltip(host) {
+  const t = document.createElement("div");
+  t.className = "tip"; t.hidden = true; host.appendChild(t);
+  return {
+    show(html, x, y) {
+      t.innerHTML = html; t.hidden = false;
+      const w = host.clientWidth, tw = t.offsetWidth;
+      t.style.left = Math.min(Math.max(0, x - tw / 2), w - tw) + "px";
+      t.style.top = (y - t.offsetHeight - 10) + "px";
+    },
+    hide() { t.hidden = true; }
+  };
+}
+function breite(host) { return Math.max(300, Math.round(host.clientWidth || 860)); }
+function skala(d0, d1, r0, r1) { return v => r0 + (v - d0) / (d1 - d0) * (r1 - r0); }
+
+function gemeinden(host) {
+  const daten = DATEN.gemeinden, W = breite(host), H = W < 600 ? 220 : 280, m = { l: 48, r: 12, t: 14, b: 30 };
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Linie: Zahl der politischen Gemeinden 1960 bis 2026, von 3095 auf 2110" }, host);
+  const x = skala(1960, 2026, m.l, W - m.r), y = skala(2000, 3200, H - m.b, m.t);
+  for (const v of [2000, 2400, 2800, 3200]) {
+    el("line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), class: "achse" }, svg);
+    el("text", { x: m.l - 8, y: y(v) + 4, "text-anchor": "end" }, svg).textContent = v.toLocaleString("de-CH");
+  }
+  for (const j of (W < 600 ? [1960, 1980, 2000, 2026] : [1960, 1970, 1980, 1990, 2000, 2010, 2020, 2026]))
+    el("text", { x: x(j), y: H - 8, "text-anchor": "middle" }, svg).textContent = j;
+  const pfad = daten.map(([j, n], i) => (i ? "L" : "M") + x(j).toFixed(1) + "," + y(n).toFixed(1)).join("");
+  el("path", { d: pfad + `L${x(2026)},${y(2000)}L${x(1960)},${y(2000)}Z`, fill: "var(--band)", stroke: "none" }, svg);
+  el("path", { d: pfad, fill: "none", stroke: "var(--series-1)", "stroke-width": 2, "stroke-linejoin": "round" }, svg);
+  for (const [j, n, text, dy] of [[1960, 3095, "3'095", -10], [2026, 2110, "2'110", -10]]) {
+    el("circle", { cx: x(j), cy: y(n), r: 4, fill: "var(--series-1)", stroke: "var(--paper)", "stroke-width": 2 }, svg);
+    const t = el("text", { x: x(j) + (j === 2026 ? -6 : 6), y: y(n) + dy, "text-anchor": j === 2026 ? "end" : "start" }, svg);
+    t.textContent = text; t.style.fill = "var(--ink)";
+  }
+  const tip = tooltip(host);
+  const marke = el("circle", { r: 4, fill: "var(--series-1)", stroke: "var(--paper)", "stroke-width": 2, visibility: "hidden" }, svg);
+  const fang = el("rect", { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: "transparent" }, svg);
+  fang.addEventListener("pointermove", ev => {
+    const r = svg.getBoundingClientRect(), px = (ev.clientX - r.left) / r.width * W;
+    const j = Math.round(1960 + (px - m.l) / (W - m.l - m.r) * 66), p = daten.find(d => d[0] === j);
+    if (!p) return;
+    marke.setAttribute("cx", x(j)); marke.setAttribute("cy", y(p[1])); marke.setAttribute("visibility", "visible");
+    tip.show(`<strong>1.1.${j}</strong><br>${p[1].toLocaleString("de-CH")} Gemeinden`, x(j) / W * r.width, y(p[1]) / H * r.height);
+  });
+  fang.addEventListener("pointerleave", () => { tip.hide(); marke.setAttribute("visibility", "hidden"); });
+}
+
+function ereignis(host) {
+  const reihe = host.dataset.reihe, daten = DATEN.ereignis[reihe];
+  const wahl = reihe === "wahl", W = breite(host), H = W < 600 ? 260 : 320, m = { l: 34, r: 8, t: 14, b: 40 };
+  const rel = daten.map(d => d[0]), r0 = Math.min(...rel), r1 = Math.max(...rel);
+  const x = skala(r0 - 0.6, r1 + 0.6, m.l, W - m.r), y = skala(-3.5, 1, H - m.b, m.t);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": wahl ? "Wahlbeteiligung je Wahl vor und nach der Fusion" : "Stimmbeteiligung je Jahr vor und nach der Fusion" }, host);
+  el("rect", { x: x(-0.5), y: m.t, width: W - m.r - x(-0.5), height: H - m.t - m.b, fill: "var(--band)" }, svg);
+  for (const v of [-3, -2, -1, 0, 1]) {
+    el("line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), class: v === 0 ? "null" : "achse" }, svg);
+    el("text", { x: m.l - 8, y: y(v) + 4, "text-anchor": "end" }, svg).textContent = fmt(v, 0).replace("+0", "0");
+  }
+  el("line", { x1: x(-0.5), x2: x(-0.5), y1: m.t, y2: H - m.b, class: "trenner" }, svg);
+  el("text", { x: x(-0.5) + 6, y: m.t + 14 }, svg).textContent = "nach der Fusion";
+  el("text", { x: x(-0.5) - 6, y: m.t + 14, "text-anchor": "end" }, svg).textContent = "vorher";
+  const schritt = W < 600 && rel.length > 10 ? 2 : 1;
+  for (const r of rel) {
+    if ((r - r0) % schritt && r !== r1 && r !== -1 && r !== 0) continue;
+    const lab = r === r0 ? "≤" + r : r === r1 ? "≥" + r : String(r);
+    el("text", { x: x(r), y: H - m.b + 18, "text-anchor": "middle" }, svg).textContent = lab.replace("-", "−");
+  }
+  el("text", { x: (m.l + W - m.r) / 2, y: H - 4, "text-anchor": "middle" }, svg).textContent =
+    wahl ? "Wahlen relativ zur ersten Wahl nach der Fusion (0)" : "Jahre seit der Fusion (0 = erstes Jahr danach)";
+  const tip = tooltip(host);
+  for (const [r, s, u, o] of daten) {
+    const g = el("g", { tabindex: 0, role: "img", "aria-label": `${r}: ${fmt(s, 2)} Punkte` }, svg);
+    el("line", { x1: x(r), x2: x(r), y1: y(u), y2: y(o), stroke: "var(--series-1)", "stroke-width": 2, "stroke-linecap": "round" }, g);
+    el("circle", { cx: x(r), cy: y(s), r: 5, fill: "var(--series-1)", stroke: "var(--paper)", "stroke-width": 2 }, g);
+    const fang = el("rect", { x: x(r) - 18, y: m.t, width: 36, height: H - m.t - m.b, fill: "transparent" }, g);
+    const zeigen = () => {
+      const b = svg.getBoundingClientRect();
+      const was = r === -1 ? "Bezugspunkt" : `${fmt(s, 2)} Punkte<br><span style="color:var(--ink-3)">95 %: ${fmt(u, 2)} bis ${fmt(o, 2)}</span>`;
+      const wann = wahl ? (r < 0 ? `${-r}. Wahl vorher` : `${r + 1}. Wahl danach`) : (r < 0 ? `${-r}. Jahr vorher` : `${r + 1}. Jahr danach`);
+      tip.show(`<strong>${wann}</strong><br>${was}`, x(r) / W * b.width, y(Math.max(o, s)) / H * b.height);
+    };
+    fang.addEventListener("pointerenter", zeigen); g.addEventListener("focus", zeigen);
+    fang.addEventListener("pointerleave", () => tip.hide()); g.addEventListener("blur", () => tip.hide());
+  }
+}
+
+function gruppen(host) {
+  const daten = DATEN[host.dataset.daten], zeilen = daten.zeilen;
+  const W = breite(host), schmal = W < 600, zh = schmal ? 58 : 46;
+  const m = { l: schmal ? 8 : 230, r: 12, t: 8, b: 34 }, H = m.t + zeilen.length * zh + m.b;
+  const [d0, d1] = daten.bereich, x = skala(d0, d1, m.l, W - m.r);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": daten.titel }, host);
+  for (let v = Math.ceil(d0); v <= d1; v++) {
+    el("line", { x1: x(v), x2: x(v), y1: m.t, y2: H - m.b, class: v === 0 ? "null" : "achse" }, svg);
+    el("text", { x: x(v), y: H - m.b + 18, "text-anchor": "middle" }, svg).textContent = fmt(v, 0).replace("+0", "0");
+  }
+  const tip = tooltip(host);
+  zeilen.forEach((z, i) => {
+    const yc = m.t + i * zh + zh / 2 + (schmal ? 8 : 0);
+    el("text", { x: 0, y: schmal ? yc - 16 : yc + 4, class: "zeilenname" }, svg).textContent = z.name;
+    [["a", "var(--series-1)", -8, "Abstimmungen"], ["w", "var(--series-2)", 8, "Nationalratswahlen"]].forEach(([k, farbe, dy, wort]) => {
+      const v = z[k]; if (!v) return;
+      const g = el("g", { tabindex: 0, role: "img", "aria-label": `${z.name}, ${wort}: ${fmt(v.schaetzung, 2)} Punkte` }, svg);
+      if (v.unten !== undefined) el("line", { x1: x(v.unten), x2: x(v.oben), y1: yc + dy, y2: yc + dy, stroke: farbe, "stroke-width": 2, "stroke-linecap": "round" }, g);
+      el("circle", { cx: x(v.schaetzung), cy: yc + dy, r: 5, fill: farbe, stroke: "var(--paper)", "stroke-width": 2 }, g);
+      const fang = el("rect", { x: m.l, y: yc + dy - 8, width: W - m.l - m.r, height: 16, fill: "transparent" }, g);
+      const zeigen = () => {
+        const b = svg.getBoundingClientRect();
+        tip.show(`<strong>${z.name}</strong><br>${wort}: ${fmt(v.schaetzung, 2)} Punkte<br><span style="color:var(--ink-3)">${v.unten !== undefined ? `95 %: ${fmt(v.unten, 2)} bis ${fmt(v.oben, 2)}` : "Punktschätzung"}${v.gemeinden ? " · " + v.gemeinden + " Gemeinden" : ""}</span>`,
+          x(v.schaetzung) / W * b.width, (yc + dy - 6) / H * b.height);
+      };
+      fang.addEventListener("pointerenter", zeigen); g.addEventListener("focus", zeigen);
+      fang.addEventListener("pointerleave", () => tip.hide()); g.addEventListener("blur", () => tip.hide());
+    });
+  });
+  el("text", { x: (m.l + W - m.r) / 2, y: H - 4, "text-anchor": "middle" }, svg).textContent = "Veränderung der Beteiligung, Prozentpunkte";
+}
+
+function tabelle(host) {
+  const art = host.dataset.table;
+  let kopf, reihen;
+  if (art === "ereignis") {
+    const wahl = host.dataset.reihe === "wahl";
+    kopf = [wahl ? "Wahl relativ zur Fusion" : "Jahr relativ zur Fusion", "Abweichung", "95 % von", "bis"];
+    reihen = DATEN.ereignis[host.dataset.reihe].map(([r, s, u, o]) => [String(r).replace("-", "−"), fmt(s, 2), fmt(u, 2), fmt(o, 2)]);
+  } else {
+    const daten = art === "robust-voll" ? DATEN.robust : DATEN[host.dataset.daten];
+    kopf = ["", "Abstimmungen", "95 %", "Wahlen", "95 %"];
+    reihen = daten.zeilen.map(z => [z.name + (z.hinweis && art === "robust-voll" ? ` <span style="color:var(--ink-3)">(${z.hinweis})</span>` : ""),
+      z.a ? fmt(z.a.schaetzung, 2) : "–", z.a && z.a.unten !== undefined ? `${fmt(z.a.unten, 2)} bis ${fmt(z.a.oben, 2)}` : "–",
+      z.w ? fmt(z.w.schaetzung, 2) : "–", z.w && z.w.unten !== undefined ? `${fmt(z.w.unten, 2)} bis ${fmt(z.w.oben, 2)}` : "–"]);
+  }
+  host.innerHTML = `<table><thead><tr>${kopf.map(k => `<th scope="col">${k}</th>`).join("")}</tr></thead><tbody>${
+    reihen.map(r => `<tr>${r.map((c, i) => i ? `<td>${c}</td>` : `<th scope="row" style="font-weight:400">${c}</th>`).join("")}</tr>`).join("")}</tbody></table>`;
+}
+
+const ZEICHNER = { gemeinden, ereignis, gruppen };
+function zeichnen() {
+  document.querySelectorAll("[data-chart]").forEach(h => { h.replaceChildren(); ZEICHNER[h.dataset.chart](h); });
+}
+zeichnen();
+let letzteBreite = innerWidth, warten;
+addEventListener("resize", () => {
+  if (innerWidth === letzteBreite) return;
+  letzteBreite = innerWidth; clearTimeout(warten); warten = setTimeout(zeichnen, 150);
+});
+document.querySelectorAll("[data-table]").forEach(tabelle);
+</script>

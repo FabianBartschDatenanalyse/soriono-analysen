@@ -1,0 +1,4 @@
+# Aus dem veröffentlichten Modell neu erzeugbar (daten.py, daten_abstimmungen.py)
+ausgabe/panel*.csv
+ausgabe/lauf_*.log
+__pycache__/

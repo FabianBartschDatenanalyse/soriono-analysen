@@ -1,0 +1,151 @@
+{
+ "alle": {
+  "schaetzung": -1.68,
+  "se": 0.36,
+  "unten": -2.39,
+  "oben": -0.97,
+  "gemeinden": 316
+ },
+ "vorher_beteiligung_mittel": 49.7,
+ "groesse": {
+  "a_unter_1000": {
+   "schaetzung": -1.99,
+   "se": 0.58,
+   "unten": -3.13,
+   "oben": -0.84,
+   "gemeinden": 106
+  },
+  "b_1000_bis_4999": {
+   "schaetzung": -1.55,
+   "se": 0.45,
+   "unten": -2.43,
+   "oben": -0.67,
+   "gemeinden": 166
+  },
+  "c_ab_5000": {
+   "schaetzung": -0.97,
+   "se": 0.95,
+   "unten": -2.83,
+   "oben": 0.89,
+   "gemeinden": 44
+  }
+ },
+ "anteil_aufgegangen": {
+  "a_unter_20_prozent": {
+   "schaetzung": -1.9,
+   "se": 0.64,
+   "unten": -3.14,
+   "oben": -0.65,
+   "gemeinden": 84
+  },
+  "b_20_bis_39_prozent": {
+   "schaetzung": -1.27,
+   "se": 0.56,
+   "unten": -2.38,
+   "oben": -0.17,
+   "gemeinden": 61
+  },
+  "c_ab_40_prozent": {
+   "schaetzung": -1.96,
+   "se": 0.61,
+   "unten": -3.15,
+   "oben": -0.77,
+   "gemeinden": 102
+  }
+ },
+ "zeitraum": {
+  "a_bis_2000": {
+   "schaetzung": -1.8,
+   "se": 0.69,
+   "unten": -3.14,
+   "oben": -0.46,
+   "gemeinden": 64
+  },
+  "b_ab_2001": {
+   "schaetzung": -1.6,
+   "se": 0.38,
+   "unten": -2.35,
+   "oben": -0.86,
+   "gemeinden": 252
+  }
+ },
+ "ohne_kanton": {
+  "AG": {
+   "schaetzung": -1.74,
+   "se": 0.38,
+   "unten": -2.48,
+   "oben": -0.99,
+   "gemeinden": 296
+  },
+  "BE": {
+   "schaetzung": -1.72,
+   "se": 0.39,
+   "unten": -2.48,
+   "oben": -0.96,
+   "gemeinden": 280
+  },
+  "FR": {
+   "schaetzung": -1.96,
+   "se": 0.38,
+   "unten": -2.71,
+   "oben": -1.21,
+   "gemeinden": 266
+  },
+  "GR": {
+   "schaetzung": -1.66,
+   "se": 0.38,
+   "unten": -2.4,
+   "oben": -0.92,
+   "gemeinden": 281
+  },
+  "JU": {
+   "schaetzung": -1.61,
+   "se": 0.37,
+   "unten": -2.33,
+   "oben": -0.88,
+   "gemeinden": 303
+  },
+  "LU": {
+   "schaetzung": -1.58,
+   "se": 0.37,
+   "unten": -2.3,
+   "oben": -0.85,
+   "gemeinden": 303
+  },
+  "SO": {
+   "schaetzung": -1.78,
+   "se": 0.37,
+   "unten": -2.49,
+   "oben": -1.06,
+   "gemeinden": 305
+  },
+  "TG": {
+   "schaetzung": -1.47,
+   "se": 0.39,
+   "unten": -2.24,
+   "oben": -0.7,
+   "gemeinden": 282
+  },
+  "TI": {
+   "schaetzung": -1.62,
+   "se": 0.38,
+   "unten": -2.38,
+   "oben": -0.87,
+   "gemeinden": 293
+  },
+  "VD": {
+   "schaetzung": -1.51,
+   "se": 0.39,
+   "unten": -2.27,
+   "oben": -0.76,
+   "gemeinden": 289
+  },
+  "VS": {
+   "schaetzung": -1.85,
+   "se": 0.38,
+   "unten": -2.59,
+   "oben": -1.11,
+   "gemeinden": 296
+  }
+ }
+}

@@ -1,0 +1,127 @@
+{
+ "ziehungen": 100,
+ "wahlen": {
+  "haupt": {
+   "schaetzung": -1.68,
+   "se": 0.33,
+   "unten": -2.33,
+   "oben": -1.03,
+   "gemeinden": 316
+  },
+  "bezirk_termin": {
+   "schaetzung": -1.78,
+   "se": 0.4,
+   "unten": -2.55,
+   "oben": -1.0,
+   "gemeinden": 315
+  },
+  "cluster_bezirk": {
+   "schaetzung": -1.68,
+   "se": 0.34,
+   "unten": -2.34,
+   "oben": -1.02,
+   "gemeinden": 316
+  },
+  "eine_fusion": {
+   "schaetzung": -1.7,
+   "se": 0.43,
+   "unten": -2.54,
+   "oben": -0.86,
+   "gemeinden": 253
+  },
+  "ausgewogen": {
+   "schaetzung": -1.69,
+   "se": 0.44,
+   "unten": -2.54,
+   "oben": -0.84,
+   "gemeinden": 257,
+   "fenster": "-2..2"
+  },
+  "placebo": {
+   "schaetzung": -0.19,
+   "se": 0.33,
+   "unten": -0.84,
+   "oben": 0.46,
+   "gemeinden": 295
+  },
+  "vortrend_linear": {
+   "steigung_je_periode": 0.046,
+   "wirkung_roh": -1.62,
+   "wirkung_ohne_vortrend": -1.84,
+   "perioden": "-4..4"
+  }
+ },
+ "abstimmungen": {
+  "haupt": {
+   "schaetzung": -1.9,
+   "se": 0.34,
+   "unten": -2.57,
+   "oben": -1.23,
+   "gemeinden": 328
+  },
+  "bezirk_termin": {
+   "schaetzung": -1.64,
+   "se": 0.35,
+   "unten": -2.33,
+   "oben": -0.95,
+   "gemeinden": 327
+  },
+  "cluster_bezirk": {
+   "schaetzung": -1.9,
+   "se": 0.39,
+   "unten": -2.67,
+   "oben": -1.13,
+   "gemeinden": 328
+  },
+  "eine_fusion": {
+   "schaetzung": -1.84,
+   "se": 0.36,
+   "unten": -2.55,
+   "oben": -1.14,
+   "gemeinden": 264
+  },
+  "ausgewogen": {
+   "schaetzung": -1.79,
+   "se": 0.32,
+   "unten": -2.41,
+   "oben": -1.17,
+   "gemeinden": 286,
+   "fenster": "-4..4"
+  },
+  "placebo": {
+   "schaetzung": -0.04,
+   "se": 0.25,
+   "unten": -0.52,
+   "oben": 0.45,
+   "gemeinden": 316
+  },
+  "vortrend_linear": {
+   "steigung_je_periode": 0.071,
+   "wirkung_roh": -1.75,
+   "wirkung_ohne_vortrend": -2.12,
+   "perioden": "-7..8"
+  },
+  "gestapelt": {
+   "schaetzung": -1.46,
+   "se": 0.15,
+   "unten": -1.74,
+   "oben": -1.17,
+   "gemeinden": 326,
+   "stapel": 54,
+   "zeilen": 1031351,
+   "fenster_jahre": 5,
+   "ereigniszeit": {
+    "-5": -0.76,
+    "-4": -1.03,
+    "-3": -0.59,
+    "-2": -0.27,
+    "0": -1.92,
+    "1": -2.0,
+    "2": -1.78,
+    "3": -2.0,
+    "4": -2.26,
+    "5": -2.0
+   }
+  }
+ }
+}

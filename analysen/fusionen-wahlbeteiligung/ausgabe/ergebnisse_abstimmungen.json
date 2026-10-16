@@ -1,0 +1,92 @@
+{
+ "alle": {
+  "schaetzung": -1.9,
+  "se": 0.32,
+  "unten": -2.53,
+  "oben": -1.27,
+  "gemeinden": 328
+ },
+ "ziehungen": 200,
+ "vorher_beteiligung_mittel": 46.0,
+ "groesse": {
+  "a_unter_1000": {
+   "schaetzung": -2.2,
+   "se": 0.69,
+   "unten": -3.54,
+   "oben": -0.85,
+   "gemeinden": 112
+  },
+  "b_1000_bis_4999": {
+   "schaetzung": -1.92,
+   "se": 0.27,
+   "unten": -2.44,
+   "oben": -1.4,
+   "gemeinden": 171
+  },
+  "c_ab_5000": {
+   "schaetzung": -0.66,
+   "se": 0.56,
+   "unten": -1.76,
+   "oben": 0.44,
+   "gemeinden": 45
+  }
+ },
+ "anteil_aufgegangen": {
+  "a_unter_20_prozent": {
+   "schaetzung": -1.5,
+   "se": 0.44,
+   "unten": -2.36,
+   "oben": -0.64,
+   "gemeinden": 81
+  },
+  "b_20_bis_39_prozent": {
+   "schaetzung": -1.52,
+   "se": 0.53,
+   "unten": -2.57,
+   "oben": -0.47,
+   "gemeinden": 63
+  },
+  "c_ab_40_prozent": {
+   "schaetzung": -1.95,
+   "se": 0.32,
+   "unten": -2.59,
+   "oben": -1.32,
+   "gemeinden": 101
+  }
+ },
+ "zeitraum": {
+  "a_bis_2000": {
+   "schaetzung": -2.12,
+   "se": 0.63,
+   "unten": -3.36,
+   "oben": -0.87,
+   "gemeinden": 83
+  },
+  "b_ab_2001": {
+   "schaetzung": -1.7,
+   "se": 0.22,
+   "unten": -2.14,
+   "oben": -1.26,
+   "gemeinden": 245
+  }
+ },
+ "ohne_kanton": {
+  "AG": -1.94,
+  "BE": -1.98,
+  "FR": -1.88,
+  "GR": -1.85,
+  "JU": -1.91,
+  "LU": -1.9,
+  "SG": -1.95,
+  "SO": -1.94,
+  "TG": -1.54,
+  "TI": -1.89,
+  "VD": -1.81,
+  "VS": -2.05
+ },
+ "vorwegnahme": {
+  "wirkung": -1.82,
+  "jahr_vorher": 0.38,
+  "wirkung_gegen_jahre_minus7_bis_minus4": -1.48
+ }
+}
