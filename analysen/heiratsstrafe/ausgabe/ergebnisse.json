@@ -1,0 +1,548 @@
+{
+ "haupt": {
+  "entlastung_mit_mrd": 1.1047,
+  "entlastung_ohne_mrd": 0.6928,
+  "anteil_entlastung_mit_unter_75k": 0.007,
+  "anteil_entlastung_mit_ab_150k": 0.8293,
+  "anteil_entlastung_mit_ab_250k": 0.4468,
+  "anteil_paare_unter_75k": 0.3339,
+  "anteil_paare_ab_150k": 0.1901,
+  "anteil_paare_ab_250k": 0.0544,
+  "paare_initiative_unter_konkubinat_tsd": 748.0191,
+  "paare_individual_mehr_tsd": 745.9391,
+  "paare_individual_weniger_tsd": 734.2466,
+  "einverdiener_individual_mehr_anteil": 0.8344,
+  "zweiverdiener_individual_weniger_anteil": 0.3831,
+  "rentner_individual_mehr_anteil": 0.0725,
+  "paare_ohne_privileg_mehr_tsd": 815.7932,
+  "einverdiener_ohne_privileg_mehr_anteil": 0.7126
+ },
+ "spanne": {
+  "entlastung_mit_mrd": [
+   0.9915,
+   1.1629
+  ],
+  "entlastung_ohne_mrd": [
+   0.5758,
+   0.7643
+  ],
+  "anteil_entlastung_mit_unter_75k": [
+   0.0064,
+   0.0111
+  ],
+  "anteil_entlastung_mit_ab_150k": [
+   0.792,
+   0.8307
+  ],
+  "anteil_entlastung_mit_ab_250k": [
+   0.4135,
+   0.4431
+  ],
+  "anteil_paare_unter_75k": [
+   0.3312,
+   0.3393
+  ],
+  "anteil_paare_ab_150k": [
+   0.1876,
+   0.1906
+  ],
+  "anteil_paare_ab_250k": [
+   0.0539,
+   0.0544
+  ],
+  "paare_initiative_unter_konkubinat_tsd": [
+   712.0831,
+   789.0004
+  ],
+  "paare_individual_mehr_tsd": [
+   698.5849,
+   809.0043
+  ],
+  "paare_individual_weniger_tsd": [
+   679.776,
+   776.4759
+  ],
+  "einverdiener_individual_mehr_anteil": [
+   0.8315,
+   0.8315
+  ],
+  "zweiverdiener_individual_weniger_anteil": [
+   0.294,
+   0.4326
+  ],
+  "rentner_individual_mehr_anteil": [
+   0.0113,
+   0.0732
+  ],
+  "paare_ohne_privileg_mehr_tsd": [
+   784.5305,
+   855.6946
+  ],
+  "einverdiener_ohne_privileg_mehr_anteil": [
+   0.7074,
+   0.7074
+  ]
+ },
+ "grenzsteuer_zweiteinkommen": {
+  "heute|100000|0": [
+   {
+    "zweiteinkommen": 0,
+    "grenzsteuer_prozent": 0.56
+   },
+   {
+    "zweiteinkommen": 10000,
+    "grenzsteuer_prozent": 4.3
+   },
+   {
+    "zweiteinkommen": 20000,
+    "grenzsteuer_prozent": 3.02
+   },
+   {
+    "zweiteinkommen": 30000,
+    "grenzsteuer_prozent": 6.0
+   },
+   {
+    "zweiteinkommen": 40000,
+    "grenzsteuer_prozent": 6.88
+   },
+   {
+    "zweiteinkommen": 50000,
+    "grenzsteuer_prozent": 7.99
+   },
+   {
+    "zweiteinkommen": 60000,
+    "grenzsteuer_prozent": 9.62
+   },
+   {
+    "zweiteinkommen": 70000,
+    "grenzsteuer_prozent": 12.6
+   },
+   {
+    "zweiteinkommen": 80000,
+    "grenzsteuer_prozent": 13.0
+   },
+   {
+    "zweiteinkommen": 90000,
+    "grenzsteuer_prozent": 13.0
+   },
+   {
+    "zweiteinkommen": 100000,
+    "grenzsteuer_prozent": 13.0
+   }
+  ],
+  "heute|100000|2": [
+   {
+    "zweiteinkommen": 0,
+    "grenzsteuer_prozent": 0.5
+   },
+   {
+    "zweiteinkommen": 10000,
+    "grenzsteuer_prozent": 3.44
+   },
+   {
+    "zweiteinkommen": 20000,
+    "grenzsteuer_prozent": 2.36
+   },
+   {
+    "zweiteinkommen": 30000,
+    "grenzsteuer_prozent": 4.95
+   },
+   {
+    "zweiteinkommen": 40000,
+    "grenzsteuer_prozent": 5.57
+   },
+   {
+    "zweiteinkommen": 50000,
+    "grenzsteuer_prozent": 6.38
+   },
+   {
+    "zweiteinkommen": 60000,
+    "grenzsteuer_prozent": 7.39
+   },
+   {
+    "zweiteinkommen": 70000,
+    "grenzsteuer_prozent": 8.61
+   },
+   {
+    "zweiteinkommen": 80000,
+    "grenzsteuer_prozent": 11.21
+   },
+   {
+    "zweiteinkommen": 90000,
+    "grenzsteuer_prozent": 13.0
+   },
+   {
+    "zweiteinkommen": 100000,
+    "grenzsteuer_prozent": 13.0
+   }
+  ],
+  "individual|100000|0": [
+   {
+    "zweiteinkommen": 0,
+    "grenzsteuer_prozent": 0.0
+   },
+   {
+    "zweiteinkommen": 10000,
+    "grenzsteuer_prozent": 0.0
+   },
+   {
+    "zweiteinkommen": 20000,
+    "grenzsteuer_prozent": 0.57
+   },
+   {
+    "zweiteinkommen": 30000,
+    "grenzsteuer_prozent": 0.78
+   },
+   {
+    "zweiteinkommen": 40000,
+    "grenzsteuer_prozent": 1.27
+   },
+   {
+    "zweiteinkommen": 50000,
+    "grenzsteuer_prozent": 2.0
+   },
+   {
+    "zweiteinkommen": 60000,
+    "grenzsteuer_prozent": 3.09
+   },
+   {
+    "zweiteinkommen": 70000,
+    "grenzsteuer_prozent": 3.3
+   },
+   {
+    "zweiteinkommen": 80000,
+    "grenzsteuer_prozent": 7.21
+   },
+   {
+    "zweiteinkommen": 90000,
+    "grenzsteuer_prozent": 8.0
+   },
+   {
+    "zweiteinkommen": 100000,
+    "grenzsteuer_prozent": 8.0
+   }
+  ],
+  "individual|100000|2": [
+   {
+    "zweiteinkommen": 0,
+    "grenzsteuer_prozent": 0.0
+   },
+   {
+    "zweiteinkommen": 10000,
+    "grenzsteuer_prozent": 0.0
+   },
+   {
+    "zweiteinkommen": 20000,
+    "grenzsteuer_prozent": 0.0
+   },
+   {
+    "zweiteinkommen": 30000,
+    "grenzsteuer_prozent": 0.0
+   },
+   {
+    "zweiteinkommen": 40000,
+    "grenzsteuer_prozent": 0.0
+   },
+   {
+    "zweiteinkommen": 50000,
+    "grenzsteuer_prozent": 0.0
+   },
+   {
+    "zweiteinkommen": 60000,
+    "grenzsteuer_prozent": 1.5
+   },
+   {
+    "zweiteinkommen": 70000,
+    "grenzsteuer_prozent": 2.74
+   },
+   {
+    "zweiteinkommen": 80000,
+    "grenzsteuer_prozent": 3.3
+   },
+   {
+    "zweiteinkommen": 90000,
+    "grenzsteuer_prozent": 5.94
+   },
+   {
+    "zweiteinkommen": 100000,
+    "grenzsteuer_prozent": 8.0
+   }
+  ],
+  "initiative_mit|100000|0": [
+   {
+    "zweiteinkommen": 0,
+    "grenzsteuer_prozent": 0.56
+   },
+   {
+    "zweiteinkommen": 10000,
+    "grenzsteuer_prozent": 4.3
+   },
+   {
+    "zweiteinkommen": 20000,
+    "grenzsteuer_prozent": 3.02
+   },
+   {
+    "zweiteinkommen": 30000,
+    "grenzsteuer_prozent": 4.55
+   },
+   {
+    "zweiteinkommen": 40000,
+    "grenzsteuer_prozent": 1.71
+   },
+   {
+    "zweiteinkommen": 50000,
+    "grenzsteuer_prozent": 2.65
+   },
+   {
+    "zweiteinkommen": 60000,
+    "grenzsteuer_prozent": 2.97
+   },
+   {
+    "zweiteinkommen": 70000,
+    "grenzsteuer_prozent": 3.56
+   },
+   {
+    "zweiteinkommen": 80000,
+    "grenzsteuer_prozent": 6.34
+   },
+   {
+    "zweiteinkommen": 90000,
+    "grenzsteuer_prozent": 6.6
+   },
+   {
+    "zweiteinkommen": 100000,
+    "grenzsteuer_prozent": 6.6
+   }
+  ],
+  "initiative_mit|100000|2": [
+   {
+    "zweiteinkommen": 0,
+    "grenzsteuer_prozent": 0.5
+   },
+   {
+    "zweiteinkommen": 10000,
+    "grenzsteuer_prozent": 1.32
+   },
+   {
+    "zweiteinkommen": 20000,
+    "grenzsteuer_prozent": 1.0
+   },
+   {
+    "zweiteinkommen": 30000,
+    "grenzsteuer_prozent": 0.82
+   },
+   {
+    "zweiteinkommen": 40000,
+    "grenzsteuer_prozent": 1.71
+   },
+   {
+    "zweiteinkommen": 50000,
+    "grenzsteuer_prozent": 2.65
+   },
+   {
+    "zweiteinkommen": 60000,
+    "grenzsteuer_prozent": 2.97
+   },
+   {
+    "zweiteinkommen": 70000,
+    "grenzsteuer_prozent": 3.56
+   },
+   {
+    "zweiteinkommen": 80000,
+    "grenzsteuer_prozent": 6.34
+   },
+   {
+    "zweiteinkommen": 90000,
+    "grenzsteuer_prozent": 6.6
+   },
+   {
+    "zweiteinkommen": 100000,
+    "grenzsteuer_prozent": 4.0
+   }
+  ],
+  "initiative_ohne|100000|0": [
+   {
+    "zweiteinkommen": 0,
+    "grenzsteuer_prozent": 5.0
+   },
+   {
+    "zweiteinkommen": 10000,
+    "grenzsteuer_prozent": 4.35
+   },
+   {
+    "zweiteinkommen": 20000,
+    "grenzsteuer_prozent": 1.0
+   },
+   {
+    "zweiteinkommen": 30000,
+    "grenzsteuer_prozent": 0.82
+   },
+   {
+    "zweiteinkommen": 40000,
+    "grenzsteuer_prozent": 1.71
+   },
+   {
+    "zweiteinkommen": 50000,
+    "grenzsteuer_prozent": 2.65
+   },
+   {
+    "zweiteinkommen": 60000,
+    "grenzsteuer_prozent": 2.97
+   },
+   {
+    "zweiteinkommen": 70000,
+    "grenzsteuer_prozent": 3.56
+   },
+   {
+    "zweiteinkommen": 80000,
+    "grenzsteuer_prozent": 6.34
+   },
+   {
+    "zweiteinkommen": 90000,
+    "grenzsteuer_prozent": 6.6
+   },
+   {
+    "zweiteinkommen": 100000,
+    "grenzsteuer_prozent": 6.6
+   }
+  ],
+  "initiative_ohne|100000|2": [
+   {
+    "zweiteinkommen": 0,
+    "grenzsteuer_prozent": 4.0
+   },
+   {
+    "zweiteinkommen": 10000,
+    "grenzsteuer_prozent": 4.64
+   },
+   {
+    "zweiteinkommen": 20000,
+    "grenzsteuer_prozent": 4.53
+   },
+   {
+    "zweiteinkommen": 30000,
+    "grenzsteuer_prozent": 0.0
+   },
+   {
+    "zweiteinkommen": 40000,
+    "grenzsteuer_prozent": 0.0
+   },
+   {
+    "zweiteinkommen": 50000,
+    "grenzsteuer_prozent": 1.56
+   },
+   {
+    "zweiteinkommen": 60000,
+    "grenzsteuer_prozent": 2.73
+   },
+   {
+    "zweiteinkommen": 70000,
+    "grenzsteuer_prozent": 2.97
+   },
+   {
+    "zweiteinkommen": 80000,
+    "grenzsteuer_prozent": 4.31
+   },
+   {
+    "zweiteinkommen": 90000,
+    "grenzsteuer_prozent": 6.51
+   },
+   {
+    "zweiteinkommen": 100000,
+    "grenzsteuer_prozent": 6.6
+   }
+  ]
+ },
+ "modell": {
+  "annahmen": {
+   "n": 200000,
+   "seed": 1,
+   "rentner_anteil": 0.2867592433206193,
+   "rentner_gefaelle": 0.6,
+   "kinderlos_anteil": 0.35,
+   "kinder_1_2_3": [
+    0.43,
+    0.42,
+    0.15
+   ],
+   "lohnverhaeltnis_median": 0.9,
+   "lohnverhaeltnis_streuung": 1.4,
+   "rentner_anteil_hoeher_mittel": 0.7,
+   "rentner_anteil_hoeher_streuung": 0.08,
+   "einverdiener_zusatz": 0.1649,
+   "jahr_einkommen": "2022"
+  },
+  "kennzahlen": {
+   "steuer_heute_mrd": 7.406,
+   "zweiverdiener_tsd": 855,
+   "rentner_tsd": 509,
+   "mehrbelastung_10_tsd": 663,
+   "minderbelastung_10_tsd": 626,
+   "kosten_initiative_mit_privileg_mrd": 1.105,
+   "kosten_initiative_ohne_privileg_mrd": 0.693,
+   "entlastet_mit_privileg_tsd": 735,
+   "entlastet_ohne_privileg_tsd": 609,
+   "belastet_ohne_privileg_tsd": 816,
+   "differenz_individual_mrd": 0.292
+  },
+  "passende_einstellungen": 10,
+  "spanne": {
+   "steuer_heute_mrd": [
+    7.328,
+    7.328
+   ],
+   "zweiverdiener_tsd": [
+    856.0,
+    856.0
+   ],
+   "rentner_tsd": [
+    506.0,
+    506.0
+   ],
+   "mehrbelastung_10_tsd": [
+    613.0,
+    694.0
+   ],
+   "minderbelastung_10_tsd": [
+    597.0,
+    657.0
+   ],
+   "kosten_initiative_mit_privileg_mrd": [
+    0.991,
+    1.163
+   ],
+   "kosten_initiative_ohne_privileg_mrd": [
+    0.576,
+    0.764
+   ],
+   "entlastet_mit_privileg_tsd": [
+    687.0,
+    766.0
+   ],
+   "entlastet_ohne_privileg_tsd": [
+    568.0,
+    643.0
+   ],
+   "belastet_ohne_privileg_tsd": [
+    785.0,
+    856.0
+   ],
+   "differenz_individual_mrd": [
+    0.104,
+    0.406
+   ]
+  },
+  "alpha": 2.319,
+  "mittel_steuerbar_modell": 101801,
+  "pruefwerte": {
+   "zweiverdiener": 856322.3715651812,
+   "mehrbelastung": 671600.2314793844,
+   "minderbelastung": 651552.463375522,
+   "steuer_ehepaare_2022_mrd": 7.820813841,
+   "kosten_botschaft_mrd": [
+    0.7,
+    1.4
+   ]
+  }
+ }
+}

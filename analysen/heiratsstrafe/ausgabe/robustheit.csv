@@ -1,0 +1,9 @@
+szenario,mehrbelastung_tsd,minderbelastung_tsd,kosten_mit_mrd,kosten_ohne_mrd,anteil_entlastung_ab_150k,anteil_entlastung_unter_75k,ohne_privileg_mehr_tsd,einverdiener_individual_mehr
+Hauptvariante,666,628,1.11,0.69,0.828,0.0067,816,0.83
+weniger Paare ohne Kinder (25 %),677,593,1.12,0.67,0.828,0.0069,800,0.826
+mehr Paare ohne Kinder (45 %),653,662,1.08,0.71,0.825,0.0072,830,0.84
+Rentnerpaare über alle Einkommen gleich verteilt,673,620,1.17,0.78,0.828,0.0061,793,0.819
+Rentnerpaare stark bei tiefen Einkommen,660,631,1.04,0.6,0.826,0.0078,838,0.845
+mehr kinderreiche Familien (1/2/3 Kinder: 35/45/20 %),660,631,1.11,0.69,0.83,0.0067,811,0.824
+Partnerin verdient gleich viel pro Stunde,669,626,1.12,0.7,0.828,0.0067,813,0.83
+geringere Lohnstreuung im Paar,746,584,1.28,0.91,0.831,0.0058,733,0.83

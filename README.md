@@ -1,11 +1,12 @@
 # Soriono Analysen
 
 Code und Ergebnisse der Analysen auf [soriono.ch/analysen](https://soriono.ch/analysen/).
-Jede Analyse liest nur aus dem offenen Datenmodell der Schweiz, [Prelude](https://soriono.ch/prelude/)
-und lässt sich damit vollständig nachrechnen.
+Die Analysen lesen aus dem offenen Datenmodell der Schweiz, [Prelude](https://soriono.ch/prelude/), oder aus
+den amtlichen Quelldateien im jeweiligen Ordner, und lassen sich damit vollständig nachrechnen.
 
 | Analyse | Ordner | Artikel |
 |---|---|---|
+| Heiratsstrafe-Initiative: Wer zahlt weniger, wer zahlt mehr? | [`analysen/heiratsstrafe`](analysen/heiratsstrafe) | [Artikel](https://soriono.ch/analysen/heiratsstrafe-initiative/) |
 | Gemeindefusionen und Stimmbeteiligung | [`analysen/fusionen-wahlbeteiligung`](analysen/fusionen-wahlbeteiligung) | [Artikel](https://soriono.ch/analysen/fusionen-und-stimmbeteiligung/) |
 
 ## Nachrechnen

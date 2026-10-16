@@ -1,0 +1,92 @@
+{
+ "annahmen": {
+  "n": 200000,
+  "seed": 1,
+  "rentner_anteil": 0.2867592433206193,
+  "rentner_gefaelle": 0.6,
+  "kinderlos_anteil": 0.35,
+  "kinder_1_2_3": [
+   0.43,
+   0.42,
+   0.15
+  ],
+  "lohnverhaeltnis_median": 0.9,
+  "lohnverhaeltnis_streuung": 1.4,
+  "rentner_anteil_hoeher_mittel": 0.7,
+  "rentner_anteil_hoeher_streuung": 0.08,
+  "einverdiener_zusatz": 0.1649,
+  "jahr_einkommen": "2022"
+ },
+ "kennzahlen": {
+  "steuer_heute_mrd": 7.406,
+  "zweiverdiener_tsd": 855,
+  "rentner_tsd": 509,
+  "mehrbelastung_10_tsd": 663,
+  "minderbelastung_10_tsd": 626,
+  "kosten_initiative_mit_privileg_mrd": 1.105,
+  "kosten_initiative_ohne_privileg_mrd": 0.693,
+  "entlastet_mit_privileg_tsd": 735,
+  "entlastet_ohne_privileg_tsd": 609,
+  "belastet_ohne_privileg_tsd": 816,
+  "differenz_individual_mrd": 0.292
+ },
+ "passende_einstellungen": 10,
+ "spanne": {
+  "steuer_heute_mrd": [
+   7.328,
+   7.328
+  ],
+  "zweiverdiener_tsd": [
+   856.0,
+   856.0
+  ],
+  "rentner_tsd": [
+   506.0,
+   506.0
+  ],
+  "mehrbelastung_10_tsd": [
+   613.0,
+   694.0
+  ],
+  "minderbelastung_10_tsd": [
+   597.0,
+   657.0
+  ],
+  "kosten_initiative_mit_privileg_mrd": [
+   0.991,
+   1.163
+  ],
+  "kosten_initiative_ohne_privileg_mrd": [
+   0.576,
+   0.764
+  ],
+  "entlastet_mit_privileg_tsd": [
+   687.0,
+   766.0
+  ],
+  "entlastet_ohne_privileg_tsd": [
+   568.0,
+   643.0
+  ],
+  "belastet_ohne_privileg_tsd": [
+   785.0,
+   856.0
+  ],
+  "differenz_individual_mrd": [
+   0.104,
+   0.406
+  ]
+ },
+ "alpha": 2.319,
+ "mittel_steuerbar_modell": 101801,
+ "pruefwerte": {
+  "zweiverdiener": 856322.3715651812,
+  "mehrbelastung": 671600.2314793844,
+  "minderbelastung": 651552.463375522,
+  "steuer_ehepaare_2022_mrd": 7.820813841,
+  "kosten_botschaft_mrd": [
+   0.7,
+   1.4
+  ]
+ }
+}

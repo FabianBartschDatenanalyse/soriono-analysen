@@ -14,6 +14,7 @@ import duckdb
 import pandas as pd
 
 HIER = Path(__file__).resolve().parent
+GEMEINSAM = HIER.parents[1] / "gemeinsam"  # Thema, Seitenkopf und -fuss aller Analysen
 AUSGABE = HIER.parent / "ausgabe"
 MODELL = HIER.parents[2] / "state" / "analysen" / "modell.duckdb"
 
@@ -105,8 +106,8 @@ def main() -> int:
     for x in sys.argv[1:]:
         if x.startswith("--soriono="):
             ziel = Path(x.split("=", 1)[1]) / "analysen" / SEITENPFAD / "index.html"
-            teil = erzeugen(ersatz, "thema_soriono.html", (HIER / "soriono_kopf.html").read_text(encoding="utf-8"),
-                            (HIER / "soriono_fuss.html").read_text(encoding="utf-8"))
+            teil = erzeugen(ersatz, "thema_soriono.html", (GEMEINSAM / "soriono_kopf.html").read_text(encoding="utf-8"),
+                            (GEMEINSAM / "soriono_fuss.html").read_text(encoding="utf-8"))
             pruefen(teil, w, a)
             kopf, rumpf = teil.split("<!--RUMPF-->", 1)
             dokument = "\n".join([
@@ -131,7 +132,7 @@ SEITENPFAD = "fusionen-und-stimmbeteiligung"
 
 def erzeugen(ersatz: dict, thema: str, kopf: str, fuss: str) -> str:
     html = (HIER / "vorlage.html").read_text(encoding="utf-8")
-    ersatz = {"/*THEMA*/": (HIER / thema).read_text(encoding="utf-8"),
+    ersatz = {"/*THEMA*/": (GEMEINSAM / thema).read_text(encoding="utf-8"),
               "/*SITE_KOPF*/": "<!--RUMPF-->\n" + kopf, "/*SITE_FUSS*/": fuss, **ersatz}
     for marke, text in ersatz.items():
         if html.count(marke) != 1:

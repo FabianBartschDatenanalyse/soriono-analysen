@@ -1,0 +1,339 @@
+<title>Heiratsstrafe-Initiative</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Wer zahlt mit der Mitte-Initiative zur Heiratsstrafe weniger Bundessteuer, wer mehr? Eine Nachrechnung mit amtlichen Daten zur Abstimmung vom 29. November 2026.">
+/*THEMA*/
+/* Linienfarben der Regeln: geprüfte Standardpalette (Blau, Orange, Türkis), in allen Paaren für Farbfehlsichtige unterscheidbar. */
+:root { --r-indiv: #2a78d6; --r-mit: #eb6834; --r-ohne: #1baf7a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --r-indiv: #3987e5; --r-mit: #d95926; --r-ohne: #199e70; } }
+:root[data-theme="dark"] { --r-indiv: #3987e5; --r-mit: #d95926; --r-ohne: #199e70; }
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: var(--step-0);
+  line-height: 1.62; margin: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.spalte { max-width: 42rem; margin-inline: auto; }
+.breit { max-width: 54rem; margin-inline: auto; }
+header.kopf { padding-block: 3.2rem 1.6rem; display: grid; gap: 1rem; }
+.kicker { font-family: var(--font-ui); font-weight: 700; font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0; }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: var(--step-3); line-height: 1.06; letter-spacing: -0.015em; margin: 0; text-wrap: balance; }
+.lead { font-size: var(--step-1); line-height: 1.5; color: var(--ink-2); margin: 0; }
+.zeile { font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-3); margin: 0; }
+h2 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-2); line-height: 1.2; margin: 2.6rem 0 0.6rem; text-wrap: balance; }
+h3 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); margin: 1.8rem 0 0.4rem; }
+p { margin: 0 0 1rem; }
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:focus-visible, summary:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.befund { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); border-block: 1px solid var(--rule); margin-block: 0.4rem 1.8rem; }
+.befund div { padding: 1rem 0.9rem 1rem 0; display: grid; gap: 0.2rem; align-content: start; min-width: 0; }
+.befund div + div { padding-left: 0.9rem; border-left: 1px solid var(--rule); }
+.zahl { font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); line-height: 1; font-variant-numeric: tabular-nums; }
+.zahl-text { font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-2); line-height: 1.35; }
+figure { margin: 1.6rem auto 2rem; }
+figcaption { font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-2); line-height: 1.45; margin-top: 0.5rem; max-width: 42rem; }
+.diagramm-titel { font-family: var(--font-ui); font-weight: 700; font-size: var(--step-0); margin: 0 0 0.15rem; }
+.diagramm-unter { font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-3); margin: 0 0 0.6rem; }
+.legende { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-2); margin: 0 0 0.4rem; }
+.legende span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.legende i { width: 18px; height: 0; border-top: 3px solid; display: inline-block; }
+.legende i.punkt { width: 10px; height: 10px; border: 0; border-radius: 50%; }
+.schalter { display: inline-flex; gap: 0.3rem; margin: 0 0 0.6rem; font-family: var(--font-ui); font-size: var(--step--1); }
+.schalter button { font: inherit; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); padding: 0.3rem 0.8rem; border-radius: 99px; cursor: pointer; }
+.schalter button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: 1.2rem; }
+.panel-titel { font-family: var(--font-ui); font-weight: 600; font-size: var(--step--1); color: var(--ink-2); margin: 0 0 0.2rem; }
+.flaeche { position: relative; min-width: 0; }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+svg text { font-family: var(--font-data); font-size: 11px; fill: var(--ink-3); }
+svg text.zeilenname { font-family: var(--font-ui); font-size: 13px; fill: var(--ink); }
+svg .achse { stroke: var(--rule); stroke-width: 1; }
+svg .null { stroke: var(--ink-3); stroke-width: 1; }
+.tip { position: absolute; pointer-events: none; background: var(--paper); color: var(--ink); border: 1px solid var(--rule); border-radius: 6px; padding: 0.4rem 0.55rem; font-family: var(--font-ui); font-size: var(--step--1); line-height: 1.35; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12); white-space: nowrap; z-index: 2; }
+details.tabelle { margin-top: 0.5rem; font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-2); }
+details.tabelle summary { cursor: pointer; }
+.tabellen-rahmen { overflow-x: auto; }
+table { border-collapse: collapse; font-variant-numeric: tabular-nums; font-family: var(--font-ui); font-size: var(--step--1); width: 100%; margin-top: 0.5rem; }
+th, td { text-align: right; padding: 0.35rem 0.6rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th:first-child, td:first-child { text-align: left; }
+th { color: var(--ink-2); font-weight: 700; }
+table.check td, table.check th { text-align: left; }
+table.check td:nth-child(3) { white-space: nowrap; }
+.urteil { display: inline-block; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.02em; padding: 0.1rem 0.5rem; border-radius: 99px; border: 1px solid var(--ink-3); color: var(--ink); }
+.urteil.stimmt { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.entstehung { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding-block: 0.4rem 0.6rem; margin-block: 2rem; }
+.entstehung h3 { margin-top: 0.8rem; font-family: var(--font-ui); font-size: var(--step-0); }
+.entstehung p { font-size: 0.98rem; color: var(--ink-2); }
+.methode { background: var(--panel); margin-top: 3rem; padding-block: 0.6rem 2.4rem;
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.methode p, .methode li { font-size: 0.98rem; }
+.methode ul { padding-left: 1.2rem; margin: 0 0 1rem; }
+.methode li { margin-bottom: 0.4rem; }
+footer.quellen { padding-block: 2rem 3rem; font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-3); }
+footer.quellen ol { padding-left: 1.2rem; }
+</style>
+/*SITE_KOPF*/
+<article>
+  <header class="kopf spalte">
+    <p class="kicker">Analyse · Abstimmung vom 29. November 2026</p>
+    <h1>Heiratsstrafe-Initiative: Wer zahlt weniger, wer zahlt mehr?</h1>
+    <p class="lead">Die Initiative der Mitte will verhindern, dass Ehepaare bei der Bundessteuer mehr zahlen als unverheiratete Paare. Wir haben für alle 1,8 Millionen Ehepaare nachgerechnet, wen das betrifft. Entlastet würden vor allem Paare mit hohen, gleich verteilten Einkommen. Wie viele Paare dafür mehr zahlen müssten, hängt davon ab, wie das Parlament die Initiative umsetzt.</p>
+    <p class="zeile">[[DATUM]] · Von Fabian Bartsch, mit Claude Opus 5.5 (Anthropic) · Daten: Eidgenössische Steuerverwaltung, Bundesamt für Statistik</p>
+  </header>
+
+  <div class="spalte">
+    <div class="befund" role="list">
+      <div role="listitem"><span class="zahl">[[KOSTEN_SPANNE]]</span><span class="zahl-text">Milliarden Franken weniger Bundessteuer pro Jahr, je nach Umsetzung</span></div>
+      <div role="listitem"><span class="zahl">[[ANTEIL_150]]</span><span class="zahl-text">der Entlastung gehen an Paare mit mehr als 150'000 Franken Einkommen</span></div>
+      <div role="listitem"><span class="zahl">[[ANTEIL_75]]</span><span class="zahl-text">der Entlastung gehen an das Drittel der Paare mit weniger als 75'000 Franken</span></div>
+      <div role="listitem"><span class="zahl">[[MEHR_OHNE]]</span><span class="zahl-text">Ehepaare zahlten in der günstigeren Umsetzung mehr als heute</span></div>
+    </div>
+
+    <h2>Worum es geht</h2>
+    <p>Bei der direkten Bundessteuer werden Ehepaare gemeinsam besteuert: Ihre Einkommen werden zusammengezählt, dafür gilt ein milderer Tarif. Je nachdem, wie das Einkommen verteilt ist, zahlt ein Ehepaar dadurch mehr oder weniger als ein unverheiratetes Paar in gleicher Lage. Die Bundesverwaltung schätzt, dass rund 670'000 Ehepaare mindestens 10 Prozent mehr zahlen, die «Heiratsstrafe». Rund 650'000 zahlen mindestens 10 Prozent weniger, ein «Heiratsbonus».</p>
+    <p>Im März 2026 hat das Volk die Individualbesteuerung angenommen: Ab 2032 wird jede Person für sich besteuert, verheiratet oder nicht. Die Initiative «Ja zu fairen Bundessteuern auch für Ehepaare», über die am 29. November abgestimmt wird, schlägt einen anderen Weg vor. Ehepaare blieben gemeinsam veranlagt, das Steueramt würde aber zusätzlich rechnen, was sie als zwei Unverheiratete zahlen würden, und den tieferen Betrag verlangen. Die Initiative betrifft nur die Bundessteuer, nicht die Kantons- und Gemeindesteuern.</p>
+    <p>Wie diese zweite Berechnung genau aussähe, legt die Initiative nicht fest. Die Botschaft des Bundesrates beschreibt zwei Ausgestaltungen. In der einen bleiben die heutigen Abzüge für Ehepaare und der günstige Tarif für Eltern bestehen («mit Privileg»). In der anderen fallen der Zweiverdiener- und der Verheiratetenabzug weg, und in der zweiten Berechnung gilt für alle der Grundtarif («ohne Privileg»). Wir rechnen beide.</p>
+  </div>
+
+  <figure class="breit" id="fig-haushalte">
+    <p class="diagramm-titel">Bundessteuer eines Ehepaars nach Aufteilung des Einkommens</p>
+    <p class="diagramm-unter">Franken pro Jahr, Steuerjahr 2026; Gesamteinkommen nach Berufskosten</p>
+    <div class="schalter" role="group" aria-label="Kinder">
+      <button type="button" data-kinder="0" aria-pressed="true">ohne Kinder</button>
+      <button type="button" data-kinder="2" aria-pressed="false">mit 2 Kindern</button>
+    </div>
+    <div class="legende" aria-hidden="true">
+      <span><i style="border-color: var(--ink)"></i>Heute</span>
+      <span><i style="border-color: var(--ink-3); border-top-style: dashed"></i>Unverheiratetes Paar</span>
+      <span><i style="border-color: var(--r-indiv)"></i>Individualbesteuerung</span>
+      <span><i style="border-color: var(--r-mit)"></i>Initiative mit Privileg</span>
+      <span><i style="border-color: var(--r-ohne); border-top-style: dashed"></i>Initiative ohne Privileg</span>
+    </div>
+    <div class="panels">
+      <div><p class="panel-titel">Paar mit 120'000 Franken</p><div class="flaeche" data-chart="haushalt" data-einkommen="120000"></div></div>
+      <div><p class="panel-titel">Paar mit 250'000 Franken</p><div class="flaeche" data-chart="haushalt" data-einkommen="250000"></div></div>
+    </div>
+    <figcaption>Links verdienen beide gleich viel, rechts verdient eine Person alles. Wo die dunkle Linie über der gestrichelten grauen liegt, zahlt das Ehepaar heute mehr als ein unverheiratetes Paar. Die Initiative mit Privileg schneidet diese Heiratsstrafe ab und lässt alles andere, wie es ist.</figcaption>
+    <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="haushalt"></div></details>
+  </figure>
+
+  <div class="spalte">
+    <p>Die Grafik zeigt das Grundmuster. Die Heiratsstrafe trifft Paare, die beide ähnlich viel verdienen: Ein Paar mit 250'000 Franken und gleicher Aufteilung zahlt heute [[STRAFE_250]] Franken mehr als ein unverheiratetes Paar. Paare mit nur einem Einkommen zahlen dagegen weniger als Unverheiratete. Diesen Heiratsbonus behalten sie mit der Initiative. Mit der Individualbesteuerung verlieren sie ihn.</p>
+
+    <h2>Wer von der Initiative profitiert</h2>
+    <p>Um die Wirkung auf alle Ehepaare zu schätzen, braucht es eine Angabe, die keine Statistik enthält: wie das Einkommen innerhalb der Ehe verteilt ist. Wir haben sie aus der Arbeitskräfteerhebung des Bundes geschätzt und das Modell an den Zahlen der Steuerverwaltung geprüft (siehe Methode). Das Ergebnis ist eindeutig, in jeder Variante des Modells.</p>
+  </div>
+
+  <figure class="breit" id="fig-verteilung">
+    <p class="diagramm-titel">Wer die Entlastung erhält</p>
+    <p class="diagramm-unter">Anteil an allen Ehepaaren und an der gesamten Entlastung durch die Initiative mit Privileg, nach Einkommen des Paars</p>
+    <div class="legende" aria-hidden="true"><span><i class="punkt" style="background: var(--ink-3)"></i>Anteil an den Ehepaaren</span><span><i class="punkt" style="background: var(--r-mit)"></i>Anteil an der Entlastung</span></div>
+    <div class="flaeche" data-chart="verteilung"></div>
+    <figcaption>Einkommen: Summe beider Einkommen nach Berufskosten, Einkommen 2022, Steuerrecht 2026. Schätzung mit Unsicherheit; die Anteile verändern sich in allen geprüften Modellvarianten um höchstens wenige Prozentpunkte.</figcaption>
+    <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="verteilung"></div></details>
+  </figure>
+
+  <div class="spalte">
+    <p>Ein Drittel der Ehepaare hat zusammen weniger als 75'000 Franken Einkommen. Diese Paare erhalten [[ANTEIL_75]] der Entlastung. Die Paare ab 150'000 Franken, ein Fünftel aller Ehepaare, erhalten [[ANTEIL_150]], jene ab 250'000 Franken allein [[ANTEIL_250]]. Das liegt nicht an einer Absicht der Initiative, sondern an der Bundessteuer selbst: Sie ist stark progressiv, und wer wenig verdient, zahlt kaum Bundessteuer. Wer fast nichts zahlt, kann auch kaum entlastet werden.</p>
+
+    <h2>Zwei Umsetzungen, zwei Ergebnisse</h2>
+    <p>Mit Privileg kostet die Initiative nach unserer Schätzung [[KOSTEN_MIT]] Milliarden Franken pro Jahr, und kein Ehepaar zahlt mehr als heute. Ohne Privileg kostet sie [[KOSTEN_OHNE]] Milliarden. Dafür fallen der Zweiverdiener- und der Verheiratetenabzug weg, und das trifft vor allem Paare, bei denen die zweite Berechnung nichts bringt: Ehepaare mit einem Einkommen oder einem kleinen Zweiteinkommen. Rund [[MEHR_OHNE]] Ehepaare zahlten in dieser Umsetzung mehr als heute, darunter [[EINV_OHNE]] der Einverdienerpaare. Das Versprechen, niemand zahle mehr, hält also nur in der teureren Umsetzung.</p>
+  </div>
+
+  <figure class="breit" id="fig-mittel">
+    <p class="diagramm-titel">Veränderung der Bundessteuer pro Ehepaar gegenüber heute</p>
+    <p class="diagramm-unter">Durchschnitt in Franken pro Jahr, nach Einkommen des Paars</p>
+    <div class="legende" aria-hidden="true"><span><i class="punkt" style="background: var(--r-indiv)"></i>Individualbesteuerung</span><span><i class="punkt" style="background: var(--r-mit)"></i>Initiative mit Privileg</span><span><i class="punkt" style="background: var(--r-ohne)"></i>Initiative ohne Privileg</span></div>
+    <div class="flaeche" data-chart="mittel"></div>
+    <figcaption>Negative Werte: das Paar zahlt im Durchschnitt weniger. Die Individualbesteuerung ist für Ehepaare mit mittleren Einkommen im Schnitt teurer, für hohe Einkommen günstiger; Unverheiratete und Alleinerziehende, die sie ebenfalls betrifft, sind hier nicht gerechnet.</figcaption>
+    <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="mittel"></div></details>
+  </figure>
+
+  <div class="spalte">
+    <h2>Initiative oder Individualbesteuerung?</h2>
+    <p>Beide Wege beseitigen die Heiratsstrafe bei der Bundessteuer, aber sie verteilen unterschiedlich. Mit der Individualbesteuerung zahlen nach unserer Schätzung rund [[INDIV_MEHR]] Ehepaare mehr und [[INDIV_WENIGER]] weniger als heute. Von den Einverdienerpaaren zahlen [[EINV_INDIV]] mehr, weil der günstige Verheiratetentarif wegfällt. Die Initiative mit Privileg lässt sie unverändert. Auch die Anreize für Zweitverdienende unterscheiden sich: Verdient eine Person 100'000 Franken, gehen heute je nach Höhe [[GRENZ_HEUTE]] Prozent jedes zusätzlichen Frankens des Zweiteinkommens an die Bundessteuer, mit der Individualbesteuerung [[GRENZ_INDIV]] Prozent und mit der Initiative [[GRENZ_INIT]] Prozent.</p>
+
+    <h2>Die Argumente im Faktencheck</h2>
+    <p>Wir haben die zentralen Aussagen beider Seiten an den Zahlen geprüft. Die Bewertung bezieht sich nur auf die direkte Bundessteuer.</p>
+  </div>
+
+  <div class="breit">
+    <div class="tabellen-rahmen">[[FAKTENCHECK]]</div>
+  </div>
+
+  <div class="spalte">
+    <aside class="entstehung" aria-labelledby="entstehung-titel">
+      <h3 id="entstehung-titel">Wie dieser Artikel entstand</h3>
+      <p>Die Hauptarbeit an dieser Analyse hat Claude Opus 5.5 geleistet, ein KI-Modell von Anthropic: das Zusammentragen der amtlichen Daten, der Steuerrechner und das Schätzmodell mit allen Prüfungen, der Code und dieser Text. Fabian Bartsch hat die Fragestellung vorgegeben, die Arbeit begleitet und entschieden, was veröffentlicht wird. Die Analyse gibt keine Abstimmungsempfehlung.</p>
+    </aside>
+
+    <h2>Was diese Analyse nicht zeigt</h2>
+    <p>Sie betrifft nur die direkte Bundessteuer. Bei den Kantons- und Gemeindesteuern, die für die meisten Haushalte mehr ausmachen, gilt ab 2032 die Individualbesteuerung unabhängig vom Ausgang der Abstimmung. Die Schätzung der Wirkung auf alle Ehepaare beruht auf einer Annahme über die Aufteilung der Einkommen, die die Steuerstatistik nicht kennt; die Zahlen sind deshalb Schätzungen mit Spannen. Verhaltensänderungen, etwa mehr Erwerbsarbeit von Zweitverdienenden, sind nicht eingerechnet. Unverheiratete und Alleinerziehende, deren Steuer sich mit der Individualbesteuerung und in der Umsetzung ohne Privileg ebenfalls ändert, sind nicht Teil dieser Rechnung.</p>
+  </div>
+
+  <section class="methode" aria-labelledby="methode-titel">
+    <div class="spalte">
+      <h2 id="methode-titel">Methode im Detail</h2>
+      <p>Dieser Abschnitt richtet sich an Fachleute. Die Analyse ist kein begutachteter Fachartikel, folgt aber dem Vorgehen, das für solche Fragen in der Forschung üblich ist.</p>
+
+      <h3>Steuerrechner</h3>
+      <p>Die direkte Bundessteuer 2026 wird nach Art. 33–36 DBG berechnet: Tarife aus dem ESTV-Formular 58c-2026, Abzüge aus dem Rundschreiben 2-215-D-2025. Die Individualbesteuerung folgt dem Bundesgesetz vom 20. Juni 2025 (BBl 2025 2033), die Initiative den zwei Ausgestaltungen der Botschaft (BBl 2025 1092, Ziff. 4.2.3); einen neuen Einverdienerabzug, den die Botschaft für die Variante mit Privileg erwähnt, aber nicht beziffert, enthält der Rechner nicht. Geprüft wurde der Rechner an allen [[PRUEF_FAELLE]] Haushaltsbeispielen, die die ESTV zur Individualbesteuerung veröffentlicht: Für das geltende Recht weicht er höchstens [[PRUEF_ABW]] Franken ab; für die Individualbesteuerung bis 112'200 Franken steuerbares Einkommen gar nicht, darüber höchstens 5.30 Franken, weil die ESTV die Tarifstufen für 2026 bereits um die Teuerung verschoben hat.</p>
+
+      <h3>Schätzmodell</h3>
+      <ul>
+        <li><strong>Einkommen:</strong> steuerbares Einkommen der 1'770'250 Ehepaare 2022 aus den Perzentilen der ESTV-Statistik; über dem 90. Perzentil log-linear interpoliert, über dem 99,99. Perzentil ein Pareto-Rand, dessen Exponent ([[ALPHA]]) den Mittelwert der ESTV trifft (Modell [[MITTEL_MODELL]] Franken, ESTV 101'848 Franken).</li>
+        <li><strong>Erwerbsaufteilung:</strong> Erwerbsmodelle von Paaren nach Kinderzahl aus der Schweizerischen Arbeitskräfteerhebung 2025; Erwerbsgrade innerhalb der Kategorien gleichverteilt, Stundenlohn der Partnerin relativ zum Partner lognormal. Rentnerpaare ([[RENTNER_TSD]]'000) ohne Zweiverdienerabzug, Aufteilung der Renten normalverteilt.</li>
+        <li><strong>Kinder:</strong> 35 Prozent der Ehepaare im Erwerbsalter ohne Kinderabzug, sonst 1, 2 oder 3 Kinder im Verhältnis 43/42/15, abgeleitet aus der Zahl der Kinderabzüge in der Bundessteuerstatistik (Botschaft, Tabelle 2).</li>
+        <li><strong>Eichung:</strong> Erstens ein Zusatzanteil Einverdienerpaare ([[ZUSATZ]] Prozent), so dass die Zahl der Paare mit Zweiverdienerabzug stimmt (Modell [[ZV_MODELL]]'000, Bund [[ZV_ZIEL]]'000). Zweitens ein Gitter über Rentenaufteilung, Lohnverhältnis und Lohnstreuung, gemessen an der Zahl der Paare mit Mehr- oder Minderbelastung von mindestens 10 Prozent (Modell [[MEHR_MODELL]]'000 und [[MINDER_MODELL]]'000, Bund 672'000 und 652'000, auf 2022 skaliert). Alle Gitterpunkte mit weniger als 60'000 Paaren Abstand gelten als passend und ergeben die Spannen.</li>
+        <li><strong>Prüfwert ausserhalb der Eichung:</strong> die Kosten. Die Botschaft schätzt 0,7 bis 1,4 Milliarden Franken; das Modell kommt auf [[KOSTEN_OHNE]] (ohne Privileg) und [[KOSTEN_MIT]] Milliarden (mit Privileg, ohne den nicht bezifferten Einverdienerabzug).</li>
+      </ul>
+
+      <h3>Robustheit</h3>
+      <p>Die nicht geeichten Annahmen wurden einzeln verändert. Die Kernaussagen halten in allen Varianten:</p>
+      <div class="tabellen-rahmen">[[ROBUST]]</div>
+
+      <h3>Daten und Code</h3>
+      <p>Alle Daten sind öffentlich: Statistiken und Tarife der Eidgenössischen Steuerverwaltung, die Arbeitskräfteerhebung des Bundesamts für Statistik, Botschaft und Gesetz aus dem Bundesblatt. Der Code liegt öffentlich auf GitHub: <a href="https://github.com/FabianBartschDatenanalyse/soriono-analysen">soriono-analysen</a>.</p>
+    </div>
+  </section>
+
+  <footer class="spalte quellen">
+    <p>Quellen</p>
+    <ol>
+      <li>Botschaft zur Volksinitiative «Ja zu fairen Bundessteuern auch für Ehepaare» vom 7. März 2025, BBl 2025 1092.</li>
+      <li>Bundesgesetz über die Individualbesteuerung vom 20. Juni 2025, BBl 2025 2033.</li>
+      <li>ESTV: Tarife 2026 (Formular 58c-2026), Rundschreiben 2-215-D-2025, <a href="https://www.estv.admin.ch/de/auswirkungen-individualbesteuerung">Auswirkungen der Individualbesteuerung</a>, Statistische Kennzahlen direkte Bundessteuer 2022.</li>
+      <li>BFS: Schweizerische Arbeitskräfteerhebung, Erwerbsmodelle bei Paaren nach Alter des jüngsten Kindes und Anzahl Kinder, 2025 (cc-d-20.04.03.03.01).</li>
+      <li><a href="https://www.admin.ch/de/ehepaarbesteuerung">admin.ch: Ehepaarbesteuerung</a>; <a href="https://die-mitte.ch/jetzt-geht-es-um-das-wie-die-mitte-setzt-auf-die-fairness-initiative/">Die Mitte: Fairness-Initiative</a>.</li>
+    </ol>
+  </footer>
+</article>
+/*SITE_FUSS*/
+
+<script>
+const DATEN = /*DATEN*/null;
+const NS = "http://www.w3.org/2000/svg";
+const chf = v => Math.round(v).toLocaleString("de-CH");
+const vorz = v => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(Math.round(v)).toLocaleString("de-CH");
+const proz = v => Math.round(v * 100) + " %";
+function el(name, attrs = {}, parent) { const e = document.createElementNS(NS, name); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); if (parent) parent.appendChild(e); return e; }
+function tooltip(host) {
+  const t = document.createElement("div"); t.className = "tip"; t.hidden = true; host.appendChild(t);
+  return { show(html, x, y) { t.innerHTML = html; t.hidden = false; const w = host.clientWidth, tw = t.offsetWidth;
+    t.style.left = Math.min(Math.max(0, x - tw / 2), Math.max(0, w - tw)) + "px"; t.style.top = (y - t.offsetHeight - 10) + "px"; },
+    hide() { t.hidden = true; } };
+}
+function breite(host) { return Math.max(280, Math.round(host.clientWidth || 600)); }
+function skala(d0, d1, r0, r1) { return v => r0 + (v - d0) / (d1 - d0) * (r1 - r0); }
+const REGELN = [
+  ["heute", "Heute", "var(--ink)", "", 2.5], ["konkubinat", "Unverheiratetes Paar", "var(--ink-3)", "5 4", 1.5],
+  ["individual", "Individualbesteuerung", "var(--r-indiv)", "", 2], ["initiative_mit", "Initiative mit Privileg", "var(--r-mit)", "", 2],
+  ["initiative_ohne", "Initiative ohne Privileg", "var(--r-ohne)", "6 3", 2]];
+let KINDER = 0;
+
+function haushalt(host) {
+  const y = +host.dataset.einkommen, reihen = DATEN.haushalte.filter(r => r.einkommen === y && r.kinder === KINDER);
+  const W = breite(host), H = Math.round(W * 0.72), m = { l: 52, r: 10, t: 10, b: 34 };
+  const ymax = Math.max(...reihen.flatMap(r => REGELN.map(([k]) => r[k]))) * 1.08;
+  const x = skala(0.5, 1, m.l, W - m.r), yy = skala(0, ymax, H - m.b, m.t);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": `Bundessteuer eines Ehepaars mit ${chf(y)} Franken nach Einkommensaufteilung` }, host);
+  const schritt = ymax > 15000 ? 5000 : ymax > 6000 ? 2000 : 1000;
+  for (let v = 0; v <= ymax; v += schritt) {
+    el("line", { x1: m.l, x2: W - m.r, y1: yy(v), y2: yy(v), class: v === 0 ? "null" : "achse" }, svg);
+    el("text", { x: m.l - 6, y: yy(v) + 4, "text-anchor": "end" }, svg).textContent = chf(v);
+  }
+  for (const a of [0.5, 0.6, 0.7, 0.8, 0.9, 1]) el("text", { x: x(a), y: H - m.b + 16, "text-anchor": "middle" }, svg).textContent = `${Math.round(a * 100)}/${Math.round(100 - a * 100)}`;
+  el("text", { x: (m.l + W - m.r) / 2, y: H - 2, "text-anchor": "middle" }, svg).textContent = "Aufteilung des Einkommens (Prozent)";
+  for (const [k, , farbe, strich, dicke] of REGELN) {
+    const d = reihen.map((r, i) => (i ? "L" : "M") + x(r.anteil).toFixed(1) + "," + yy(r[k]).toFixed(1)).join("");
+    el("path", { d, fill: "none", stroke: farbe, "stroke-width": dicke, "stroke-dasharray": strich, "stroke-linejoin": "round" }, svg);
+  }
+  const tip = tooltip(host), linie = el("line", { y1: m.t, y2: H - m.b, stroke: "var(--ink-3)", "stroke-width": 1, visibility: "hidden" }, svg);
+  const fang = el("rect", { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: "transparent" }, svg);
+  fang.addEventListener("pointermove", ev => {
+    const b = svg.getBoundingClientRect(), px = (ev.clientX - b.left) / b.width * W;
+    const r = reihen.reduce((a, c) => Math.abs(x(c.anteil) - px) < Math.abs(x(a.anteil) - px) ? c : a);
+    linie.setAttribute("x1", x(r.anteil)); linie.setAttribute("x2", x(r.anteil)); linie.setAttribute("visibility", "visible");
+    tip.show(`<strong>Aufteilung ${Math.round(r.anteil * 100)}/${Math.round(100 - r.anteil * 100)}</strong><br>` +
+      REGELN.map(([k, name]) => `${name}: ${chf(r[k])} Fr.`).join("<br>"), x(r.anteil) / W * b.width, m.t / H * b.height + 160);
+  });
+  fang.addEventListener("pointerleave", () => { tip.hide(); linie.setAttribute("visibility", "hidden"); });
+}
+
+function verteilung(host) {
+  const daten = DATEN.verteilung, W = breite(host), schmal = W < 560, zh = 40;
+  const m = { l: schmal ? 8 : 150, r: 46, t: 6, b: 26 }, H = m.t + daten.length * zh + (schmal ? daten.length * 16 : 0) + m.b;
+  const x = skala(0, 0.5, m.l, W - m.r);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Anteil an Ehepaaren und an der Entlastung nach Einkommen" }, host);
+  for (const v of [0, 0.1, 0.2, 0.3, 0.4, 0.5]) {
+    el("line", { x1: x(v), x2: x(v), y1: m.t, y2: H - m.b, class: v === 0 ? "null" : "achse" }, svg);
+    el("text", { x: x(v), y: H - m.b + 16, "text-anchor": "middle" }, svg).textContent = Math.round(v * 100) + " %";
+  }
+  const tip = tooltip(host);
+  daten.forEach((z, i) => {
+    const y0 = m.t + i * (zh + (schmal ? 16 : 0)) + (schmal ? 16 : 0);
+    el("text", { x: schmal ? 0 : m.l - 10, y: schmal ? y0 - 4 : y0 + zh / 2 + 4, "text-anchor": schmal ? "start" : "end", class: "zeilenname" }, svg).textContent = z.klasse;
+    [["paare", "var(--ink-3)", 4, "Anteil an den Ehepaaren"], ["entlastung", "var(--r-mit)", 18, "Anteil an der Entlastung"]].forEach(([k, farbe, dy, wort]) => {
+      const v = Math.max(0, z[k]);
+      const r = el("rect", { x: x(0), y: y0 + dy, width: Math.max(1, x(v) - x(0)), height: 13, rx: 2, fill: farbe }, svg);
+      el("text", { x: x(v) + 4, y: y0 + dy + 11, fill: "var(--ink-2)" }, svg).textContent = proz(z[k]);
+      r.addEventListener("pointerenter", () => { const b = svg.getBoundingClientRect(); tip.show(`<strong>${z.klasse}</strong><br>${wort}: ${proz(z[k])}`, x(v) / W * b.width, (y0 + dy) / H * b.height); });
+      r.addEventListener("pointerleave", () => tip.hide());
+    });
+  });
+}
+
+function mittel(host) {
+  const daten = DATEN.mittel, W = breite(host), schmal = W < 560, zh = 34;
+  const m = { l: schmal ? 8 : 150, r: 14, t: 6, b: 26 }, H = m.t + daten.length * (zh + (schmal ? 16 : 0)) + m.b;
+  const werte = daten.flatMap(z => [z.individual, z.initiative_mit, z.initiative_ohne]);
+  const lo = Math.min(0, ...werte) * 1.1, hi = Math.max(0, ...werte) * 1.1;
+  const x = skala(lo, hi, m.l, W - m.r);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Durchschnittliche Veränderung der Bundessteuer pro Ehepaar nach Einkommen" }, host);
+  const schritt = (hi - lo) > 8000 ? 2000 : 1000;
+  for (let v = Math.ceil(lo / schritt) * schritt; v <= hi; v += schritt) {
+    el("line", { x1: x(v), x2: x(v), y1: m.t, y2: H - m.b, class: v === 0 ? "null" : "achse" }, svg);
+    el("text", { x: x(v), y: H - m.b + 16, "text-anchor": "middle" }, svg).textContent = vorz(v);
+  }
+  const tip = tooltip(host);
+  daten.forEach((z, i) => {
+    const y0 = m.t + i * (zh + (schmal ? 16 : 0)) + (schmal ? 16 : 0), yc = y0 + zh / 2;
+    el("text", { x: schmal ? 0 : m.l - 10, y: schmal ? y0 - 4 : yc + 4, "text-anchor": schmal ? "start" : "end", class: "zeilenname" }, svg).textContent = z.klasse;
+    el("line", { x1: x(Math.min(z.individual, z.initiative_mit, z.initiative_ohne, 0)), x2: x(Math.max(z.individual, z.initiative_mit, z.initiative_ohne, 0)), y1: yc, y2: yc, stroke: "var(--rule)", "stroke-width": 2 }, svg);
+    [["individual", "var(--r-indiv)", "Individualbesteuerung"], ["initiative_mit", "var(--r-mit)", "Initiative mit Privileg"], ["initiative_ohne", "var(--r-ohne)", "Initiative ohne Privileg"]].forEach(([k, farbe, wort]) => {
+      const c = el("circle", { cx: x(z[k]), cy: yc, r: 6, fill: farbe, stroke: "var(--paper)", "stroke-width": 2, tabindex: 0 }, svg);
+      const zeigen = () => { const b = svg.getBoundingClientRect(); tip.show(`<strong>${z.klasse}</strong><br>${wort}: ${vorz(z[k])} Fr. pro Paar`, x(z[k]) / W * b.width, (yc - 8) / H * b.height); };
+      c.addEventListener("pointerenter", zeigen); c.addEventListener("focus", zeigen);
+      c.addEventListener("pointerleave", () => tip.hide()); c.addEventListener("blur", () => tip.hide());
+    });
+  });
+}
+
+function tabelle(host) {
+  const art = host.dataset.table;
+  let kopf, zeilen;
+  if (art === "haushalt") {
+    kopf = ["Einkommen", "Kinder", "Aufteilung", ...REGELN.map(r => r[1])];
+    zeilen = DATEN.haushalte.filter(r => Math.round(r.anteil * 100) % 10 === 0).map(r => [chf(r.einkommen), r.kinder, `${Math.round(r.anteil * 100)}/${Math.round(100 - r.anteil * 100)}`, ...REGELN.map(([k]) => chf(r[k]))]);
+  } else if (art === "verteilung") {
+    kopf = ["Einkommen des Paars", "Anteil an den Ehepaaren", "Anteil an der Entlastung"];
+    zeilen = DATEN.verteilung.map(z => [z.klasse, proz(z.paare), proz(z.entlastung)]);
+  } else {
+    kopf = ["Einkommen des Paars", "Individualbesteuerung", "Initiative mit Privileg", "Initiative ohne Privileg", "Steuer heute"];
+    zeilen = DATEN.mittel.map(z => [z.klasse, vorz(z.individual), vorz(z.initiative_mit), vorz(z.initiative_ohne), chf(z.heute)]);
+  }
+  host.innerHTML = `<table><thead><tr>${kopf.map(k => `<th scope="col">${k}</th>`).join("")}</tr></thead><tbody>${zeilen.map(r => `<tr>${r.map((c, i) => i ? `<td>${c}</td>` : `<th scope="row" style="font-weight:400">${c}</th>`).join("")}</tr>`).join("")}</tbody></table>`;
+}
+
+const ZEICHNER = { haushalt, verteilung, mittel };
+function zeichnen() { document.querySelectorAll("[data-chart]").forEach(h => { h.replaceChildren(); ZEICHNER[h.dataset.chart](h); }); }
+document.querySelectorAll(".schalter button").forEach(b => b.addEventListener("click", () => {
+  KINDER = +b.dataset.kinder;
+  document.querySelectorAll(".schalter button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+  document.querySelectorAll('[data-chart="haushalt"]').forEach(h => { h.replaceChildren(); haushalt(h); });
+}));
+zeichnen();
+document.querySelectorAll("[data-table]").forEach(tabelle);
+let letzteBreite = innerWidth, warten;
+addEventListener("resize", () => { if (innerWidth === letzteBreite) return; letzteBreite = innerWidth; clearTimeout(warten); warten = setTimeout(zeichnen, 150); });
+</script>

@@ -1,0 +1,5 @@
+# Neu erzeugbar (modell.py, pruefen.py)
+ausgabe/simulation.parquet
+ausgabe/pruefung.csv
+ausgabe/lauf_*.log
+__pycache__/
