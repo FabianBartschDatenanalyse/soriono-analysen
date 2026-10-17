@@ -9,7 +9,7 @@ Artikel: [soriono.ch/analysen/einbuergerung-und-wohnort](https://soriono.ch/anal
 |---|---|
 | `daten.py` | Panel Gemeinde × Jahr 2011–2025 aus Prelude: Einbürgerungen nach Herkunftsgruppe, ausländische Bevölkerung, Ja-Anteile zu fünf Vorlagen, Einwanderungswellen, Einkommen 2016 |
 | `analyse.py` | Differenz der Differenzen mit stetiger Behandlung (Ja-Anteil 2014 × ab 2018), Ereignisstudie, Fünftel, Herkunft, Robustheit |
-| `kontext.py` | Landeszahlen nach Staatsangehörigkeit und Art des Erwerbs direkt beim BFS (px-x-0103030100_101, noch nicht in Prelude) |
+| `kontext.py` | Landeszahlen nach Staatsangehörigkeit und Art des Erwerbs aus Prelude (fact_einbuergerungen_kanton) |
 | `seite/bauen.py` | Artikel aus `seite/vorlage.html` und den Ergebnissen (Artefakt und soriono.ch) |
 
 ## Hauptergebnisse

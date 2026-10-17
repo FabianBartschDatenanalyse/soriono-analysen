@@ -1,7 +1,7 @@
 """Panel Kanton × Jahr: Wohnbauinvestitionen, Arbeitsvorrat, neue Wohnungen, Bevölkerung, Baupreise.
 
-Liest aus dem veröffentlichten Datenmodell Prelude (zuerst `../gemeinsam/modell_laden.py wohnungsbau`)
-und aus dem Baupreisindex des BFS (`bpi.py`). Schreibt `ausgabe/kantone.parquet`.
+Liest nur aus dem veröffentlichten Datenmodell Prelude (zuerst `../gemeinsam/modell_laden.py wohnungsbau`),
+den Baupreisindex über `bpi.py`. Schreibt `ausgabe/kantone.parquet`.
 
 Wohnen ist die Bauwerkkategorie 900. Neubau und Umbau kommen aus fact_bauinvestitionen_arbeiten,
 private und öffentliche Auftraggeber aus fact_bauinvestitionen (gleiche Erhebung, gleiche Summen).
@@ -77,7 +77,7 @@ def bauen(con: duckdb.DuckDBPyConnection) -> pd.DataFrame:
     d = d.merge(con.sql(SQL_KANTONE).df(), on="kanton_nr", how="left")
     if d["grossregion"].isna().any():
         raise ValueError("Kantone ohne Grossregion")
-    preise = jahresindex().rename(columns={"region": "grossregion"})
+    preise = jahresindex(MODELL).rename(columns={"region": "grossregion"})
     d = d.merge(preise, on=["grossregion", "jahr"], how="left")
     return d.sort_values(["kanton", "jahr"]).reset_index(drop=True)
 

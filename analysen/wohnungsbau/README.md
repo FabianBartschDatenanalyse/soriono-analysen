@@ -8,11 +8,10 @@ Artikel: [soriono.ch/analysen/wohnungsbau-real-geschrumpft](https://soriono.ch/a
 
 | Datei | Inhalt |
 |---|---|
-| `bpi.py` | Baupreisindex des BFS (Neubau und Renovation Mehrfamilienhaus, Basis Oktober 2020) als Jahresmittel |
+| `bpi.py` | Baupreisindex aus Prelude (Neubau und Renovation Mehrfamilienhaus, Basis Oktober 2020) als Jahresmittel |
 | `daten.py` | Panel Kanton × Jahr aus Prelude: Wohnbauinvestitionen nach Neubau und Umbau, Arbeitsvorrat, private Auftraggeber, neue Wohnungen, Bevölkerung |
 | `analyse.py` | Zerlegung 2016–2019 gegenüber 2021–2024, Kennzahlen, Grossregionen, Kantone, Robustheit (Bauzeit 1–3 Jahre, Landesindex) |
 | `seite/bauen.py` | Artikel aus `seite/vorlage.html` und den Ergebnissen (Artefakt und soriono.ch) |
-| `quellen/` | Unveränderte Datei des Baupreisindex (BFS, cc-t-05.05.01) |
 
 ## Hauptergebnisse
 
