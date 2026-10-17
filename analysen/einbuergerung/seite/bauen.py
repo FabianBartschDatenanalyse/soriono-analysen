@@ -19,7 +19,7 @@ GEMEINSAM = HIER.parents[1] / "gemeinsam"
 AUSGABE = HIER.parent / "ausgabe"
 SEITENPFAD = "einbuergerung-und-wohnort"
 DATUM = "17. Oktober 2026"
-TITEL = "Seit dem neuen Bürgerrecht entscheidet der Wohnort mehr über die Einbürgerung"
+TITEL = "Wo die Masseneinwanderungsinitiative gut ankam, wird seit 2018 weniger eingebürgert"
 BESCHREIBUNG = ("Seit dem Bürgerrechtsgesetz von 2018 bürgern Gemeinden, die für Zuwanderungsbeschränkungen stimmen, "
                 "weniger ein als ihre Nachbarn im selben Kanton. Vorher gab es diesen Unterschied nicht.")
 FARBEN = {"Deutschland": "#1f5a8c", "Frankreich": "#1baf7a", "Italien": "#eb6834", "Portugal": "#b8862f"}
