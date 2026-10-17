@@ -98,6 +98,25 @@ table.check td, table.check th { text-align: left; }
 table.check td:nth-child(3) { white-space: nowrap; }
 .urteil { display: inline-block; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.02em; padding: 0.1rem 0.5rem; border-radius: 99px; border: 1px solid var(--ink-3); color: var(--ink); }
 .urteil.stimmt { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+details.hintergrund { border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); padding: 0 1rem; margin: 0.4rem 0 1.6rem; }
+details.hintergrund > summary { cursor: pointer; list-style: none; font-family: var(--font-ui); font-weight: 700; padding: 0.85rem 0; display: flex; justify-content: space-between; gap: 1rem; }
+details.hintergrund > summary::-webkit-details-marker { display: none; }
+details.hintergrund > summary::after { content: "+"; font-size: 1.3em; line-height: 1; color: var(--accent); }
+details.hintergrund[open] > summary::after { content: "−"; }
+details.hintergrund[open] { padding-bottom: 0.6rem; }
+.hintergrund h3 { font-family: var(--font-ui); font-size: var(--step-0); margin: 1.1rem 0 0.3rem; }
+.hintergrund p { font-size: 0.98rem; }
+table.vergleich { min-width: 34rem; font-variant-numeric: normal; }
+table.vergleich th, table.vergleich td { text-align: left; hyphens: auto; }
+table.vergleich tbody th { font-weight: 700; color: var(--ink); width: 8.5rem; }
+@media (max-width: 36rem) {
+  table.vergleich { min-width: 0; }
+  table.vergleich thead { display: none; }
+  table.vergleich tr, table.vergleich th, table.vergleich td { display: block; width: auto; border: 0; padding: 0.15rem 0; }
+  table.vergleich tr { border-bottom: 1px solid var(--rule); padding: 0.5rem 0; }
+  table.vergleich tbody th { width: auto; }
+  table.vergleich td::before { content: attr(data-label) ": "; color: var(--ink-3); }
+}
 .entstehung { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding-block: 0.4rem 0.6rem; margin-block: 2rem; }
 .entstehung h3 { margin-top: 0.8rem; font-family: var(--font-ui); font-size: var(--step-0); }
 .entstehung p { font-size: 0.98rem; color: var(--ink-2); }
@@ -132,6 +151,43 @@ footer.quellen ol { padding-left: 1.2rem; }
     <p>Bei der direkten Bundessteuer werden Ehepaare gemeinsam besteuert: Ihre Einkommen werden zusammengezählt, dafür gilt ein milderer Tarif. Je nachdem, wie das Einkommen verteilt ist, zahlt ein Ehepaar dadurch mehr oder weniger als ein unverheiratetes Paar in gleicher Lage. Die Bundesverwaltung schätzt, dass rund 670'000 Ehepaare mindestens 10 Prozent mehr zahlen, die «Heiratsstrafe». Rund 650'000 zahlen mindestens 10 Prozent weniger, ein «Heiratsbonus».</p>
     <p>Im März 2026 hat das Volk die Individualbesteuerung angenommen: Ab 2032 wird jede Person für sich besteuert, verheiratet oder nicht. Die Initiative «Ja zu fairen Bundessteuern auch für Ehepaare», über die am 29. November abgestimmt wird, schlägt einen anderen Weg vor. Ehepaare blieben gemeinsam veranlagt, das Steueramt würde aber zusätzlich rechnen, was sie als zwei Unverheiratete zahlen würden, und den tieferen Betrag verlangen. Die Initiative betrifft nur die Bundessteuer, nicht die Kantons- und Gemeindesteuern.</p>
     <p>Wie diese zweite Berechnung genau aussähe, legt die Initiative nicht fest. Die Botschaft des Bundesrates beschreibt zwei Ausgestaltungen. In der einen bleiben die heutigen Abzüge für Ehepaare und der günstige Tarif für Eltern bestehen («mit Privileg»). In der anderen fallen der Zweiverdiener- und der Verheiratetenabzug weg, und in der zweiten Berechnung gilt für alle der Grundtarif («ohne Privileg»). Wir rechnen beide.</p>
+
+    <details class="hintergrund">
+      <summary>Hintergrund: Was gilt heute, und was würden die beiden Vorlagen ändern?</summary>
+      <h3>Warum es die Heiratsstrafe gibt</h3>
+      <p>Die Bundessteuer ist progressiv: Wer mehr verdient, zahlt einen höheren Anteil seines Einkommens. Zählt man die Einkommen eines Ehepaars zusammen, rutscht das Paar deshalb in eine höhere Stufe, als wenn jede Person für sich besteuert würde. Um das auszugleichen, gibt es für Ehepaare einen milderen Tarif und eigene Abzüge. Bei Paaren mit einem Einkommen gleicht das mehr als aus, sie zahlen weniger als ein unverheiratetes Paar. Bei Paaren mit zwei ähnlich hohen Einkommen reicht es nicht, sie zahlen mehr. Das Bundesgericht hat schon 1984 entschieden, dass Ehepaare nicht stärker belastet werden dürfen als unverheiratete Paare in gleichen Verhältnissen.</p>
+
+      <h3>Die drei Regeln im Vergleich</h3>
+      <p>Alle Angaben betreffen die direkte Bundessteuer; Beträge für das Steuerjahr 2026, bei der Individualbesteuerung wie im Gesetz.</p>
+      <div class="tabellen-rahmen">
+        <table class="vergleich">
+          <thead><tr><th scope="col"></th><th scope="col">Heute</th><th scope="col">Individual&shy;besteuerung</th><th scope="col">Initiative der Mitte</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Stand</th><td data-label="Heute">geltendes Recht</td><td data-label="Individualbesteuerung">im März 2026 vom Volk angenommen, gilt ab 2032</td><td data-label="Initiative der Mitte">Abstimmung am 29. November 2026</td></tr>
+            <tr><th scope="row">Steuer&shy;erklärung</th><td data-label="Heute">eine gemeinsame für das Ehepaar</td><td data-label="Individualbesteuerung">jede Person eine eigene</td><td data-label="Initiative der Mitte">eine gemeinsame für das Ehepaar</td></tr>
+            <tr><th scope="row">Einkommen</th><td data-label="Heute">werden zusammen&shy;gezählt</td><td data-label="Individualbesteuerung">werden getrennt besteuert</td><td data-label="Initiative der Mitte">werden zusammengezählt; zusätzlich rechnet das Steueramt, was das Paar als zwei Unverheiratete zahlen würde, und verlangt den tieferen Betrag</td></tr>
+            <tr><th scope="row">Tarif</th><td data-label="Heute">Verheirateten&shy;tarif für Ehepaare und Eltern, Grundtarif für alle anderen</td><td data-label="Individualbesteuerung">ein Tarif für alle</td><td data-label="Initiative der Mitte">wie heute</td></tr>
+            <tr><th scope="row">Verheirateten&shy;abzug</th><td data-label="Heute">2'800 Franken</td><td data-label="Individualbesteuerung">fällt weg</td><td data-label="Initiative der Mitte">bleibt oder fällt weg, je nach Umsetzung</td></tr>
+            <tr><th scope="row">Zweiverdiener&shy;abzug</th><td data-label="Heute">die Hälfte des tieferen Einkommens, 8'600 bis 14'100 Franken</td><td data-label="Individualbesteuerung">fällt weg</td><td data-label="Initiative der Mitte">bleibt oder fällt weg, je nach Umsetzung</td></tr>
+            <tr><th scope="row">Kinderabzug</th><td data-label="Heute">6'800 Franken pro Kind</td><td data-label="Individualbesteuerung">12'000 Franken pro Kind, je zur Hälfte auf beide Eltern</td><td data-label="Initiative der Mitte">wie heute</td></tr>
+            <tr><th scope="row">Kantons- und Gemeinde&shy;steuern</th><td data-label="Heute">jeder Kanton mit eigener Regel für Ehepaare</td><td data-label="Individualbesteuerung">ebenfalls Individual&shy;besteuerung</td><td data-label="Initiative der Mitte">nicht betroffen</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Die Individualbesteuerung</h3>
+      <p>Das Bundesgesetz über die Individualbesteuerung hat das Parlament am 20. Juni 2025 beschlossen, als indirekten Gegenvorschlag zur «Steuergerechtigkeits-Initiative» der FDP-Frauen. Gegen das Gesetz wurde das Referendum ergriffen; im März 2026 hat das Volk es angenommen. Es gilt ab 2032 für die Bundessteuer und, über das Steuerharmonisierungsgesetz, auch für die Kantons- und Gemeindesteuern. Der Zivilstand spielt dann für die Steuer keine Rolle mehr: Ehepaare zahlen wie zwei Unverheiratete. Wer heute als Ehepaar mit einem Einkommen vom milderen Tarif profitiert, verliert diesen Vorteil.</p>
+
+      <h3>Die Initiative «Ja zu fairen Bundessteuern auch für Ehepaare»</h3>
+      <p>Die Mitte hat die Initiative am 27. März 2024 mit 101'382 gültigen Unterschriften eingereicht. Sie ergänzt die Bundesverfassung um zwei Sätze: Das Einkommen eines Ehepaars wird zusammengerechnet, und das Gesetz sorgt dafür, dass Ehepaare gegenüber anderen Steuerpflichtigen nicht benachteiligt werden. Wie das geschieht, lässt die Initiative dem Parlament offen. Hat es nach drei Jahren kein Gesetz beschlossen, muss der Bundesrat die «alternative Steuerberechnung» per Verordnung einführen: zuerst die gemeinsame Rechnung wie heute, dann eine zweite Rechnung mit Tarif und Abzügen für Unverheiratete; das Paar zahlt den tieferen Betrag. Die Initiative gilt nur für die Bundessteuer.</p>
+      <p>Offen ist dabei, was mit den heutigen Vorteilen geschieht, die diese Rechnung überflüssig machen würde. Bleiben der Verheirateten- und der Zweiverdienerabzug sowie der günstigere Tarif für unverheiratete Eltern bestehen, kostet die Initiative mehr («mit Privileg»). Fallen sie weg, kostet sie weniger, aber manche Paare zahlen mehr als heute («ohne Privileg»). Der Bundesrat schätzt die Mindereinnahmen auf 0,7 bis 1,4 Milliarden Franken pro Jahr; davon trüge der Bund 78,8 Prozent und die Kantone 21,2 Prozent.</p>
+
+      <h3>Wie die beiden Vorlagen zusammenhängen</h3>
+      <p>Die Initiative verlangt, dass die Einkommen von Ehepaaren zusammengezählt werden. Nach Einschätzung des Bundesrates wäre eine Individualbesteuerung bei der Bundessteuer damit ohne neue Verfassungsänderung ausgeschlossen. Wird die Initiative angenommen, müsste das Parlament die Bundessteuer der Ehepaare also neu regeln, während bei den Kantons- und Gemeindesteuern ab 2032 die Individualbesteuerung gilt. Der Bundesrat empfiehlt, die Initiative abzulehnen. Er teilt das Ziel, will die Frage gemeinsamer oder getrennter Besteuerung aber nicht in der Verfassung festlegen.</p>
+
+      <h3>Ein langer Streit</h3>
+      <p>Um die Heiratsstrafe wird seit Jahrzehnten gestritten. 2016 lehnte das Volk die Initiative «Für Ehe und Familie – gegen die Heiratsstrafe» der damaligen CVP mit 50,8 Prozent knapp ab. 2019 hob das Bundesgericht diese Abstimmung auf, weil die Steuerverwaltung die Zahl der betroffenen Zweiverdienerpaare zu tief angegeben hatte; die CVP zog die Initiative 2020 zurück. Ebenfalls 2019 wies das Parlament einen Vorschlag des Bundesrates für eine alternative Steuerberechnung zurück und verlangte andere Modelle, darunter die Individualbesteuerung.</p>
+    </details>
   </div>
 
   <figure class="breit" id="fig-haushalte">

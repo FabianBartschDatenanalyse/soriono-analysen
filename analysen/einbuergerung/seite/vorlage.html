@@ -57,6 +57,20 @@ th { color: var(--ink-2); font-weight: 700; }
 .methode p, .methode li { font-size: 0.98rem; }
 .methode ul { padding-left: 1.2rem; margin: 0 0 1rem; }
 .methode li { margin-bottom: 0.4rem; }
+.kurz { border-left: 3px solid var(--accent); padding: 0.1rem 0 0.1rem 1rem; margin: 0 0 2rem; }
+.kurz h2 { margin-top: 0; font-size: var(--step-1); }
+.kurz ul { padding-left: 1.1rem; margin: 0 0 0.8rem; }
+.kurz li { margin-bottom: 0.5rem; }
+details.hintergrund { border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); padding: 0 1rem; margin: 0.4rem 0 1.6rem; }
+details.hintergrund > summary { cursor: pointer; list-style: none; font-family: var(--font-ui); font-weight: 700; padding: 0.85rem 0; display: flex; justify-content: space-between; gap: 1rem; }
+details.hintergrund > summary::-webkit-details-marker { display: none; }
+details.hintergrund > summary::after { content: "+"; font-size: 1.3em; line-height: 1; color: var(--accent); }
+details.hintergrund[open] > summary::after { content: "−"; }
+details.hintergrund[open] { padding-bottom: 0.6rem; }
+.hintergrund h3 { font-family: var(--font-ui); font-size: var(--step-0); margin: 1rem 0 0.3rem; }
+.hintergrund p, .hintergrund li { font-size: 0.98rem; }
+.hintergrund ul { padding-left: 1.2rem; margin: 0 0 1rem; }
+.hintergrund li { margin-bottom: 0.4rem; }
 footer { padding-block: 2rem 3rem; font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-3); }
 footer ol { padding-left: 1.2rem; }
 @media (prefers-reduced-motion: no-preference) { .tip { transition: opacity 80ms linear; } }
@@ -67,102 +81,138 @@ footer ol { padding-left: 1.2rem; }
   <header class="kopf spalte">
     <p class="kicker">Analyse · Gesellschaft</p>
     <h1>Seit dem neuen Bürgerrecht entscheidet der Wohnort mehr über die Einbürgerung</h1>
-    <p class="lead">Bis 2017 bürgerten Gemeinden, die für Zuwanderungsbeschränkungen stimmten, etwa gleich viele Ausländerinnen und Ausländer ein wie ihre Nachbarn. Seit dem Bürgerrechtsgesetz von 2018 fallen sie zurück, Jahr für Jahr. Betroffen sind vor allem Personen aus der EU.</p>
+    <p class="lead">Wer Schweizerin oder Schweizer werden will, braucht auch die Zustimmung der Wohngemeinde. Wir haben für [[GEMEINDEN]] Gemeinden nachgerechnet, ob die politische Haltung einer Gemeinde dabei eine Rolle spielt. Das Ergebnis: Seit dem neuen Bürgerrechtsgesetz von 2018 bürgern Gemeinden, die stark für die Masseneinwanderungsinitiative gestimmt haben, weniger ein als ihre Nachbarn. Vorher war das nicht so.</p>
     <p class="zeile">[[DATUM]] · Von Fabian Bartsch, mit Claude Opus 5.5 (Anthropic) · Daten: Bundesamt für Statistik, Eidgenössische Steuerverwaltung</p>
   </header>
 
   <div class="spalte">
     <div class="befund" role="list">
-      <div role="listitem"><span class="zahl">[[RELATIV]] %</span><span class="zahl-text">Einbürgerungen seit 2018 je 10 Prozentpunkte mehr Ja zur Massen&shy;einwanderungs&shy;initiative 2014</span></div>
-      <div role="listitem"><span class="zahl">0</span><span class="zahl-text">Unterschied vor 2018, im selben Kanton</span></div>
-      <div role="listitem"><span class="zahl">[[FEHLEND]]</span><span class="zahl-text">Einbürgerungen weniger in Gemeinden mit über&shy;durchschnittlichem Ja, 2018–2025</span></div>
-      <div role="listitem"><span class="zahl">[[GEMEINDEN]]</span><span class="zahl-text">Gemeinden mit [[ANTEIL]]&nbsp;% aller Einbürgerungen</span></div>
+      <div role="listitem"><span class="zahl">0</span><span class="zahl-text">Unterschied vor 2018 zwischen Gemeinden mit viel und wenig Ja</span></div>
+      <div role="listitem"><span class="zahl">[[RELATIV]] %</span><span class="zahl-text">Einbürgerungen seit 2018 pro 10 Prozentpunkte mehr Ja</span></div>
+      <div role="listitem"><span class="zahl">−[[EU_RELATIV]] %</span><span class="zahl-text">bei Personen aus der EU und der EFTA; bei allen anderen kein Unterschied</span></div>
+      <div role="listitem"><span class="zahl">[[FEHLEND]]</span><span class="zahl-text">Einbürgerungen weniger in Gemeinden mit viel Ja, 2018–2025</span></div>
     </div>
 
-    <p>Wer Schweizerin oder Schweizer werden will, wird in drei Schritten eingebürgert: von der Gemeinde, vom Kanton und vom Bund. Was die Gemeinde prüft und wie streng, ist von Kanton zu Kanton verschieden und oft auch von Gemeinde zu Gemeinde. Seit dem 1. Januar 2018 gilt ein neues Bürgerrechtsgesetz. Es verlangt eine Niederlassungsbewilligung, verkürzt die Wohnsitzfrist von 12 auf 10 Jahre und legt fest, was Integration heisst: Sprache, Teilnahme am Wirtschaftsleben, Respekt der Werte der Verfassung. Ob jemand diese Kriterien erfüllt, beurteilen vielerorts die Gemeinden.</p>
-    <p>Die Demokratie-Initiative, über die das Volk noch abstimmen wird, will das ändern: Wer fünf Jahre rechtmässig in der Schweiz lebt und die Bedingungen erfüllt, soll einen Anspruch auf die Einbürgerung haben, nach einheitlichen Regeln. Bundesrat und Parlament lehnen sie ab. Wie viel der Wohnort heute ausmacht, lässt sich mit den Daten des Bundesamts für Statistik messen: Es zählt jedes Jahr die Einbürgerungen in jeder Gemeinde.</p>
-  </div>
+    <section class="kurz" aria-labelledby="kurz-titel">
+      <h2 id="kurz-titel">Das Wichtigste in Kürze</h2>
+      <ul>
+        <li><strong>Vor 2018 gab es keinen Unterschied.</strong> Bis 2017 bürgerten Gemeinden mit viel und mit wenig Ja zur Masseneinwanderungsinitiative etwa gleich viele Ausländerinnen und Ausländer ein, wenn man Gemeinden im selben Kanton vergleicht.</li>
+        <li><strong>Seit 2018 gibt es ihn.</strong> Pro 10 Prozentpunkte mehr Ja bürgert eine Gemeinde seither rund [[RELATIV_POS]] Prozent weniger ein. Eine Gemeinde mit [[JA_P90]] Prozent Ja bürgert also rund [[SPANNE]] Prozent weniger ein als eine Gemeinde mit [[JA_P10]] Prozent Ja.</li>
+        <li><strong>Betroffen sind Menschen aus der EU.</strong> Der Unterschied entsteht fast ganz bei Personen aus EU- und EFTA-Staaten. Bei Personen aus dem übrigen Europa, etwa aus Kosovo oder Serbien, und bei Personen von ausserhalb Europas gibt es keinen messbaren Unterschied.</li>
+        <li><strong>Ein Teil hat mit Wohlstand zu tun.</strong> Rund die Hälfte des Unterschieds hängt mit dem Einkommen, der Grösse und dem Ausländeranteil der Gemeinden zusammen. Ob die Gemeinden selbst strenger entscheiden oder ob dort weniger Menschen ein Gesuch stellen, zeigen die öffentlichen Daten nicht.</li>
+      </ul>
+      <p><strong>Was neu ist:</strong> Frühere Studien haben vor allem die Zeit vor 2003 untersucht, als manche Gemeinden noch an der Urne über einzelne Gesuche abstimmten. Für die Zeit seit dem neuen Gesetz gab es nach unserem Wissen keine solche Auswertung für alle Gemeinden.</p>
+    </section>
 
-  <div class="spalte">
-    <h2>Der Vergleich: Gemeinden im selben Kanton</h2>
-    <p>Als Mass für das lokale Klima dient der Ja-Anteil zur Masseneinwanderungsinitiative vom 9. Februar 2014, gemessen vor dem neuen Gesetz. Er reichte von [[JA_P10]] Prozent im unteren bis [[JA_P90]] Prozent im oberen Zehntel der Gemeinden. Damit Unterschiede zwischen den Kantonen keine Rolle spielen, teilen wir die Gemeinden innerhalb jedes Kantons in fünf gleich grosse Gruppen, vom tiefsten zum höchsten Ja-Anteil.</p>
+    <h2>Worum es geht</h2>
+    <p>Eingebürgert wird in der Schweiz in drei Schritten: Gemeinde, Kanton und Bund müssen zustimmen. Was die Gemeinde prüft und wie streng, ist von Kanton zu Kanton verschieden und oft auch von Gemeinde zu Gemeinde. Seit dem 1. Januar 2018 gilt ein neues Bürgerrechtsgesetz mit einheitlicheren Regeln. Ob jemand gut integriert ist, beurteilen aber weiterhin vielerorts die Gemeinden.</p>
+    <p>Die Demokratie-Initiative will das ändern: Wer fünf Jahre rechtmässig in der Schweiz lebt und die Bedingungen erfüllt, soll ein Recht auf die Einbürgerung haben, nach einheitlichen Regeln. Bundesrat und Parlament lehnen sie ab. Wie viel der Wohnort heute ausmacht, lässt sich messen: Das Bundesamt für Statistik zählt jedes Jahr die Einbürgerungen in jeder Gemeinde.</p>
+
+    <details class="hintergrund">
+      <summary>Hintergrund: Wie die Einbürgerung funktioniert und was sich 2018 geändert hat</summary>
+      <h3>Wer entscheidet</h3>
+      <p>Bei der ordentlichen Einbürgerung braucht es eine Bewilligung des Bundes und die Zustimmung von Kanton und Gemeinde. Wer in der Gemeinde entscheidet, regelt der Kanton: je nach Ort der Gemeinderat, eine Einbürgerungskommission, das Gemeindeparlament oder die Gemeindeversammlung. Seit einem Urteil des Bundesgerichts von 2003 darf nicht mehr an der Urne über einzelne Gesuche abgestimmt werden, und eine Ablehnung muss begründet werden.</p>
+      <h3>Was das Gesetz von 2018 geändert hat</h3>
+      <ul>
+        <li><strong>Niederlassungsbewilligung:</strong> Ein Gesuch stellen kann nur noch, wer die Niederlassungsbewilligung C hat. Vorher war die Art der Bewilligung nicht vorgeschrieben.</li>
+        <li><strong>Kürzere Frist:</strong> Nötig sind 10 statt 12 Jahre Wohnsitz in der Schweiz. Die Kantone dürfen zusätzlich verlangen, dass man zwei bis fünf Jahre im Kanton und in der Gemeinde gewohnt hat.</li>
+        <li><strong>Klare Kriterien für Integration:</strong> Das Gesetz zählt auf, was dazugehört: die Landessprache sprechen, arbeiten oder in Ausbildung sein, die Werte der Verfassung respektieren und die öffentliche Sicherheit und Ordnung beachten.</li>
+        <li><strong>Ansturm vorher:</strong> Weil die neuen Regeln Personen ohne Niederlassungsbewilligung ausschliessen, reichten 2015 bis 2017 viele noch nach altem Recht ein. Darum stiegen die Einbürgerungen in diesen Jahren überall.</li>
+      </ul>
+      <h3>Erleichterte Einbürgerung</h3>
+      <p>Ausländische Ehepartner von Schweizerinnen und Schweizern und seit 2018 auch Enkel von Eingewanderten (dritte Generation) können sich erleichtert einbürgern lassen. Darüber entscheidet der Bund, nicht die Gemeinde. In den Zahlen dieses Artikels ist diese Art mitgezählt; sie machte 2018 bis 2025 jede sechste Einbürgerung aus.</p>
+      <h3>Die Demokratie-Initiative</h3>
+      <p>Die Volksinitiative «Für ein modernes Bürgerrecht» will einen Anspruch auf Einbürgerung nach fünf Jahren rechtmässigem Aufenthalt, nach Regeln, die in der ganzen Schweiz gleich sind. Bundesrat und Parlament empfehlen, sie abzulehnen.</p>
+    </details>
+
+    <h2>Wie wir rechnen</h2>
+    <p>Gemeinden unterscheiden sich in vielem: Grösse, Sprache, Wohlstand, kantonale Regeln. Damit solche Unterschiede das Ergebnis nicht verfälschen, vergleichen wir nur Gemeinden im selben Kanton, und jede Gemeinde mit sich selbst vor 2018. Gezählt werden die Einbürgerungen pro 100 Ausländerinnen und Ausländer, die in der Gemeinde wohnen.</p>
+    <p>Wie zurückhaltend eine Gemeinde gegenüber Zuwanderung ist, messen wir mit ihrem Ja-Anteil zur Masseneinwanderungsinitiative vom 9. Februar 2014, also vor dem neuen Gesetz. Er reichte von [[JA_P10]] Prozent im unteren bis [[JA_P90]] Prozent im oberen Zehntel der Gemeinden. Für die erste Grafik teilen wir die Gemeinden jedes Kantons in fünf gleich grosse Gruppen, von wenig bis viel Ja.</p>
   </div>
 
   <figure class="breit" id="fig-fuenftel">
-    <p class="diagramm-titel">Einbürgerungsquote nach Abstimmungsklima der Gemeinde</p>
-    <p class="diagramm-unter">Einbürgerungen je 100 Ausländerinnen und Ausländer, nach Fünftel des Ja-Anteils 2014 innerhalb des Kantons</p>
-    <div class="legende" aria-hidden="true"><span><i style="background: var(--series-1)"></i>tiefster Ja-Anteil</span><span><i style="background: var(--series-2)"></i>höchster Ja-Anteil</span><span><i style="background: var(--rule)"></i>übrige drei Fünftel</span></div>
+    <p class="diagramm-titel">Einbürgerungen nach Abstimmungsverhalten der Gemeinde</p>
+    <p class="diagramm-unter">Einbürgerungen pro 100 Ausländerinnen und Ausländer, Gemeinden nach Ja-Anteil 2014 in fünf Gruppen, je innerhalb des Kantons</p>
+    <div class="legende" aria-hidden="true"><span><i style="background: var(--series-1)"></i>wenigstes Ja</span><span><i style="background: var(--series-2)"></i>meistes Ja</span><span><i style="background: var(--rule)"></i>übrige drei Gruppen</span></div>
     <div class="flaeche" data-chart="linien" data-daten="fuenftel"></div>
-    <figcaption>Gestrichelte Linie: Bürgerrechtsgesetz vom 1. Januar 2018. 2015 bis 2017 stiegen die Einbürgerungen überall, weil viele noch nach altem Recht einreichten. Gemeinden mit mindestens 50 Ausländerinnen und Ausländern Ende 2016.</figcaption>
+    <figcaption>Gestrichelte Linie: neues Bürgerrechtsgesetz ab 1. Januar 2018. 2015 bis 2017 stiegen die Einbürgerungen überall, weil viele noch nach altem Recht einreichten. Gemeinden mit mindestens 50 Ausländerinnen und Ausländern Ende 2016.</figcaption>
     <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="linien" data-daten="fuenftel"></div></details>
   </figure>
 
   <div class="spalte">
-    <p>Bis 2017 lagen die fünf Gruppen nahe beieinander; das Fünftel mit dem tiefsten Ja-Anteil bürgerte nur wenig mehr ein als jenes mit dem höchsten. Ab 2018 wächst der Abstand. Das Fünftel mit dem tiefsten Ja-Anteil bürgert weiter ein wie vorher, im Mittel [[Q1_VOR]] Personen je 100 Ausländerinnen und Ausländer 2011 bis 2016 und [[Q1_NACH]] seit 2018. Das Fünftel mit dem höchsten Ja-Anteil fällt von [[Q5_VOR]] auf [[Q5_NACH]]. Der Abstand zwischen beiden wächst damit von [[ABSTAND_VOR]] auf [[ABSTAND_NACH]].</p>
-    <p>Eine genauere Rechnung vergleicht jede Gemeinde mit sich selbst vor 2018 und mit den übrigen Gemeinden ihres Kantons im selben Jahr. Sie zeigt den Unterschied für jedes Jahr einzeln:</p>
+    <p>Bis 2017 liegen die Linien nahe beieinander. Ab 2018 öffnet sich eine Lücke. Die Gemeinden mit dem wenigsten Ja bürgern etwa gleich viel ein wie vorher: im Schnitt [[Q1_VOR]] Personen pro 100 Ausländerinnen und Ausländer in den Jahren 2011 bis 2016 und [[Q1_NACH]] seit 2018. Die Gemeinden mit dem meisten Ja fallen von [[Q5_VOR]] auf [[Q5_NACH]]. Der Abstand zwischen den beiden Gruppen wächst von [[ABSTAND_VOR]] auf [[ABSTAND_NACH]], er ist also mehr als doppelt so gross.</p>
+
+    <h2>Jahr für Jahr</h2>
+    <p>Die nächste Grafik zeigt dasselbe genauer und für jedes Jahr einzeln. Jeder Punkt beantwortet die Frage: Wie viel weniger bürgert eine Gemeinde ein, wenn sie 2014 um 10 Prozentpunkte mehr Ja gestimmt hat als eine andere Gemeinde im selben Kanton? Als Bezug dient das Jahr 2016.</p>
   </div>
 
   <figure class="breit" id="fig-ereignis">
-    <p class="diagramm-titel">Wie stark hängt die Quote vom Abstimmungsklima ab?</p>
-    <p class="diagramm-unter">Einbürgerungen je 100 Ausländerinnen und Ausländer, Unterschied je 10 Prozentpunkte mehr Ja 2014; 2016 = 0</p>
+    <p class="diagramm-titel">Unterschied pro 10 Prozentpunkte mehr Ja, Jahr für Jahr</p>
+    <p class="diagramm-unter">Einbürgerungen pro 100 Ausländerinnen und Ausländer, verglichen mit 2016</p>
     <div class="flaeche" data-chart="ereignis"></div>
-    <figcaption>Punkte: geschätzter Unterschied je Jahr; Linien: 95-Prozent-Vertrauensbereich. Vergleich innerhalb der Gemeinde und innerhalb des Kantons im selben Jahr, gewichtet mit der ausländischen Bevölkerung.</figcaption>
+    <figcaption>Punkte: geschätzter Unterschied; Linien: Bereich, in dem der wahre Wert mit 95 Prozent Wahrscheinlichkeit liegt. Gemeinden mit vielen Ausländerinnen und Ausländern zählen stärker.</figcaption>
     <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="ereignis"></div></details>
   </figure>
 
   <div class="spalte">
-    <p>Vor 2018 schwanken die Werte um null. Ab 2018 liegen sie in jedem Jahr darunter, im Mittel bei [[EREIGNIS_NACH]]. Zusammengefasst: Je 10 Prozentpunkte mehr Ja zur Masseneinwanderungsinitiative bürgert eine Gemeinde seit 2018 [[WIRKUNG]] Personen je 100 Ausländerinnen und Ausländer weniger ein als vorher, verglichen mit Gemeinden ihres Kantons. Das sind [[RELATIV_POS]] Prozent der heutigen Quote. Zwischen einer Gemeinde mit [[JA_P10]] und einer mit [[JA_P90]] Prozent Ja macht das rund [[SPANNE]] Prozent aus.</p>
-    <p>In Personen: In den Gemeinden mit überdurchschnittlichem Ja-Anteil wurden 2018 bis 2025 [[EINB_UEBER]] Personen eingebürgert. Wäre der Abstand zu den übrigen Gemeinden so geblieben wie vorher, wären es rund [[FEHLEND]] mehr gewesen; in den Gemeinden mit unterdurchschnittlichem Ja-Anteil entsprechend so viele weniger.</p>
+    <p>Vor 2018 liegen die Punkte um null: kein Unterschied. Ab 2018 liegen sie in jedem Jahr darunter, im Schnitt bei [[EREIGNIS_NACH]]. Zusammengefasst heisst das: Pro 10 Prozentpunkte mehr Ja bürgert eine Gemeinde seit 2018 [[WIRKUNG]] Personen pro 100 Ausländerinnen und Ausländer weniger ein als die übrigen Gemeinden ihres Kantons. Das sind [[RELATIV_POS]] Prozent der heutigen Einbürgerungen.</p>
+    <p>In Personen: In den Gemeinden mit überdurchschnittlich viel Ja wurden 2018 bis 2025 [[EINB_UEBER]] Personen eingebürgert. Wäre der Abstand zu den übrigen Gemeinden so geblieben wie vor 2018, wären es rund [[FEHLEND]] mehr gewesen. Das heisst nicht, dass in der Schweiz insgesamt weniger Menschen eingebürgert wurden. Die Rechnung vergleicht Gemeinden untereinander: In den Gemeinden mit wenig Ja waren es entsprechend mehr.</p>
 
-    <h2>Betroffen sind Personen aus der EU</h2>
-    <p>Das Bundesamt für Statistik weist die Einbürgerungen auch nach der früheren Staatsangehörigkeit aus, in Gruppen. Die Rechnung lässt sich darum für jede Gruppe einzeln machen. Das Ergebnis überrascht:</p>
+    <h2>Betroffen sind Menschen aus der EU</h2>
+    <p>Das Bundesamt für Statistik zählt die Einbürgerungen in jeder Gemeinde auch nach der früheren Staatsangehörigkeit, in drei Gruppen. Wir haben die Rechnung darum für jede Gruppe einzeln gemacht. Das Ergebnis überrascht:</p>
   </div>
 
   <figure class="breit" id="fig-herkunft">
     <p class="diagramm-titel">Unterschied seit 2018 nach früherer Staatsangehörigkeit</p>
-    <p class="diagramm-unter">Veränderung der Einbürgerungen je 10 Prozentpunkte mehr Ja, in Prozent der Quote der Gruppe vor 2017, mit 95-Prozent-Vertrauensbereich</p>
+    <p class="diagramm-unter">Weniger oder mehr Einbürgerungen pro 10 Prozentpunkte mehr Ja, in Prozent der Einbürgerungen der Gruppe vor 2017</p>
     <div class="flaeche" data-chart="punkte" data-daten="herkunft"></div>
     <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="punkte" data-daten="herkunft"></div></details>
   </figure>
 
   <div class="spalte">
-    <p>Der ganze Unterschied entsteht bei Personen aus der EU und der EFTA: Ihre Einbürgerungen liegen je 10 Prozentpunkte mehr Ja um [[EU_RELATIV]] Prozent tiefer. Bei Personen aus dem übrigen Europa, also etwa aus Kosovo, Serbien oder Nordmazedonien, und bei Personen von ausserhalb Europas gibt es keinen messbaren Unterschied. Wer erwartet hätte, dass zurückhaltende Gemeinden vor allem bei Gesuchen aus fernen Ländern strenger geworden sind, findet dafür in diesen Daten keinen Beleg.</p>
-    <p>Was hinter dem Unterschied bei der EU steckt, zeigen die Zahlen der ganzen Schweiz. Seit 2018 werden fast doppelt so viele Deutsche ordentlich eingebürgert wie vorher, auch Französinnen und Franzosen deutlich mehr. Bei Italienerinnen und Portugiesen ging die Zahl zurück:</p>
+    <p>Der ganze Unterschied entsteht bei Personen aus der EU und der EFTA: Pro 10 Prozentpunkte mehr Ja werden von ihnen [[EU_RELATIV]] Prozent weniger eingebürgert. Bei Personen aus dem übrigen Europa, etwa aus Kosovo, Serbien oder Nordmazedonien, und bei Personen von ausserhalb Europas gibt es keinen messbaren Unterschied. Man könnte erwarten, dass zurückhaltende Gemeinden vor allem bei Gesuchen aus fernen Ländern strenger geworden sind. Dafür finden wir in diesen Daten keinen Beleg.</p>
+    <p>Woran liegt das? Die Zahlen der ganzen Schweiz geben einen Hinweis. Seit 2018 lassen sich fast doppelt so viele Deutsche ordentlich einbürgern wie vorher, auch deutlich mehr Französinnen und Franzosen. Bei Italienerinnen und Portugiesen ging die Zahl zurück:</p>
   </div>
 
   <figure class="breit" id="fig-staaten">
     <p class="diagramm-titel">Ordentliche Einbürgerungen nach früherer Staatsangehörigkeit</p>
     <p class="diagramm-unter">Personen pro Jahr, ganze Schweiz, 2011–2025</p>
     <div class="flaeche" data-chart="linien" data-daten="staaten"></div>
-    <figcaption>Ordentliche Einbürgerungen ohne erleichterte Einbürgerung (etwa von Ehepartnern) und Wiedereinbürgerung. Quelle: BFS, Tabelle px-x-0103030100_101, in Prelude als fact_einbuergerungen_kanton (nur nach Kanton verfügbar, darum nicht im Gemeindevergleich).</figcaption>
+    <figcaption>Nur ordentliche Einbürgerungen, ohne erleichterte Einbürgerung (etwa von Ehepartnern) und Wiedereinbürgerung. Quelle: BFS, Tabelle px-x-0103030100_101, in Prelude als fact_einbuergerungen_kanton. Diese Zahlen gibt es nur für Kantone, darum fehlen sie im Vergleich der Gemeinden.</figcaption>
     <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="linien" data-daten="staaten"></div></details>
   </figure>
 
   <div class="spalte">
-    <p>Deutsche und Französinnen leben überdurchschnittlich oft in Städten und wohlhabenden Gemeinden, und diese stimmten 2014 eher Nein. Viele kamen in den Jahren nach 2002, als die Personenfreizügigkeit galt, und erfüllten mit der kürzeren Frist ab 2018 die Voraussetzungen. Ein Teil des Unterschieds dürfte also daher kommen, wer wo wohnt und wer ein Gesuch stellt, und nicht daher, wie eine Gemeinde entscheidet.</p>
+    <p>Deutsche und Franzosen wohnen überdurchschnittlich oft in Städten und wohlhabenden Gemeinden, und dort wurde 2014 eher Nein gestimmt. Viele kamen nach 2002 mit der Personenfreizügigkeit in die Schweiz und erfüllten mit der kürzeren Frist ab 2018 die Voraussetzungen. Ein Teil des Unterschieds dürfte also davon kommen, wer wo wohnt und wer ein Gesuch stellt, und nicht davon, wie eine Gemeinde entscheidet.</p>
 
-    <h2>Wie viel geht auf Wohlstand und Zusammensetzung zurück?</h2>
-    <p>Das lässt sich prüfen, indem man weitere Merkmale der Gemeinden in die Rechnung aufnimmt, jeweils so, dass sie ab 2018 anders wirken dürfen. Die Einwanderungswellen seit 1996, also wer wann zugezogen ist und darum wann einbürgerungsberechtigt wurde, erklären wenig: Der Unterschied sinkt von [[HAUPT]] auf [[WELLEN]]. Mehr erklären das mittlere Einkommen der Gemeinde (Bundessteuer 2016), ihre Grösse und ihr Ausländeranteil: Mit ihnen sinkt er auf [[WOHLSTAND]], mit allen Merkmalen zusammen auf [[ALLE]].</p>
-    <p>Rund die Hälfte des Unterschieds hängt also mit Wohlstand und Grösse zusammen: Wohlhabende Gemeinden haben seit 2018 mehr eingebürgert, und sie stimmten 2014 seltener Ja. Die andere Hälfte bleibt, ist aber nicht mehr sicher von null zu unterscheiden. Ob das Abstimmungsklima selbst wirkt, etwa über strengere Gespräche, höhere Gebühren oder weniger Gesuche, oder ob es für Merkmale steht, die wir nicht messen können, lässt sich mit diesen Daten nicht entscheiden.</p>
+    <h2>Wie viel hat mit Wohlstand zu tun?</h2>
+    <p>Das lässt sich prüfen, indem man weitere Merkmale der Gemeinden in die Rechnung aufnimmt. Die Zahlen bedeuten jeweils: Einbürgerungen pro 100 Ausländerinnen und Ausländer weniger, pro 10 Prozentpunkte mehr Ja.</p>
+    <ul>
+      <li>Ohne weitere Merkmale beträgt der Unterschied [[HAUPT]].</li>
+      <li>Wann die Ausländerinnen und Ausländer zugezogen sind und darum wann sie ein Gesuch stellen durften, erklärt wenig: Der Unterschied sinkt auf [[WELLEN]].</li>
+      <li>Das mittlere Einkommen der Gemeinde (Bundessteuer 2016), ihre Grösse und ihr Ausländeranteil erklären mehr: Mit ihnen sinkt er auf [[WOHLSTAND]].</li>
+      <li>Mit allen Merkmalen zusammen sind es noch [[ALLE]].</li>
+    </ul>
+    <p>Rund die Hälfte des Unterschieds hängt also mit Wohlstand und Grösse zusammen: Wohlhabende Gemeinden bürgern seit 2018 mehr ein, und sie stimmten 2014 seltener Ja. Die andere Hälfte bleibt, ist aber statistisch nicht mehr sicher von null zu unterscheiden. Ob die Haltung der Gemeinde selbst wirkt, etwa über strengere Gespräche oder höhere Gebühren, oder ob dort einfach weniger Menschen ein Gesuch stellen, lässt sich mit diesen Daten nicht entscheiden.</p>
 
     <h2>Wie sicher ist das Ergebnis?</h2>
-    <p>Wir haben die Auswertung auf die Arten geprüft, die man in der Forschung für solche Fragen verlangt. Jede Zeile ändert eine Annahme und rechnet neu. Ein erfundener Bruch im Jahr 2015 zeigt keinen Unterschied; er tritt also erst mit dem neuen Gesetz auf.</p>
+    <p>Wir haben die Rechnung auf viele Arten wiederholt und dabei jedes Mal eine Annahme geändert. Die wichtigste Prüfung: Tut man so, als hätte sich schon 2015 etwas geändert, findet man keinen Unterschied (Zeile «Placebo»). Der Unterschied entsteht also tatsächlich erst mit dem neuen Gesetz.</p>
   </div>
 
   <figure class="breit" id="fig-robust">
-    <p class="diagramm-titel">Geschätzter Unterschied seit 2018 unter verschiedenen Annahmen</p>
-    <p class="diagramm-unter">Einbürgerungen je 100 Ausländerinnen und Ausländer, je 10 Prozentpunkte mehr Ja, mit 95-Prozent-Vertrauensbereich</p>
+    <p class="diagramm-titel">Unterschied seit 2018 unter verschiedenen Annahmen</p>
+    <p class="diagramm-unter">Einbürgerungen pro 100 Ausländerinnen und Ausländer, pro 10 Prozentpunkte mehr Ja, mit 95-Prozent-Bereich</p>
     <div class="flaeche" data-chart="punkte" data-daten="robust"></div>
     <figcaption>Jede Zeile ist eine eigene Berechnung. Die Placebo-Zeile sollte bei null liegen. Bei «Ohne je einen Kanton» reicht die Linie von der kleinsten zur grössten der 26 Schätzungen. Die Poisson-Schätzung ist in Prozent und darum nur in der Tabelle aufgeführt. Einzelheiten im Methodenteil.</figcaption>
     <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="punkte" data-daten="robust"></div></details>
   </figure>
 
   <div class="spalte">
-    <p>Der Unterschied hängt nicht davon ab, welche Abstimmung das Klima misst: Mit der Einbürgerungsinitiative von 2008, der 10-Millionen-Initiative von 2026 oder dem Mittel von vier Zuwanderungsvorlagen ist er ähnlich gross. Er bleibt, wenn man die Jahre 2017 und 2018 mit dem Ansturm auf das alte Recht weglässt, wenn man nur grössere Gemeinden betrachtet und wenn man jeden Kanton einzeln weglässt. Zählt jede Gemeinde gleich, unabhängig von ihrer ausländischen Bevölkerung, wird er kleiner und unsicherer: Er kommt vor allem aus Gemeinden mit vielen Ausländerinnen und Ausländern.</p>
+    <p>Das Ergebnis hängt nicht von der Wahl der Abstimmung ab: Mit der Einbürgerungsinitiative von 2008, der 10-Millionen-Initiative von 2026 oder dem Mittel von vier Abstimmungen zur Zuwanderung ist der Unterschied ähnlich gross. Er bleibt auch, wenn man die Jahre 2017 und 2018 mit dem Ansturm auf das alte Recht weglässt, wenn man nur grössere Gemeinden betrachtet und wenn man jeden Kanton einzeln weglässt. Zählt jede Gemeinde gleich viel, egal wie viele Ausländerinnen und Ausländer dort leben, wird er kleiner und unsicherer. Er kommt also vor allem aus Gemeinden mit vielen Ausländerinnen und Ausländern.</p>
 
     <h2>Was das für die Demokratie-Initiative heisst</h2>
-    <p>Die Befürworter der Initiative sagen, die Einbürgerung hänge zu sehr vom Wohnort ab. Diese Auswertung gibt ihnen insofern recht, als der Abstand zwischen offenen und zurückhaltenden Gemeinden seit 2018 gewachsen ist, auch innerhalb desselben Kantons. Die Gegner sagen, die Gemeinden kennten ihre Leute und sollten mitentscheiden. Auch dazu passt ein Teil der Befunde: Der Unterschied betrifft nicht die Gruppen, bei denen man am ehesten Vorbehalte vermuten würde, und er geht zur Hälfte auf Wohlstand und Zusammensetzung zurück.</p>
-    <p>Fest steht: Mit dem Gesetz von 2018 ist die Schweiz bei der Einbürgerung uneinheitlicher geworden. Ob das an den Entscheiden der Gemeinden liegt oder daran, wer wo ein Gesuch stellt, könnten nur Daten zu den Gesuchen klären, die heute nicht öffentlich sind.</p>
+    <p>Die Befürworter der Initiative sagen, die Einbürgerung hänge zu sehr vom Wohnort ab. Diese Auswertung gibt ihnen insofern recht: Seit 2018 ist der Abstand zwischen offenen und zurückhaltenden Gemeinden gewachsen, auch im selben Kanton. Die Gegner sagen, die Gemeinden kennten ihre Leute und sollten mitentscheiden. Auch dazu passt ein Teil der Befunde: Der Unterschied betrifft nicht die Gruppen, bei denen man am ehesten Vorbehalte vermuten würde, und er hängt zur Hälfte mit Wohlstand und Zusammensetzung der Gemeinden zusammen.</p>
+    <p>Fest steht: Seit dem Gesetz von 2018 ist die Einbürgerung in der Schweiz uneinheitlicher geworden. Ob das an den Entscheiden der Gemeinden liegt oder daran, wer wo ein Gesuch stellt, liesse sich nur mit Daten zu den Gesuchen klären. Diese sind heute nicht öffentlich.</p>
 
     <aside class="entstehung" aria-labelledby="entstehung-titel">
       <h3 id="entstehung-titel">Wie dieser Artikel entstand</h3>
@@ -170,7 +220,7 @@ footer ol { padding-left: 1.2rem; }
     </aside>
 
     <h2>Was diese Auswertung nicht zeigt</h2>
-    <p>Die Daten zeigen Einbürgerungen, nicht Gesuche. Eine tiefere Quote kann heissen, dass eine Gemeinde mehr Gesuche ablehnt, dass Gesuche länger dauern oder dass weniger Menschen eines stellen. Gezählt sind alle Arten des Erwerbs, auch die erleichterte Einbürgerung von Ehepartnern, über die der Bund entscheidet. Von 2018 bis 2025 war das jede sechste Einbürgerung ([[ANTEIL_ERLEICHTERT]] Prozent). Das Abstimmungsklima ist ein Merkmal der Gemeinde, nicht der Behörde, die entscheidet. Die Bewilligungsart der Ausländerinnen und Ausländer ist nur für Kantone veröffentlicht und konnte darum nicht berücksichtigt werden.</p>
+    <p>Die Daten zeigen Einbürgerungen, nicht Gesuche. Weniger Einbürgerungen können heissen, dass eine Gemeinde mehr Gesuche ablehnt, dass Gesuche länger dauern oder dass weniger Menschen eines stellen. Mitgezählt sind alle Arten der Einbürgerung, auch die erleichterte Einbürgerung von Ehepartnern, über die der Bund entscheidet. 2018 bis 2025 war das jede sechste Einbürgerung ([[ANTEIL_ERLEICHTERT]] Prozent). Das Abstimmungsresultat beschreibt die Stimmberechtigten einer Gemeinde, nicht die Behörde, die entscheidet. Welche Bewilligung die Ausländerinnen und Ausländer haben, ist nur für Kantone veröffentlicht und konnte darum nicht berücksichtigt werden.</p>
   </div>
 
   <section class="methode" aria-labelledby="methode-titel">
