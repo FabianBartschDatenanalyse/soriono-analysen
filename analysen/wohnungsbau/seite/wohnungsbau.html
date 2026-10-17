@@ -1,0 +1,411 @@
+<title>Wohnungsbau real geschrumpft</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Seit 2017 sind die Investitionen in neue Wohnbauten real um ein Viertel gesunken. Die Baupreise erklären mehr als die Hälfte des Rückgangs, die Kosten je Wohnung kaum.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: eine Lesespalte wie ein Zeitungsartikel; Diagramme treten etwas breiter heraus, der Methodenteil liegt auf einer ruhigen Fläche. */
+:root {
+  --paper: #f7f8f6;
+  --panel: #eef0ec;
+  --ink: #161b19;
+  --ink-2: #48514d;
+  --ink-3: #6b736f;
+  --rule: #d6dbd7;
+  --accent: #1d5c63;
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --band: rgba(42, 120, 214, 0.10);
+  --font-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-ui: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --step--1: 0.84rem;
+  --step-0: 1.06rem;
+  --step-1: 1.3rem;
+  --step-2: 1.7rem;
+  --step-3: clamp(2rem, 1.3rem + 3vw, 3.1rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #131715; --panel: #1b201e; --ink: #ecefec; --ink-2: #b9c1bd; --ink-3: #8f9894; --rule: #2e3532;
+    --accent: #6fb7bf; --series-1: #3987e5; --series-2: #d95926; --band: rgba(57, 135, 229, 0.16);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #131715; --panel: #1b201e; --ink: #ecefec; --ink-2: #b9c1bd; --ink-3: #8f9894; --rule: #2e3532;
+  --accent: #6fb7bf; --series-1: #3987e5; --series-2: #d95926; --band: rgba(57, 135, 229, 0.16);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: var(--step-0);
+  line-height: 1.62; margin: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.spalte { max-width: 42rem; margin-inline: auto; }
+.breit { max-width: 54rem; margin-inline: auto; }
+header.kopf { padding-block: 3.2rem 1.6rem; display: grid; gap: 1rem; }
+.kicker { font-family: var(--font-ui); font-weight: 700; font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0; }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: var(--step-3); line-height: 1.06; letter-spacing: -0.015em; margin: 0; text-wrap: balance; }
+.lead { font-size: var(--step-1); line-height: 1.5; color: var(--ink-2); margin: 0; }
+.zeile { font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-3); margin: 0; }
+h2 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-2); line-height: 1.2; margin: 2.6rem 0 0.6rem; text-wrap: balance; }
+h3 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); margin: 1.8rem 0 0.4rem; }
+p { margin: 0 0 1rem; }
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.befund { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 0; border-block: 1px solid var(--rule); margin-block: 0.4rem 1.8rem; }
+.befund div { padding: 1rem 0.9rem 1rem 0; display: grid; gap: 0.2rem; align-content: start; min-width: 0; }
+.befund div + div { padding-left: 0.9rem; border-left: 1px solid var(--rule); }
+.zahl { font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); line-height: 1; font-variant-numeric: tabular-nums; }
+.zahl-text { font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-2); line-height: 1.35; overflow-wrap: anywhere; hyphens: auto; }
+figure { margin: 1.6rem auto 2rem; }
+figcaption { font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-2); line-height: 1.45; margin-top: 0.5rem; max-width: 42rem; }
+.diagramm-titel { font-family: var(--font-ui); font-weight: 700; font-size: var(--step-0); margin: 0 0 0.15rem; }
+.diagramm-unter { font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-3); margin: 0 0 0.6rem; }
+.legende { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-2); margin: 0 0 0.4rem; }
+.legende span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.legende i { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+.flaeche { position: relative; }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+svg text { font-family: var(--font-data); font-size: 11px; fill: var(--ink-3); }
+svg text.zeilenname { font-family: var(--font-ui); font-size: 13px; fill: var(--ink); }
+svg text.etikett { font-family: var(--font-ui); font-size: 12px; fill: var(--ink); font-weight: 600; }
+svg .achse { stroke: var(--rule); stroke-width: 1; }
+svg .null { stroke: var(--ink-3); stroke-width: 1; }
+svg .trenner { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 3 3; }
+.tip { position: absolute; pointer-events: none; background: var(--paper); color: var(--ink); border: 1px solid var(--rule); border-radius: 6px; padding: 0.4rem 0.55rem; font-family: var(--font-ui); font-size: var(--step--1); line-height: 1.35; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12); white-space: nowrap; }
+details.tabelle { margin-top: 0.5rem; font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-2); }
+details.tabelle summary { cursor: pointer; }
+.tabellen-rahmen { overflow-x: auto; }
+table { border-collapse: collapse; font-variant-numeric: tabular-nums; font-family: var(--font-ui); font-size: var(--step--1); width: 100%; margin-top: 0.5rem; }
+th, td { text-align: right; padding: 0.3rem 0.6rem; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; white-space: normal; }
+th { color: var(--ink-2); font-weight: 700; }
+.entstehung { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding-block: 0.4rem 0.6rem; margin-block: 2rem; }
+.entstehung h3 { margin-top: 0.8rem; font-family: var(--font-ui); font-size: var(--step-0); }
+.entstehung p { font-size: 0.98rem; color: var(--ink-2); }
+.methode { background: var(--panel); margin-top: 3rem; padding-block: 0.6rem 2.4rem;
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.methode p, .methode li { font-size: 0.98rem; }
+.methode ul { padding-left: 1.2rem; margin: 0 0 1rem; }
+.methode li { margin-bottom: 0.4rem; }
+footer { padding-block: 2rem 3rem; font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-3); }
+footer ol { padding-left: 1.2rem; }
+@media (prefers-reduced-motion: no-preference) { .tip { transition: opacity 80ms linear; } }
+</style>
+
+<!--RUMPF-->
+
+<article>
+  <header class="kopf spalte">
+    <p class="kicker">Analyse · Wirtschaft &amp; Unternehmen</p>
+    <h1>Der Wohnungsbau ist real um ein Viertel geschrumpft</h1>
+    <p class="lead">Seit 2017 fliesst real 27 Prozent weniger Geld in neue Wohnbauten. Mehr als die Hälfte des Rückgangs bei den neuen Wohnungen geht auf die Baupreise zurück; eine einzelne Wohnung kostet real kaum mehr als früher. Und die Aufträge für das nächste Jahr liegen real rund ein Fünftel unter ihrem Höchststand von 2017.</p>
+    <p class="zeile">17. Oktober 2026 · Von Fabian Bartsch, mit Claude Opus 5.5 (Anthropic) · Daten: Bundesamt für Statistik</p>
+  </header>
+
+  <div class="spalte">
+    <div class="befund" role="list">
+      <div role="listitem"><span class="zahl">−27 %</span><span class="zahl-text">reale Investitionen in neue Wohn&shy;bauten, 2017–2024</span></div>
+      <div role="listitem"><span class="zahl">+16 %</span><span class="zahl-text">Baupreise für Mehr&shy;familienhäuser, 2020–2024</span></div>
+      <div role="listitem"><span class="zahl">0,47</span><span class="zahl-text">neue Wohnungen je zusätzliche Person 2021–2024 (2016–2019: 0,73)</span></div>
+      <div role="listitem"><span class="zahl">−19 %</span><span class="zahl-text">realer Auftrags&shy;bestand für Neubauten im Jahr 2025 gegenüber 2017</span></div>
+    </div>
+
+    <p>Dass in der Schweiz zu wenige Wohnungen gebaut werden, ist bekannt. 2024 wurden 39'638 neue Wohnungen fertig, rund 11'000 weniger als im Mittel der Jahre 2016 bis 2019. Gleichzeitig wuchs die Bevölkerung schneller: um 95'000 Personen pro Jahr statt um 70'000. Weniger klar ist, warum weniger gebaut wird. Wird weniger Geld investiert, wird das Bauen teurer, oder werden die Wohnungen grösser und aufwendiger?</p>
+    <p>Die Bau- und Wohnbaustatistik des Bundesamts für Statistik erfasst jedes Jahr, wie viel in jeder Gemeinde gebaut wird, getrennt nach Neubau und Umbau, und welche Aufträge für das Folgejahr bereits vorliegen. Zusammen mit dem Baupreisindex lässt sich damit rechnen, wie viel real gebaut wird.</p>
+  </div>
+
+  <figure class="breit" id="fig-investitionen">
+    <p class="diagramm-titel">Investitionen in neue Wohnbauten</p>
+    <p class="diagramm-unter">Milliarden Franken pro Jahr, Schweiz; real zu Baupreisen von Oktober 2020</p>
+    <div class="legende" aria-hidden="true"><span><i style="background: var(--series-1)"></i>real</span><span><i style="background: var(--series-2)"></i>nominal</span></div>
+    <div class="flaeche" data-chart="linien" data-daten="investitionen"></div>
+    <figcaption>Neubauten in der Kategorie Wohnen, ohne Umbauten. Real: geteilt durch den Baupreisindex für den Neubau von Mehrfamilienhäusern der jeweiligen Grossregion.</figcaption>
+    <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="linien" data-daten="investitionen"></div></details>
+  </figure>
+
+  <div class="spalte">
+    <p>Bis 2017 stiegen die Investitionen in neue Wohnbauten fast jedes Jahr, auf 24,3 Milliarden Franken. Seither sinken sie, auf 20,8 Milliarden im Jahr 2024, nominal 14 Prozent weniger. Weil die Baupreise ab 2021 innert drei Jahren um 16 Prozent stiegen, ist der reale Rückgang fast doppelt so gross: 27 Prozent.</p>
+
+    <h2>Nicht die Wohnung wurde teurer, sondern das Bauen</h2>
+    <p>Wenn weniger Wohnungen entstehen, gibt es drei mögliche Gründe: Es wird nominal weniger investiert, die Baupreise steigen, oder jede Wohnung braucht real mehr Geld, etwa weil sie grösser oder besser ausgestattet ist. Die drei Gründe lassen sich trennen, weil sie sich multiplizieren:</p>
+  </div>
+
+  <figure class="breit" id="fig-zerlegung">
+    <p class="diagramm-titel">Woher der Rückgang der neuen Wohnungen kommt</p>
+    <p class="diagramm-unter">Veränderung der fertiggestellten Wohnungen von 2016–2019 zu 2021–2024 und ihre Bestandteile, in Prozentpunkten</p>
+    <div class="flaeche" data-chart="balken" data-daten="zerlegung"></div>
+    <figcaption>Fertiggestellte Wohnungen = Neubauinvestitionen ÷ Baupreisindex ÷ reale Investition je Wohnung. Die Investition je Wohnung bezieht die Wohnungen eines Jahres auf das Mittel der Investitionen dieses und des Vorjahres. Rest durch Mittelwerte über vier Jahre: +0,4 Prozentpunkte.</figcaption>
+    <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="balken" data-daten="zerlegung"></div></details>
+  </figure>
+
+  <div class="spalte">
+    <p>Von den 12,5 Prozent weniger Wohnungen gehen 9,7 Prozentpunkte auf die Baupreise zurück und 7,6 Punkte auf die nominal tieferen Investitionen. Die reale Investition je Wohnung dagegen ist nicht gestiegen: Sie lag 2016–2019 bei rund 471'000 Franken und 2021–2024 bei 455'000 Franken (zu Preisen von 2020). Ohne den Preisschub hätte dasselbe Geld also fast so viele Wohnungen ergeben wie früher.</p>
+    <p>Das ist eine wichtige Unterscheidung. Wer meint, die Wohnungen würden immer grösser oder aufwendiger und deshalb gebe es weniger davon, findet in diesen Zahlen keine Stütze. Der Engpass ist die Menge, die real gebaut wird.</p>
+
+    <h2>Das Geld wandert in Umbauten</h2>
+    <p>Während der Neubau schrumpft, wachsen die Umbauten: von 7,7 Milliarden Franken im Jahr 2020 auf 9,1 Milliarden im Jahr 2024. Ihr Anteil an allen Wohnbauinvestitionen stieg von 24 Prozent im Jahr 2016 auf 30 Prozent. Umbauten erneuern bestehende Wohnungen, schaffen aber selten zusätzliche. Ein Teil davon dürften energetische Sanierungen sein; die Statistik unterscheidet das nicht.</p>
+
+    <h2>Die Pipeline: wenig Besserung in Sicht</h2>
+    <p>Die Bauherren melden jedes Jahr auch, wie viel sie im Folgejahr investieren wollen. Dieser Arbeitsvorrat für Neubauten lag Ende 2024 real 19 Prozent unter seinem Höchststand von 2017. Weil das Bauen eines Mehrfamilienhauses etwa zwei Jahre dauert, bestimmen diese Aufträge die Wohnungen, die 2025 und 2026 fertig werden.</p>
+  </div>
+
+  <figure class="breit" id="fig-regionen">
+    <p class="diagramm-titel">Reale Neubauinvestitionen nach Grossregion</p>
+    <p class="diagramm-unter">Veränderung 2021–2024 gegenüber 2016–2019, in Prozent</p>
+    <div class="flaeche" data-chart="balken" data-daten="regionen"></div>
+    <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="regionen-voll"></div></details>
+  </figure>
+
+  <div class="spalte">
+    <p>Der Rückgang betrifft fast das ganze Land, aber unterschiedlich stark. Am meisten schrumpfte der Neubau im Tessin und im Espace Mittelland, also in den Kantonen Bern, Freiburg, Solothurn, Neuenburg und Jura. In der Genferseeregion und in Zürich ging er nur um rund ein Zehntel zurück, und im Kanton Genf, wo jahrelang besonders wenig gebaut wurde, wird heute real mehr gebaut als vor 2020. Dort kommen auf eine zusätzliche Person inzwischen ähnlich viele neue Wohnungen wie im Rest des Landes.</p>
+    <p>Für Unternehmen der Bau- und Immobilienwirtschaft wichtiger ist der Blick auf die Kantone: Wo die Bevölkerung stark wächst und gleichzeitig wenig gebaut wird, wird der Druck auf Mieten und Preise am grössten. Am wenigsten neue Wohnungen je zusätzliche Person entstanden 2021–2024 in Schaffhausen, Solothurn, Glarus und Aargau.</p>
+  </div>
+
+  <figure class="breit" id="fig-kantone">
+    <p class="diagramm-titel">Neue Wohnungen je zusätzliche Person nach Kanton</p>
+    <p class="diagramm-unter">Fertiggestellte Wohnungen 2021–2024 je Zunahme der ständigen Wohnbevölkerung Ende 2020 bis Ende 2024</p>
+    <div class="flaeche" data-chart="paare" data-daten="kantone"></div>
+    <figcaption>Gefüllter Punkt: 2021–2024; Ring: 2016–2019. Ohne Kantone mit sehr kleinem oder negativem Zuwachs in einem der Zeiträume (Tessin, Neuenburg, Jura). Zum Vergleich: Ein Haushalt zählt in der Schweiz im Mittel rund 2,2 Personen.</figcaption>
+    <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="kantone-voll"></div></details>
+  </figure>
+
+  <div class="spalte">
+    <h2>Wie belastbar ist die Rechnung?</h2>
+    <p>Die Aufteilung hängt davon ab, wie lange ein Bau dauert, also welche Investitionen zu den Wohnungen eines Jahres gehören. Mit einem, zwei oder drei Jahren Bauzeit erklären die Baupreise 8 bis 11 Prozentpunkte des Rückgangs, die reale Investition je Wohnung trägt in keiner Variante zum Rückgang bei (+1,3 bis +5,4 Punkte). Mit dem Baupreisindex der ganzen Schweiz statt jenem der Grossregionen ändert sich fast nichts.</p>
+
+    <h2>Was das für die Branche heisst</h2>
+    <p>Für Bauunternehmen, Investoren und Gemeinden zeigt die Rechnung, wo der Hebel liegt. Nicht teurere Wohnungen bremsen den Neubau, sondern die reale Bausumme, die in Projekte fliesst. Sie hängt an Finanzierungskosten, verfügbarem Bauland, Bewilligungen und Einsprachen. Diese Faktoren lassen sich mit den hier verwendeten Daten nicht trennen. Die Zahlen zeigen aber, dass die Lücke zwischen Wachstum und Neubau seit 2021 in 20 von 23 vergleichbaren Kantonen grösser geworden ist und der Auftragsbestand für 2025 keine rasche Wende erwarten lässt.</p>
+
+    <aside class="entstehung" aria-labelledby="entstehung-titel">
+      <h3 id="entstehung-titel">Wie dieser Artikel entstand</h3>
+      <p>Die Hauptarbeit an dieser Analyse hat Claude Opus 5.5 geleistet, ein KI-Modell von Anthropic: die Aufbereitung der Daten im Datenmodell, die Auswertung mit allen Prüfungen, den Code und diesen Text. Fabian Bartsch hat das Thema freigegeben, die Arbeit begleitet und entschieden, was veröffentlicht wird. Jede Zahl lässt sich aus den öffentlichen Daten nachrechnen.</p>
+    </aside>
+
+    <h2>Was diese Auswertung nicht zeigt</h2>
+    <p>Investitionen werden im Jahr gezählt, in dem gebaut wird, Wohnungen im Jahr, in dem sie fertig werden; die Verbindung über zwei Jahre ist eine Annäherung. Die Investitionen enthalten auch Einfamilienhäuser und die Wohnteile gemischt genutzter Bauten, aber keinen Boden. Der Baupreisindex misst die Preise für Bauleistungen, nicht die Qualität oder Grösse der Wohnungen. Der Arbeitsvorrat ist eine Absicht der Bauherren, keine Garantie. Warum nominal weniger investiert wird, etwa wegen der Zinsen von 2022 und 2023 oder wegen Bewilligungen, lässt sich mit diesen Daten nicht beantworten.</p>
+  </div>
+
+  <section class="methode" aria-labelledby="methode-titel">
+    <div class="spalte">
+      <h2 id="methode-titel">Methode im Detail</h2>
+      <p>Dieser Abschnitt richtet sich an Fachleute.</p>
+      <h3>Daten</h3>
+      <ul>
+        <li><strong>Investitionen:</strong> Bauinvestitionen und Arbeitsvorrat nach Kanton, Art der Arbeiten (Neubau, Umbau) und Kategorie der Bauwerke, Kategorie Wohnen (BFS, Bau- und Wohnbaustatistik, px-x-0904010000_205), 1994–2024, tausend Franken zu laufenden Preisen. Der Anteil privater Auftraggeber stammt aus der Schwestertabelle nach Auftraggebern (px-x-0904010000_203); er lag 2024 bei 96 Prozent.</li>
+        <li><strong>Wohnungen:</strong> neu erstellte Wohnungen nach Kanton (BFS, px-x-0904030000_105), 2013–2024.</li>
+        <li><strong>Bevölkerung:</strong> ständige Wohnbevölkerung am 31. Dezember (STATPOP).</li>
+        <li><strong>Baupreise:</strong> Schweizerischer Baupreisindex, Neubau Mehrfamilienhaus und Renovation Mehrfamilienhaus je Grossregion, Basis Oktober 2020 = 100 (BFS, cc-t-05.05.01), Jahresmittel aus April und Oktober. Jeder Kanton erhält den Index seiner Grossregion.</li>
+      </ul>
+      <h3>Zerlegung</h3>
+      <p>Für die Zeiträume 2016–2019 und 2021–2024 werden die Mittel der fertiggestellten Wohnungen W, der über zwei Jahre gemittelten nominalen Neubauinvestitionen I, des impliziten Preisindex P = I ÷ I<sub>real</sub> und der realen Investition je Wohnung K = I<sub>real</sub> ÷ W gebildet. Dann gilt ln(W<sub>2</sub>/W<sub>1</sub>) = ln(I<sub>2</sub>/I<sub>1</sub>) − ln(P<sub>2</sub>/P<sub>1</sub>) − ln(K<sub>2</sub>/K<sub>1</sub>) bis auf einen kleinen Rest, weil Mittelwerte von Quotienten nicht Quotienten von Mittelwerten sind.</p>
+      <h3>Robustheit</h3>
+      <div class="tabellen-rahmen" data-table="robust"></div>
+      <h3>Daten und Code</h3>
+      <p>Die Daten stammen aus <a href="https://soriono.ch/prelude/">Prelude</a>, dem offenen Datenmodell der Schweiz. Die Bau- und Wohnbaustatistik wurde für diese Analyse neu ins Modell aufgenommen und steht dort allen zur Verfügung. Nur der Baupreisindex ist direkt als Datei des BFS eingelesen. Der Code liegt öffentlich im Repository <a href="https://github.com/FabianBartschDatenanalyse/soriono-analysen/tree/main/analysen/wohnungsbau">soriono-analysen</a>.</p>
+    </div>
+  </section>
+
+  <footer class="spalte">
+    <p>Quellen</p>
+    <ol>
+      <li>Bundesamt für Statistik: Bau- und Wohnbaustatistik, Bauinvestitionen und Arbeitsvorrat (px-x-0904010000_203 und _205); neu erstellte Wohnungen (px-x-0904030000_105); STATPOP.</li>
+      <li>Bundesamt für Statistik: Schweizerischer Baupreisindex, Indexwerte pro Grossregion und Objekt (cc-t-05.05.01).</li>
+    </ol>
+  </footer>
+</article>
+
+
+
+<script>
+const DATEN = {"investitionen": {"titel": "Investitionen in neue Wohnbauten 2008 bis 2024, real und nominal", "jahre": [2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024], "y": [10, 26], "ticks": [10, 14, 18, 22, 26], "dezimalen": 1, "marke": {"jahr": 2020.5, "text": "Preisschub"}, "reihen": [{"name": "Real (Preise 2020)", "kurz": "real", "farbe": "var(--series-1)", "werte": [19.104, 20.084, 21.865, 22.197, 22.63, 23.538, 23.814, 24.087, 24.254, 24.567, 23.747, 22.675, 22.294, 21.769, 20.345, 18.73, 17.99]}, {"name": "Nominal", "kurz": "nominal", "farbe": "var(--series-2)", "werte": [18.825, 19.512, 21.293, 22.06, 22.473, 23.45, 23.755, 23.892, 23.997, 24.265, 23.648, 22.688, 22.322, 22.414, 22.708, 21.578, 20.829]}]}, "zerlegung": {"titel": "Zerlegung des Rückgangs der neuen Wohnungen", "bereich": [-14, 6], "ticks": [-12, -8, -4, 0, 4], "einheit": "", "zeilen": [{"name": "Neue Wohnungen", "wert": -12.543622415172507, "summe": true}, {"name": "Nominale Investitionen", "wert": -7.551260287978084}, {"name": "Baupreise", "wert": -9.736704042069638}, {"name": "Reale Kosten je Wohnung", "wert": 3.5107129083069997}]}, "regionen": {"titel": "Veränderung der realen Neubauinvestitionen nach Grossregion", "bereich": [-45, 10], "ticks": [-40, -30, -20, -10, 0], "einheit": " %", "zeilen": [{"name": "Tessin", "wert": -37.40904423992348}, {"name": "Espace Mittelland", "wert": -24.9453784601838}, {"name": "Zentralschweiz", "wert": -19.78778220236427}, {"name": "Nordwestschweiz", "wert": -17.952378647525833}, {"name": "Ostschweiz", "wert": -17.46993698039936}, {"name": "Zürich", "wert": -10.483784062472711}, {"name": "Genferseeregion", "wert": -9.586672356534663}]}, "kantone": {"titel": "Neue Wohnungen je zusätzliche Person nach Kanton, 2016–2019 und 2021–2024", "bereich": [0, 2.4], "ticks": [0, 0.5, 1.0, 1.5, 2.0], "achse": "Neue Wohnungen je zusätzliche Person", "zeilen": [{"name": "Schaffhausen", "vor": 0.649, "nach": 0.301}, {"name": "Solothurn", "vor": 0.669, "nach": 0.327}, {"name": "Glarus", "vor": 1.658, "nach": 0.33}, {"name": "Aargau", "vor": 0.64, "nach": 0.362}, {"name": "Freiburg", "vor": 0.724, "nach": 0.406}, {"name": "St. Gallen", "vor": 0.967, "nach": 0.409}, {"name": "Waadt", "vor": 0.641, "nach": 0.419}, {"name": "Wallis", "vor": 1.194, "nach": 0.425}, {"name": "Luzern", "vor": 0.816, "nach": 0.43}, {"name": "Thurgau", "vor": 0.686, "nach": 0.442}, {"name": "Genf", "vor": 0.45, "nach": 0.484}, {"name": "Bern", "vor": 0.771, "nach": 0.485}, {"name": "Zürich", "vor": 0.504, "nach": 0.507}, {"name": "Obwalden", "vor": 1.004, "nach": 0.513}, {"name": "Schwyz", "vor": 0.784, "nach": 0.527}, {"name": "Appenzell Ausserrhoden", "vor": 1.084, "nach": 0.539}, {"name": "Zug", "vor": 0.533, "nach": 0.54}, {"name": "Nidwalden", "vor": 1.181, "nach": 0.545}, {"name": "Basel-Stadt", "vor": 0.609, "nach": 0.59}, {"name": "Basel-Landschaft", "vor": 0.895, "nach": 0.616}, {"name": "Graubünden", "vor": 2.244, "nach": 0.756}, {"name": "Uri", "vor": 1.558, "nach": 0.793}, {"name": "Appenzell Innerrhoden", "vor": 1.89, "nach": 0.802}]}, "tabellen": {"regionen-voll": {"kopf": ["Grossregion", "Neubau real", "Auftragsbestand 2025 real", "Wohnungen je Person 2016–19", "2021–24", "Umbauanteil 2016–19", "2021–24"], "reihen": [["Tessin", "−37,4 %", "−29,5 %", "–", "0,95", "23,2 %", "31,8 %"], ["Espace Mittelland", "−24,9 %", "−27,5 %", "0,84", "0,45", "29,9 %", "34,2 %"], ["Zentralschweiz", "−19,8 %", "−18,0 %", "0,79", "0,48", "18,8 %", "22,5 %"], ["Nordwestschweiz", "−18,0 %", "−11,0 %", "0,67", "0,43", "20,0 %", "25,1 %"], ["Ostschweiz", "−17,5 %", "−17,3 %", "0,95", "0,45", "26,2 %", "30,2 %"], ["Zürich", "−10,5 %", "−9,4 %", "0,50", "0,51", "23,2 %", "25,9 %"], ["Genferseeregion", "−9,6 %", "−16,7 %", "0,67", "0,44", "25,5 %", "29,1 %"]]}, "kantone-voll": {"kopf": ["Kanton", "Wohnungen je Person 2016–19", "2021–24", "Wachstum 2021–24", "Neubau real", "Auftragsbestand 2025 real"], "reihen": [["Schaffhausen", "0,65", "0,30", "6,7 %", "−22,1 %", "−22,5 %"], ["Solothurn", "0,67", "0,33", "4,4 %", "−31,9 %", "−28,1 %"], ["Glarus", "1,66", "0,33", "3,7 %", "−44,2 %", "−60,9 %"], ["Aargau", "0,64", "0,36", "6,0 %", "−25,8 %", "−7,7 %"], ["Freiburg", "0,72", "0,41", "6,5 %", "−25,6 %", "−24,1 %"], ["St. Gallen", "0,97", "0,41", "5,0 %", "−17,1 %", "−30,0 %"], ["Waadt", "0,64", "0,42", "5,0 %", "−23,1 %", "−36,5 %"], ["Wallis", "1,19", "0,43", "6,5 %", "−17,0 %", "−27,4 %"], ["Luzern", "0,82", "0,43", "5,2 %", "−20,0 %", "−22,7 %"], ["Thurgau", "0,69", "0,44", "5,9 %", "−16,7 %", "−0,4 %"], ["Genf", "0,45", "0,48", "4,9 %", "+18,6 %", "+18,0 %"], ["Bern", "0,77", "0,49", "2,7 %", "−24,7 %", "−29,9 %"], ["Zürich", "0,50", "0,51", "4,3 %", "−10,5 %", "−9,4 %"], ["Obwalden", "1,00", "0,51", "4,1 %", "−16,4 %", "−21,5 %"], ["Schwyz", "0,78", "0,53", "4,2 %", "−27,9 %", "−11,3 %"], ["Appenzell Ausserrhoden", "1,08", "0,54", "2,5 %", "−14,9 %", "−24,4 %"], ["Zug", "0,53", "0,54", "3,8 %", "−19,6 %", "−14,8 %"], ["Nidwalden", "1,18", "0,55", "4,2 %", "−4,1 %", "−2,0 %"], ["Neuenburg", "–", "0,55", "2,1 %", "−12,7 %", "−24,4 %"], ["Basel-Stadt", "0,61", "0,59", "2,4 %", "−31,3 %", "−66,2 %"], ["Basel-Landschaft", "0,90", "0,62", "3,6 %", "+7,3 %", "+4,1 %"], ["Graubünden", "2,24", "0,76", "3,0 %", "−14,5 %", "−3,6 %"], ["Uri", "1,56", "0,79", "4,0 %", "+1,4 %", "−21,9 %"], ["Appenzell Innerrhoden", "1,89", "0,80", "2,7 %", "−18,3 %", "−19,8 %"], ["Tessin", "–", "0,95", "2,3 %", "−37,4 %", "−29,5 %"], ["Jura", "1,90", "1,50", "1,5 %", "−15,3 %", "−21,9 %"]]}, "robust": {"kopf": ["Variante", "Wohnungen", "Nominal", "Baupreise", "Kosten je Wohnung", "Rest"], "reihen": [["Hauptrechnung", "−12,5", "−7,6", "−9,7", "+3,5", "+0,4"], ["Ein Jahr Bauzeit", "−12,5", "−7,8", "−11,5", "+5,4", "+0,4"], ["Drei Jahre Bauzeit", "−12,5", "−7,1", "−7,9", "+1,3", "+0,3"], ["Preise der Schweiz statt der Grossregion", "−12,5", "−7,6", "−9,7", "+3,5", "+0,4"]]}}};
+
+const fmt = (v, d = 1) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(d).replace(".", ",");
+const zahl = (v, d = 0) => v.toLocaleString("de-CH", { minimumFractionDigits: d, maximumFractionDigits: d });
+const NS = "http://www.w3.org/2000/svg";
+function el(name, attrs = {}, parent) {
+  const e = document.createElementNS(NS, name);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function tooltip(host) {
+  const t = document.createElement("div");
+  t.className = "tip"; t.hidden = true; host.appendChild(t);
+  return {
+    show(html, x, y) {
+      t.innerHTML = html; t.hidden = false;
+      const w = host.clientWidth, tw = t.offsetWidth;
+      t.style.left = Math.min(Math.max(0, x - tw / 2), w - tw) + "px";
+      t.style.top = (y - t.offsetHeight - 10) + "px";
+    },
+    hide() { t.hidden = true; }
+  };
+}
+function breite(host) { return Math.max(300, Math.round(host.clientWidth || 860)); }
+function skala(d0, d1, r0, r1) { return v => r0 + (v - d0) / (d1 - d0) * (r1 - r0); }
+
+// Linien über die Jahre; hervorgehobene Reihen mit Beschriftung am Ende, die übrigen dünn und grau.
+function linien(host) {
+  const d = DATEN[host.dataset.daten], W = breite(host), schmal = W < 600, H = schmal ? 260 : 330;
+  const m = { l: 46, r: schmal ? 92 : 130, t: 14, b: 30 };
+  const j0 = d.jahre[0], j1 = d.jahre[d.jahre.length - 1];
+  const x = skala(j0, j1, m.l, W - m.r), y = skala(d.y[0], d.y[1], H - m.b, m.t);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": d.titel }, host);
+  for (const v of d.ticks) {
+    el("line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), class: "achse" }, svg);
+    el("text", { x: m.l - 8, y: y(v) + 4, "text-anchor": "end" }, svg).textContent = zahl(v, d.dezimalen);
+  }
+  for (const j of d.jahre) if (!schmal || j % 2 === 1 || j === j1)
+    el("text", { x: x(j), y: H - 8, "text-anchor": "middle" }, svg).textContent = j;
+  if (d.marke) {
+    el("line", { x1: x(d.marke.jahr), x2: x(d.marke.jahr), y1: m.t, y2: H - m.b, class: "trenner" }, svg);
+    el("text", { x: x(d.marke.jahr) + 5, y: m.t + 10 }, svg).textContent = d.marke.text;
+  }
+  const reihen = [...d.reihen].sort((a, b) => (a.farbe ? 1 : 0) - (b.farbe ? 1 : 0));
+  for (const r of reihen) {
+    const pfad = r.werte.map((v, i) => (i ? "L" : "M") + x(d.jahre[i]).toFixed(1) + "," + y(v).toFixed(1)).join("");
+    el("path", { d: pfad, fill: "none", stroke: r.farbe || "var(--rule)", "stroke-width": r.farbe ? 2.4 : 1.5, "stroke-linejoin": "round" }, svg);
+  }
+  // Beschriftungen am Ende, ohne Überlappung.
+  const etiketten = d.reihen.filter(r => r.farbe).map(r => ({ r, y: y(r.werte[r.werte.length - 1]) })).sort((a, b) => a.y - b.y);
+  for (let i = 1; i < etiketten.length; i++) etiketten[i].y = Math.max(etiketten[i].y, etiketten[i - 1].y + 15);
+  for (const e of etiketten) {
+    el("circle", { cx: x(j1), cy: y(e.r.werte[e.r.werte.length - 1]), r: 4, fill: e.r.farbe, stroke: "var(--paper)", "stroke-width": 2 }, svg);
+    el("text", { x: x(j1) + 8, y: e.y + 4, class: "etikett" }, svg).textContent = e.r.kurz || e.r.name;
+  }
+  const tip = tooltip(host);
+  const linie = el("line", { y1: m.t, y2: H - m.b, stroke: "var(--ink-3)", "stroke-width": 1, visibility: "hidden" }, svg);
+  const fang = el("rect", { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: "transparent" }, svg);
+  fang.addEventListener("pointermove", ev => {
+    const b = svg.getBoundingClientRect(), px = (ev.clientX - b.left) / b.width * W;
+    const j = Math.min(j1, Math.max(j0, Math.round(j0 + (px - m.l) / (W - m.l - m.r) * (j1 - j0)))), i = d.jahre.indexOf(j);
+    linie.setAttribute("x1", x(j)); linie.setAttribute("x2", x(j)); linie.setAttribute("visibility", "visible");
+    const zeilen = [...d.reihen].sort((a, b) => b.werte[i] - a.werte[i])
+      .map(r => `<span style="color:${r.farbe || "var(--ink-3)"}">●</span> ${r.name}: ${zahl(r.werte[i], d.dezimalen)}`).join("<br>");
+    tip.show(`<strong>${j}</strong><br>${zeilen}`, x(j) / W * b.width, m.t / H * b.height + 60);
+  });
+  fang.addEventListener("pointerleave", () => { tip.hide(); linie.setAttribute("visibility", "hidden"); });
+}
+
+// Punkte mit Vertrauensbereich, eine Zeile je Schätzung.
+function punkte(host) {
+  const daten = DATEN[host.dataset.daten], zeilen = daten.zeilen.filter(z => !z.nur_tabelle);
+  const W = breite(host), schmal = W < 600, zh = schmal ? 50 : 36;
+  const m = { l: schmal ? 8 : 270, r: 12, t: 8, b: 46 }, H = m.t + zeilen.length * zh + m.b;
+  const [d0, d1] = daten.bereich, x = skala(d0, d1, m.l, W - m.r);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": daten.titel }, host);
+  for (const v of daten.ticks) {
+    el("line", { x1: x(v), x2: x(v), y1: m.t, y2: H - m.b, class: Math.abs(v) < 1e-9 ? "null" : "achse" }, svg);
+    el("text", { x: x(v), y: H - m.b + 18, "text-anchor": "middle" }, svg).textContent = Math.abs(v) < 1e-9 ? "0" : fmt(v, daten.dezimalen);
+  }
+  const tip = tooltip(host);
+  zeilen.forEach((z, i) => {
+    const yc = m.t + i * zh + zh / 2 + (schmal ? 8 : 0);
+    el("text", { x: 0, y: schmal ? yc - 14 : yc + 4, class: "zeilenname" }, svg).textContent = z.name;
+    const farbe = z.placebo ? "var(--ink-3)" : "var(--series-1)";
+    const g = el("g", { tabindex: 0, role: "img", "aria-label": `${z.name}: ${fmt(z.schaetzung, 2)}` }, svg);
+    el("line", { x1: x(z.unten), x2: x(z.oben), y1: yc, y2: yc, stroke: farbe, "stroke-width": 2, "stroke-linecap": "round" }, g);
+    el("circle", { cx: x(z.schaetzung), cy: yc, r: 5, fill: farbe, stroke: "var(--paper)", "stroke-width": 2 }, g);
+    const fang = el("rect", { x: m.l, y: yc - 10, width: W - m.l - m.r, height: 20, fill: "transparent" }, g);
+    const zeigen = () => {
+      const b = svg.getBoundingClientRect();
+      tip.show(`<strong>${z.name}</strong><br>${fmt(z.schaetzung, daten.dezimalen + 1)}${daten.einheit}<br><span style="color:var(--ink-3)">95 %: ${fmt(z.unten, daten.dezimalen + 1)} bis ${fmt(z.oben, daten.dezimalen + 1)}</span>`,
+        x(z.schaetzung) / W * b.width, (yc - 6) / H * b.height);
+    };
+    fang.addEventListener("pointerenter", zeigen); g.addEventListener("focus", zeigen);
+    fang.addEventListener("pointerleave", () => tip.hide()); g.addEventListener("blur", () => tip.hide());
+  });
+  el("text", { x: (m.l + W - m.r) / 2, y: H - 4, "text-anchor": "middle" }, svg).textContent = daten.achse;
+}
+
+function tabelle(host) {
+  const art = host.dataset.table, d = DATEN[host.dataset.daten];
+  let kopf, reihen;
+  if (DATEN.tabellen && DATEN.tabellen[art]) {
+    ({ kopf, reihen } = DATEN.tabellen[art]);
+  } else if (art === "balken") {
+    kopf = ["", "Prozentpunkte"];
+    reihen = d.zeilen.map(z => [z.name, fmt(z.wert, 2)]);
+  } else if (art === "linien") {
+    kopf = ["", ...d.jahre.map(String)];
+    reihen = d.reihen.map(r => [r.name, ...r.werte.map(v => zahl(v, d.dezimalen))]);
+  } else {
+    const voll = host.dataset.voll === "1";
+    kopf = ["", "Schätzung", "95 %", ...(voll ? ["Standardfehler"] : [])];
+    reihen = d.zeilen.map(z => [z.name + (voll && z.hinweis ? ` <span style="color:var(--ink-3)">(${z.hinweis})</span>` : ""),
+      fmt(z.schaetzung, d.dezimalen + 2) + (z.einheit_tabelle || ""), `${fmt(z.unten, d.dezimalen + 2)} bis ${fmt(z.oben, d.dezimalen + 2)}`,
+      ...(voll ? [z.se === null ? "–" : zahl(z.se, d.dezimalen + 2)] : [])]);
+  }
+  host.innerHTML = `<table><thead><tr>${kopf.map(k => `<th scope="col">${k}</th>`).join("")}</tr></thead><tbody>${
+    reihen.map(r => `<tr>${r.map((c, i) => i ? `<td>${c}</td>` : `<th scope="row" style="font-weight:400">${c}</th>`).join("")}</tr>`).join("")}</tbody></table>`;
+}
+
+// Waagrechte Balken ab null, eine Zeile je Wert; die Summe kann eigens hervorgehoben werden.
+function balken(host) {
+  const d = DATEN[host.dataset.daten], W = breite(host), schmal = W < 600, zh = schmal ? 46 : 34;
+  const m = { l: schmal ? 8 : 250, r: 60, t: 8, b: 30 }, H = m.t + d.zeilen.length * zh + m.b;
+  const x = skala(d.bereich[0], d.bereich[1], m.l, W - m.r);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": d.titel }, host);
+  for (const v of d.ticks) {
+    el("line", { x1: x(v), x2: x(v), y1: m.t, y2: H - m.b, class: v === 0 ? "null" : "achse" }, svg);
+    el("text", { x: x(v), y: H - m.b + 16, "text-anchor": "middle" }, svg).textContent = v === 0 ? "0" : fmt(v, 0);
+  }
+  d.zeilen.forEach((z, i) => {
+    const yc = m.t + i * zh + zh / 2 + (schmal ? 8 : 0), x0 = x(0), x1 = x(z.wert);
+    el("text", { x: 0, y: schmal ? yc - 13 : yc + 4, class: "zeilenname", style: z.summe ? "font-weight:700" : "" }, svg).textContent = z.name;
+    el("rect", { x: Math.min(x0, x1), y: yc - 7, width: Math.max(1, Math.abs(x1 - x0)), height: 14, rx: 3,
+      fill: z.summe ? "var(--ink)" : z.wert < 0 ? "var(--series-1)" : "var(--series-2)" }, svg);
+    const t = el("text", { x: z.wert < 0 ? x1 - 6 : x1 + 6, y: yc + 4, "text-anchor": z.wert < 0 ? "end" : "start", class: "etikett" }, svg);
+    t.textContent = fmt(z.wert, 1) + (d.einheit || "");
+  });
+}
+
+// Zwei Werte je Zeile (vorher als Ring, nachher als Punkt), verbunden durch eine Linie.
+function paare(host) {
+  const d = DATEN[host.dataset.daten], W = breite(host), schmal = W < 600, zh = schmal ? 30 : 24;
+  const m = { l: 46, r: 16, t: 8, b: 34 }, H = m.t + d.zeilen.length * zh + m.b;
+  const x = skala(d.bereich[0], d.bereich[1], m.l, W - m.r);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": d.titel }, host);
+  for (const v of d.ticks) {
+    el("line", { x1: x(v), x2: x(v), y1: m.t, y2: H - m.b, class: "achse" }, svg);
+    el("text", { x: x(v), y: H - m.b + 16, "text-anchor": "middle" }, svg).textContent = zahl(v, 1);
+  }
+  const tip = tooltip(host);
+  d.zeilen.forEach((z, i) => {
+    const yc = m.t + i * zh + zh / 2;
+    el("text", { x: 0, y: yc + 4, class: "zeilenname" }, svg).textContent = z.name;
+    const g = el("g", { tabindex: 0, role: "img", "aria-label": `${z.name}: ${zahl(z.vor, 2)} auf ${zahl(z.nach, 2)}` }, svg);
+    el("line", { x1: x(z.vor), x2: x(z.nach), y1: yc, y2: yc, stroke: "var(--rule)", "stroke-width": 3 }, g);
+    el("circle", { cx: x(z.vor), cy: yc, r: 5, fill: "var(--paper)", stroke: "var(--series-1)", "stroke-width": 2 }, g);
+    el("circle", { cx: x(z.nach), cy: yc, r: 5, fill: "var(--series-1)", stroke: "var(--paper)", "stroke-width": 2 }, g);
+    const fang = el("rect", { x: m.l, y: yc - zh / 2, width: W - m.l - m.r, height: zh, fill: "transparent" }, g);
+    const zeigen = () => {
+      const b = svg.getBoundingClientRect();
+      tip.show(`<strong>${z.name}</strong><br>2021–2024: ${zahl(z.nach, 2)}<br><span style="color:var(--ink-3)">2016–2019: ${zahl(z.vor, 2)}</span>`, x(z.nach) / W * b.width, (yc - 6) / H * b.height);
+    };
+    fang.addEventListener("pointerenter", zeigen); g.addEventListener("focus", zeigen);
+    fang.addEventListener("pointerleave", () => tip.hide()); g.addEventListener("blur", () => tip.hide());
+  });
+  el("text", { x: (m.l + W - m.r) / 2, y: H - 4, "text-anchor": "middle" }, svg).textContent = d.achse;
+}
+
+const ZEICHNER = { linien, punkte, balken, paare };
+function zeichnen() {
+  document.querySelectorAll("[data-chart]").forEach(h => { h.replaceChildren(); ZEICHNER[h.dataset.chart](h); });
+}
+zeichnen();
+let letzteBreite = innerWidth, warten;
+addEventListener("resize", () => {
+  if (innerWidth === letzteBreite) return;
+  letzteBreite = innerWidth; clearTimeout(warten); warten = setTimeout(zeichnen, 150);
+});
+document.querySelectorAll("[data-table]").forEach(tabelle);
+</script>

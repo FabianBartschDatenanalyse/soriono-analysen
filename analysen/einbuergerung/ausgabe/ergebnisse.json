@@ -1,0 +1,57 @@
+{
+  "gemeinden": 1742,
+  "kantone": 26,
+  "gemeinde_jahre": 26130,
+  "einbuergerungen": 578734,
+  "anteil_einbuergerungen_schweiz": 0.9952039730156846,
+  "quote_vorher": 1.9232791571420746,
+  "quote_nachher": 1.7581871281694428,
+  "ja_2014_p10": 39.792548375134764,
+  "ja_2014_p90": 68.1158371040724,
+  "haupt": {
+    "schaetzung": -0.16285585795446933,
+    "se": 0.04514684975246336,
+    "unten": -0.25583753555502825,
+    "oben": -0.06987418035391041,
+    "n": 26130
+  },
+  "relativ_prozent": -9.26271472161377,
+  "herkunft": {
+    "eu_efta": {
+      "schaetzung": -0.16413743961429925,
+      "se": 0.03392677144817715,
+      "unten": -0.2340109333822699,
+      "oben": -0.0942639458463286,
+      "n": 26130,
+      "mittel_vorher": 0.9311831961093336,
+      "relativ_prozent": -17.626761339776934
+    },
+    "uebriges_europa": {
+      "schaetzung": -0.0032854808440168034,
+      "se": 0.02108957234486076,
+      "unten": -0.04672026814933728,
+      "oben": 0.04014930646130368,
+      "n": 26130,
+      "mittel_vorher": 0.5696787952589506,
+      "relativ_prozent": -0.5767251425469277
+    },
+    "ausserhalb_europas": {
+      "schaetzung": 0.005238708333659317,
+      "se": 0.02297572475410722,
+      "unten": -0.04208068257487276,
+      "oben": 0.052558099242191396,
+      "n": 26130,
+      "mittel_vorher": 0.4206644705424777,
+      "relativ_prozent": 1.2453412875357928
+    }
+  },
+  "fehlende": {
+    "klima_mitte_ja_prozent": 48.2714812592777,
+    "weniger_ueber_mitte": 13689.826828286532,
+    "mehr_unter_mitte": 13689.826828286512,
+    "einbuergerungen_ueber_mitte": 130375.0,
+    "jahre": "2018–2025"
+  },
+  "ereignis_vorher_mittel": 0.0008619690971732817,
+  "ereignis_nachher_mittel": -0.16807913310178485
+}

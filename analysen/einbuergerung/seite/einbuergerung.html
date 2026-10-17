@@ -1,0 +1,413 @@
+<title>Einbürgerung und Wohnort</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Seit dem neuen Bürgerrechtsgesetz von 2018 bürgern Gemeinden, die für Zuwanderungsbeschränkungen stimmen, weniger ein als ihre Nachbarn. Vorher gab es diesen Unterschied nicht.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: eine Lesespalte wie ein Zeitungsartikel; Diagramme treten etwas breiter heraus, der Methodenteil liegt auf einer ruhigen Fläche. */
+:root {
+  --paper: #f7f8f6;
+  --panel: #eef0ec;
+  --ink: #161b19;
+  --ink-2: #48514d;
+  --ink-3: #6b736f;
+  --rule: #d6dbd7;
+  --accent: #1d5c63;
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --band: rgba(42, 120, 214, 0.10);
+  --font-display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-ui: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --step--1: 0.84rem;
+  --step-0: 1.06rem;
+  --step-1: 1.3rem;
+  --step-2: 1.7rem;
+  --step-3: clamp(2rem, 1.3rem + 3vw, 3.1rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #131715; --panel: #1b201e; --ink: #ecefec; --ink-2: #b9c1bd; --ink-3: #8f9894; --rule: #2e3532;
+    --accent: #6fb7bf; --series-1: #3987e5; --series-2: #d95926; --band: rgba(57, 135, 229, 0.16);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #131715; --panel: #1b201e; --ink: #ecefec; --ink-2: #b9c1bd; --ink-3: #8f9894; --rule: #2e3532;
+  --accent: #6fb7bf; --series-1: #3987e5; --series-2: #d95926; --band: rgba(57, 135, 229, 0.16);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: var(--step-0);
+  line-height: 1.62; margin: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.spalte { max-width: 42rem; margin-inline: auto; }
+.breit { max-width: 54rem; margin-inline: auto; }
+header.kopf { padding-block: 3.2rem 1.6rem; display: grid; gap: 1rem; }
+.kicker { font-family: var(--font-ui); font-weight: 700; font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0; }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: var(--step-3); line-height: 1.06; letter-spacing: -0.015em; margin: 0; text-wrap: balance; }
+.lead { font-size: var(--step-1); line-height: 1.5; color: var(--ink-2); margin: 0; }
+.zeile { font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-3); margin: 0; }
+h2 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-2); line-height: 1.2; margin: 2.6rem 0 0.6rem; text-wrap: balance; }
+h3 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); margin: 1.8rem 0 0.4rem; }
+p { margin: 0 0 1rem; }
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.befund { display: grid; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); gap: 0; border-block: 1px solid var(--rule); margin-block: 0.4rem 1.8rem; }
+.befund div { padding: 1rem 0.9rem 1rem 0; display: grid; gap: 0.2rem; align-content: start; min-width: 0; }
+.befund div + div { padding-left: 0.9rem; border-left: 1px solid var(--rule); }
+.zahl { font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); line-height: 1; font-variant-numeric: tabular-nums; }
+.zahl-text { font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-2); line-height: 1.35; overflow-wrap: anywhere; hyphens: auto; }
+figure { margin: 1.6rem auto 2rem; }
+figcaption { font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-2); line-height: 1.45; margin-top: 0.5rem; max-width: 42rem; }
+.diagramm-titel { font-family: var(--font-ui); font-weight: 700; font-size: var(--step-0); margin: 0 0 0.15rem; }
+.diagramm-unter { font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-3); margin: 0 0 0.6rem; }
+.legende { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-2); margin: 0 0 0.4rem; }
+.legende span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.legende i { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+.flaeche { position: relative; }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+svg text { font-family: var(--font-data); font-size: 11px; fill: var(--ink-3); }
+svg text.zeilenname { font-family: var(--font-ui); font-size: 13px; fill: var(--ink); }
+svg text.etikett { font-family: var(--font-ui); font-size: 12px; fill: var(--ink); font-weight: 600; }
+svg .achse { stroke: var(--rule); stroke-width: 1; }
+svg .null { stroke: var(--ink-3); stroke-width: 1; }
+svg .trenner { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 3 3; }
+.tip { position: absolute; pointer-events: none; background: var(--paper); color: var(--ink); border: 1px solid var(--rule); border-radius: 6px; padding: 0.4rem 0.55rem; font-family: var(--font-ui); font-size: var(--step--1); line-height: 1.35; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12); white-space: nowrap; }
+details.tabelle { margin-top: 0.5rem; font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-2); }
+details.tabelle summary { cursor: pointer; }
+.tabellen-rahmen { overflow-x: auto; }
+table { border-collapse: collapse; font-variant-numeric: tabular-nums; font-family: var(--font-ui); font-size: var(--step--1); width: 100%; margin-top: 0.5rem; }
+th, td { text-align: right; padding: 0.3rem 0.6rem; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; white-space: normal; }
+th { color: var(--ink-2); font-weight: 700; }
+.entstehung { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding-block: 0.4rem 0.6rem; margin-block: 2rem; }
+.entstehung h3 { margin-top: 0.8rem; font-family: var(--font-ui); font-size: var(--step-0); }
+.entstehung p { font-size: 0.98rem; color: var(--ink-2); }
+.methode { background: var(--panel); margin-top: 3rem; padding-block: 0.6rem 2.4rem;
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.methode p, .methode li { font-size: 0.98rem; }
+.methode ul { padding-left: 1.2rem; margin: 0 0 1rem; }
+.methode li { margin-bottom: 0.4rem; }
+footer { padding-block: 2rem 3rem; font-family: var(--font-ui); font-size: var(--step--1); color: var(--ink-3); }
+footer ol { padding-left: 1.2rem; }
+@media (prefers-reduced-motion: no-preference) { .tip { transition: opacity 80ms linear; } }
+</style>
+
+<!--RUMPF-->
+
+<article>
+  <header class="kopf spalte">
+    <p class="kicker">Analyse · Gesellschaft</p>
+    <h1>Seit dem neuen Bürgerrecht entscheidet der Wohnort mehr über die Einbürgerung</h1>
+    <p class="lead">Bis 2017 bürgerten Gemeinden, die für Zuwanderungsbeschränkungen stimmten, etwa gleich viele Ausländerinnen und Ausländer ein wie ihre Nachbarn. Seit dem Bürgerrechtsgesetz von 2018 fallen sie zurück, Jahr für Jahr. Betroffen sind vor allem Personen aus der EU.</p>
+    <p class="zeile">17. Oktober 2026 · Von Fabian Bartsch, mit Claude Opus 5.5 (Anthropic) · Daten: Bundesamt für Statistik, Eidgenössische Steuerverwaltung</p>
+  </header>
+
+  <div class="spalte">
+    <div class="befund" role="list">
+      <div role="listitem"><span class="zahl">−9 %</span><span class="zahl-text">Einbürgerungen seit 2018 je 10 Prozentpunkte mehr Ja zur Massen&shy;einwanderungs&shy;initiative 2014</span></div>
+      <div role="listitem"><span class="zahl">0</span><span class="zahl-text">Unterschied vor 2018, im selben Kanton</span></div>
+      <div role="listitem"><span class="zahl">13'690</span><span class="zahl-text">Einbürgerungen weniger in Gemeinden mit über&shy;durchschnittlichem Ja, 2018–2025</span></div>
+      <div role="listitem"><span class="zahl">1'742</span><span class="zahl-text">Gemeinden mit 99,5&nbsp;% aller Einbürgerungen</span></div>
+    </div>
+
+    <p>Wer Schweizerin oder Schweizer werden will, wird in drei Schritten eingebürgert: von der Gemeinde, vom Kanton und vom Bund. Was die Gemeinde prüft und wie streng, ist von Kanton zu Kanton verschieden und oft auch von Gemeinde zu Gemeinde. Seit dem 1. Januar 2018 gilt ein neues Bürgerrechtsgesetz. Es verlangt eine Niederlassungsbewilligung, verkürzt die Wohnsitzfrist von 12 auf 10 Jahre und legt fest, was Integration heisst: Sprache, Teilnahme am Wirtschaftsleben, Respekt der Werte der Verfassung. Ob jemand diese Kriterien erfüllt, beurteilen vielerorts die Gemeinden.</p>
+    <p>Die Demokratie-Initiative, über die das Volk noch abstimmen wird, will das ändern: Wer fünf Jahre rechtmässig in der Schweiz lebt und die Bedingungen erfüllt, soll einen Anspruch auf die Einbürgerung haben, nach einheitlichen Regeln. Bundesrat und Parlament lehnen sie ab. Wie viel der Wohnort heute ausmacht, lässt sich mit den Daten des Bundesamts für Statistik messen: Es zählt jedes Jahr die Einbürgerungen in jeder Gemeinde.</p>
+  </div>
+
+  <div class="spalte">
+    <h2>Der Vergleich: Gemeinden im selben Kanton</h2>
+    <p>Als Mass für das lokale Klima dient der Ja-Anteil zur Masseneinwanderungsinitiative vom 9. Februar 2014, gemessen vor dem neuen Gesetz. Er reichte von 40 Prozent im unteren bis 68 Prozent im oberen Zehntel der Gemeinden. Damit Unterschiede zwischen den Kantonen keine Rolle spielen, teilen wir die Gemeinden innerhalb jedes Kantons in fünf gleich grosse Gruppen, vom tiefsten zum höchsten Ja-Anteil.</p>
+  </div>
+
+  <figure class="breit" id="fig-fuenftel">
+    <p class="diagramm-titel">Einbürgerungsquote nach Abstimmungsklima der Gemeinde</p>
+    <p class="diagramm-unter">Einbürgerungen je 100 Ausländerinnen und Ausländer, nach Fünftel des Ja-Anteils 2014 innerhalb des Kantons</p>
+    <div class="legende" aria-hidden="true"><span><i style="background: var(--series-1)"></i>tiefster Ja-Anteil</span><span><i style="background: var(--series-2)"></i>höchster Ja-Anteil</span><span><i style="background: var(--rule)"></i>übrige drei Fünftel</span></div>
+    <div class="flaeche" data-chart="linien" data-daten="fuenftel"></div>
+    <figcaption>Gestrichelte Linie: Bürgerrechtsgesetz vom 1. Januar 2018. 2015 bis 2017 stiegen die Einbürgerungen überall, weil viele noch nach altem Recht einreichten. Gemeinden mit mindestens 50 Ausländerinnen und Ausländern Ende 2016.</figcaption>
+    <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="linien" data-daten="fuenftel"></div></details>
+  </figure>
+
+  <div class="spalte">
+    <p>Bis 2017 lagen die fünf Gruppen nahe beieinander; das Fünftel mit dem tiefsten Ja-Anteil bürgerte nur wenig mehr ein als jenes mit dem höchsten. Ab 2018 wächst der Abstand. Das Fünftel mit dem tiefsten Ja-Anteil bürgert weiter ein wie vorher, im Mittel 2,06 Personen je 100 Ausländerinnen und Ausländer 2011 bis 2016 und 2,04 seit 2018. Das Fünftel mit dem höchsten Ja-Anteil fällt von 1,87 auf 1,55. Der Abstand zwischen beiden wächst damit von 0,19 auf 0,48.</p>
+    <p>Eine genauere Rechnung vergleicht jede Gemeinde mit sich selbst vor 2018 und mit den übrigen Gemeinden ihres Kantons im selben Jahr. Sie zeigt den Unterschied für jedes Jahr einzeln:</p>
+  </div>
+
+  <figure class="breit" id="fig-ereignis">
+    <p class="diagramm-titel">Wie stark hängt die Quote vom Abstimmungsklima ab?</p>
+    <p class="diagramm-unter">Einbürgerungen je 100 Ausländerinnen und Ausländer, Unterschied je 10 Prozentpunkte mehr Ja 2014; 2016 = 0</p>
+    <div class="flaeche" data-chart="ereignis"></div>
+    <figcaption>Punkte: geschätzter Unterschied je Jahr; Linien: 95-Prozent-Vertrauensbereich. Vergleich innerhalb der Gemeinde und innerhalb des Kantons im selben Jahr, gewichtet mit der ausländischen Bevölkerung.</figcaption>
+    <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="ereignis"></div></details>
+  </figure>
+
+  <div class="spalte">
+    <p>Vor 2018 schwanken die Werte um null. Ab 2018 liegen sie in jedem Jahr darunter, im Mittel bei −0,17. Zusammengefasst: Je 10 Prozentpunkte mehr Ja zur Masseneinwanderungsinitiative bürgert eine Gemeinde seit 2018 0,16 Personen je 100 Ausländerinnen und Ausländer weniger ein als vorher, verglichen mit Gemeinden ihres Kantons. Das sind 9 Prozent der heutigen Quote. Zwischen einer Gemeinde mit 40 und einer mit 68 Prozent Ja macht das rund 26 Prozent aus.</p>
+    <p>In Personen: In den Gemeinden mit überdurchschnittlichem Ja-Anteil wurden 2018 bis 2025 130'375 Personen eingebürgert. Wäre der Abstand zu den übrigen Gemeinden so geblieben wie vorher, wären es rund 13'690 mehr gewesen; in den Gemeinden mit unterdurchschnittlichem Ja-Anteil entsprechend so viele weniger.</p>
+
+    <h2>Betroffen sind Personen aus der EU</h2>
+    <p>Das Bundesamt für Statistik weist die Einbürgerungen auch nach der früheren Staatsangehörigkeit aus, in Gruppen. Die Rechnung lässt sich darum für jede Gruppe einzeln machen. Das Ergebnis überrascht:</p>
+  </div>
+
+  <figure class="breit" id="fig-herkunft">
+    <p class="diagramm-titel">Unterschied seit 2018 nach früherer Staatsangehörigkeit</p>
+    <p class="diagramm-unter">Veränderung der Einbürgerungen je 10 Prozentpunkte mehr Ja, in Prozent der Quote der Gruppe vor 2017, mit 95-Prozent-Vertrauensbereich</p>
+    <div class="flaeche" data-chart="punkte" data-daten="herkunft"></div>
+    <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="punkte" data-daten="herkunft"></div></details>
+  </figure>
+
+  <div class="spalte">
+    <p>Der ganze Unterschied entsteht bei Personen aus der EU und der EFTA: Ihre Einbürgerungen liegen je 10 Prozentpunkte mehr Ja um 18 Prozent tiefer. Bei Personen aus dem übrigen Europa, also etwa aus Kosovo, Serbien oder Nordmazedonien, und bei Personen von ausserhalb Europas gibt es keinen messbaren Unterschied. Wer erwartet hätte, dass zurückhaltende Gemeinden vor allem bei Gesuchen aus fernen Ländern strenger geworden sind, findet dafür in diesen Daten keinen Beleg.</p>
+    <p>Was hinter dem Unterschied bei der EU steckt, zeigen die Zahlen der ganzen Schweiz. Seit 2018 werden fast doppelt so viele Deutsche ordentlich eingebürgert wie vorher, auch Französinnen und Franzosen deutlich mehr. Bei Italienerinnen und Portugiesen ging die Zahl zurück:</p>
+  </div>
+
+  <figure class="breit" id="fig-staaten">
+    <p class="diagramm-titel">Ordentliche Einbürgerungen nach früherer Staatsangehörigkeit</p>
+    <p class="diagramm-unter">Personen pro Jahr, ganze Schweiz, 2011–2025</p>
+    <div class="flaeche" data-chart="linien" data-daten="staaten"></div>
+    <figcaption>Ordentliche Einbürgerungen ohne erleichterte Einbürgerung (etwa von Ehepartnern) und Wiedereinbürgerung. Quelle: BFS, Tabelle px-x-0103030100_101 (nur nach Kanton verfügbar, darum nicht im Gemeindevergleich).</figcaption>
+    <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="linien" data-daten="staaten"></div></details>
+  </figure>
+
+  <div class="spalte">
+    <p>Deutsche und Französinnen leben überdurchschnittlich oft in Städten und wohlhabenden Gemeinden, und diese stimmten 2014 eher Nein. Viele kamen in den Jahren nach 2002, als die Personenfreizügigkeit galt, und erfüllten mit der kürzeren Frist ab 2018 die Voraussetzungen. Ein Teil des Unterschieds dürfte also daher kommen, wer wo wohnt und wer ein Gesuch stellt, und nicht daher, wie eine Gemeinde entscheidet.</p>
+
+    <h2>Wie viel geht auf Wohlstand und Zusammensetzung zurück?</h2>
+    <p>Das lässt sich prüfen, indem man weitere Merkmale der Gemeinden in die Rechnung aufnimmt, jeweils so, dass sie ab 2018 anders wirken dürfen. Die Einwanderungswellen seit 1996, also wer wann zugezogen ist und darum wann einbürgerungsberechtigt wurde, erklären wenig: Der Unterschied sinkt von −0,16 auf −0,14. Mehr erklären das mittlere Einkommen der Gemeinde (Bundessteuer 2016), ihre Grösse und ihr Ausländeranteil: Mit ihnen sinkt er auf −0,08, mit allen Merkmalen zusammen auf −0,06.</p>
+    <p>Rund die Hälfte des Unterschieds hängt also mit Wohlstand und Grösse zusammen: Wohlhabende Gemeinden haben seit 2018 mehr eingebürgert, und sie stimmten 2014 seltener Ja. Die andere Hälfte bleibt, ist aber nicht mehr sicher von null zu unterscheiden. Ob das Abstimmungsklima selbst wirkt, etwa über strengere Gespräche, höhere Gebühren oder weniger Gesuche, oder ob es für Merkmale steht, die wir nicht messen können, lässt sich mit diesen Daten nicht entscheiden.</p>
+
+    <h2>Wie sicher ist das Ergebnis?</h2>
+    <p>Wir haben die Auswertung auf die Arten geprüft, die man in der Forschung für solche Fragen verlangt. Jede Zeile ändert eine Annahme und rechnet neu. Ein erfundener Bruch im Jahr 2015 zeigt keinen Unterschied; er tritt also erst mit dem neuen Gesetz auf.</p>
+  </div>
+
+  <figure class="breit" id="fig-robust">
+    <p class="diagramm-titel">Geschätzter Unterschied seit 2018 unter verschiedenen Annahmen</p>
+    <p class="diagramm-unter">Einbürgerungen je 100 Ausländerinnen und Ausländer, je 10 Prozentpunkte mehr Ja, mit 95-Prozent-Vertrauensbereich</p>
+    <div class="flaeche" data-chart="punkte" data-daten="robust"></div>
+    <figcaption>Jede Zeile ist eine eigene Berechnung. Die Placebo-Zeile sollte bei null liegen. Bei «Ohne je einen Kanton» reicht die Linie von der kleinsten zur grössten der 26 Schätzungen. Die Poisson-Schätzung ist in Prozent und darum nur in der Tabelle aufgeführt. Einzelheiten im Methodenteil.</figcaption>
+    <details class="tabelle"><summary>Zahlen als Tabelle</summary><div class="tabellen-rahmen" data-table="punkte" data-daten="robust"></div></details>
+  </figure>
+
+  <div class="spalte">
+    <p>Der Unterschied hängt nicht davon ab, welche Abstimmung das Klima misst: Mit der Einbürgerungsinitiative von 2008, der 10-Millionen-Initiative von 2026 oder dem Mittel von vier Zuwanderungsvorlagen ist er ähnlich gross. Er bleibt, wenn man die Jahre 2017 und 2018 mit dem Ansturm auf das alte Recht weglässt, wenn man nur grössere Gemeinden betrachtet und wenn man jeden Kanton einzeln weglässt. Zählt jede Gemeinde gleich, unabhängig von ihrer ausländischen Bevölkerung, wird er kleiner und unsicherer: Er kommt vor allem aus Gemeinden mit vielen Ausländerinnen und Ausländern.</p>
+
+    <h2>Was das für die Demokratie-Initiative heisst</h2>
+    <p>Die Befürworter der Initiative sagen, die Einbürgerung hänge zu sehr vom Wohnort ab. Diese Auswertung gibt ihnen insofern recht, als der Abstand zwischen offenen und zurückhaltenden Gemeinden seit 2018 gewachsen ist, auch innerhalb desselben Kantons. Die Gegner sagen, die Gemeinden kennten ihre Leute und sollten mitentscheiden. Auch dazu passt ein Teil der Befunde: Der Unterschied betrifft nicht die Gruppen, bei denen man am ehesten Vorbehalte vermuten würde, und er geht zur Hälfte auf Wohlstand und Zusammensetzung zurück.</p>
+    <p>Fest steht: Mit dem Gesetz von 2018 ist die Schweiz bei der Einbürgerung uneinheitlicher geworden. Ob das an den Entscheiden der Gemeinden liegt oder daran, wer wo ein Gesuch stellt, könnten nur Daten zu den Gesuchen klären, die heute nicht öffentlich sind.</p>
+
+    <aside class="entstehung" aria-labelledby="entstehung-titel">
+      <h3 id="entstehung-titel">Wie dieser Artikel entstand</h3>
+      <p>Die Hauptarbeit an dieser Analyse hat Claude Opus 5.5 geleistet, ein KI-Modell von Anthropic: die Aufbereitung der Daten im Datenmodell, die statistische Auswertung mit allen Prüfungen, den Code und diesen Text. Fabian Bartsch hat das Thema freigegeben, die Arbeit begleitet und entschieden, was veröffentlicht wird. Jede Zahl lässt sich aus den öffentlichen Daten nachrechnen.</p>
+    </aside>
+
+    <h2>Was diese Auswertung nicht zeigt</h2>
+    <p>Die Daten zeigen Einbürgerungen, nicht Gesuche. Eine tiefere Quote kann heissen, dass eine Gemeinde mehr Gesuche ablehnt, dass Gesuche länger dauern oder dass weniger Menschen eines stellen. Gezählt sind alle Arten des Erwerbs, auch die erleichterte Einbürgerung von Ehepartnern, über die der Bund entscheidet. Von 2018 bis 2025 war das jede sechste Einbürgerung (17 Prozent). Das Abstimmungsklima ist ein Merkmal der Gemeinde, nicht der Behörde, die entscheidet. Die Bewilligungsart der Ausländerinnen und Ausländer ist nur für Kantone veröffentlicht und konnte darum nicht berücksichtigt werden.</p>
+  </div>
+
+  <section class="methode" aria-labelledby="methode-titel">
+    <div class="spalte">
+      <h2 id="methode-titel">Methode im Detail</h2>
+      <p>Dieser Abschnitt richtet sich an Fachleute. Die Auswertung ist kein begutachteter Fachartikel, folgt aber dem Vorgehen, das für solche Fragen in der Forschung üblich ist.</p>
+
+      <h3>Daten</h3>
+      <ul>
+        <li><strong>Einbürgerungen:</strong> Erwerb des Schweizer Bürgerrechts je Gemeinde und Jahr 2011–2025 nach früherer Staatsangehörigkeit in Gruppen (BFS, px-x-0103030100_102), Gemeindestand 6.4.2025.</li>
+        <li><strong>Nenner:</strong> ausländische ständige Wohnbevölkerung am 31. Dezember des Vorjahres (STATPOP, px-x-0102010000_101), derselbe Gemeindestand.</li>
+        <li><strong>Abstimmungsklima:</strong> Ja-Anteil an den gültigen Ja- und Nein-Stimmen zur Masseneinwanderungsinitiative 2014 (Vorlage 5800); zur Prüfung die Einbürgerungsinitiative 2008 (5320), Durchsetzungs- (2016), Begrenzungs- (2020) und 10-Millionen-Initiative (2026). Ergebnisse auf dem Gemeindestand 1.1.2026, über das historische Gemeindeverzeichnis auf den Stand 2025 umgerechnet.</li>
+        <li><strong>Kontrollen:</strong> Einwanderungen von Ausländerinnen und Ausländern 1996–2016 in vier Wellen je ausländische Person Ende 2016 (BFS, demografische Bilanz), mittleres steuerbares Einkommen 2016 (ESTV, direkte Bundessteuer), Einwohner und Ausländeranteil Ende 2016.</li>
+        <li><strong>Stichprobe:</strong> 1'742 Gemeinden mit mindestens 50 Ausländerinnen und Ausländern Ende 2016, 26'130 Gemeinde-Jahre, 578'734 Einbürgerungen (99,5 % aller Einbürgerungen dieser Jahre). Ausgeschlossen sind Gemeinden mit einem nicht eindeutig umrechenbaren Gebietsstück.</li>
+      </ul>
+
+      <h3>Schätzung</h3>
+      <p>Differenz der Differenzen mit stetiger Behandlung: Einbürgerungsquote (Einbürgerungen je 100 Ausländerinnen und Ausländer am Ende des Vorjahres) auf das Produkt aus Ja-Anteil 2014 (in 10 Prozentpunkten) und einem Indikator für die Jahre ab 2018, mit festen Effekten für Gemeinde und Kanton × Jahr. Gewichte: ausländische Bevölkerung des Vorjahres. Standardfehler nach Kanton geklumpt (26 Cluster); nach Bezirk geklumpt werden sie kleiner. Die Ereignisstudie ersetzt den Indikator durch ein Produkt mit jedem Jahr, Bezugsjahr 2016. Die relative Wirkung bezieht sich auf die mittlere Quote ab 2018 (1,76). Die Herkunftsgruppen haben denselben Nenner (alle Ausländerinnen und Ausländer), weil der Bestand nach Herkunft auf Gemeindeebene nicht veröffentlicht ist; ihre relative Wirkung bezieht sich auf die Quote der Gruppe 2011–2016.</p>
+
+      <h3>Robustheit</h3>
+      <div class="tabellen-rahmen" data-table="punkte" data-daten="robust" data-voll="1"></div>
+
+      <h3>Daten und Code</h3>
+      <p>Die Gemeindedaten stammen aus <a href="https://soriono.ch/prelude/">Prelude</a>, dem offenen Datenmodell der Schweiz, das amtliche Daten unverändert und versioniert bereitstellt. Nur die Landeszahlen nach einzelnen Staatsangehörigkeiten sind direkt beim BFS abgefragt. Der Code liegt öffentlich im Repository <a href="https://github.com/FabianBartschDatenanalyse/soriono-analysen/tree/main/analysen/einbuergerung">soriono-analysen</a>.</p>
+    </div>
+  </section>
+
+  <footer class="spalte">
+    <p>Quellen</p>
+    <ol>
+      <li>Bundesamt für Statistik: Erwerb des Schweizer Bürgerrechts nach Gemeinde (px-x-0103030100_102) und nach Kanton, Art des Erwerbs und Staatsangehörigkeit (px-x-0103030100_101); STATPOP; demografische Bilanz; Volksabstimmungen nach Gemeinde (px-x-1703030000_101); historisiertes Gemeindeverzeichnis.</li>
+      <li>Eidgenössische Steuerverwaltung: Statistische Kennzahlen der direkten Bundessteuer, natürliche Personen, 2016.</li>
+      <li>Bundesgesetz über das Schweizer Bürgerrecht vom 20. Juni 2014 (SR 141.0), in Kraft seit 1. Januar 2018.</li>
+      <li>Hainmueller, J. und Hangartner, D. (2013): Who gets a Swiss passport? A natural experiment in immigrant discrimination. American Political Science Review 107(1), 159–187.</li>
+      <li>Parlamentsdienste: Volksinitiative «Für ein modernes Bürgerrecht (Demokratie-Initiative)», Geschäft 25.081.</li>
+    </ol>
+  </footer>
+</article>
+
+
+<script>
+const DATEN = {"fuenftel": {"titel": "Einbürgerungsquote nach Fünftel des Ja-Anteils 2014, 2011 bis 2025", "jahre": [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025], "y": [1.0, 2.6], "ticks": [1.0, 1.4, 1.8, 2.2, 2.6], "dezimalen": 2, "reihen": [{"name": "Tiefster Ja-Anteil", "kurz": "tiefstes Ja", "farbe": "var(--series-1)", "werte": [2.253, 2.091, 2.038, 1.834, 2.137, 2.019, 2.177, 2.163, 2.145, 1.9, 2.02, 2.227, 1.951, 1.89, 1.989]}, {"name": "2. Fünftel", "kurz": null, "farbe": null, "werte": [1.966, 1.747, 1.756, 1.65, 1.795, 1.914, 1.961, 1.817, 1.68, 1.485, 1.628, 1.791, 1.78, 1.583, 1.637]}, {"name": "3. Fünftel", "kurz": null, "farbe": null, "werte": [1.785, 1.606, 1.622, 1.527, 2.042, 2.307, 2.192, 2.024, 1.875, 1.348, 1.431, 1.557, 1.688, 1.57, 1.358]}, {"name": "4. Fünftel", "kurz": null, "farbe": null, "werte": [2.098, 1.85, 1.828, 1.706, 2.107, 2.134, 2.176, 1.913, 1.821, 1.315, 1.421, 1.604, 1.621, 1.408, 1.372]}, {"name": "Höchster Ja-Anteil", "kurz": "höchstes Ja", "farbe": "var(--series-2)", "werte": [1.873, 1.632, 1.557, 1.589, 2.169, 2.389, 2.313, 1.918, 1.872, 1.326, 1.321, 1.538, 1.673, 1.466, 1.311]}]}, "staaten": {"titel": "Ordentliche Einbürgerungen von Deutschen, Französinnen, Italienern und Portugiesinnen 2011 bis 2025", "jahre": [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025], "y": [0, 8000], "ticks": [0, 2000, 4000, 6000, 8000], "dezimalen": 0, "reihen": [{"name": "Deutschland", "farbe": "#1f5a8c", "werte": [2129, 2219, 2407, 2435, 3748, 3329, 4426, 4647, 5735, 5956, 6820, 7912, 6454, 7048, 7482]}, {"name": "Frankreich", "farbe": "#1baf7a", "werte": [836, 787, 1029, 1123, 1843, 2566, 2342, 2152, 2417, 2447, 2714, 3245, 4443, 3485, 3241]}, {"name": "Italien", "farbe": "#eb6834", "werte": [3072, 3148, 3302, 3301, 4106, 4003, 4577, 4013, 3846, 2875, 3181, 3742, 3037, 3382, 3176]}, {"name": "Portugal", "farbe": "#b8862f", "werte": [2059, 1922, 1965, 2232, 3311, 3812, 3680, 3072, 2654, 1871, 1941, 2073, 2200, 1697, 1653]}]}, "herkunft": {"titel": "Unterschied seit 2018 nach früherer Staatsangehörigkeit", "bereich": [-30, 15], "ticks": [-30, -20, -10, 0, 10], "dezimalen": 0, "einheit": " %", "achse": "Veränderung in Prozent der Quote der Gruppe", "zeilen": [{"name": "EU und EFTA", "schaetzung": -17.626761339776934, "unten": -25.130493587085073, "oben": -10.123029092468796, "se": 3.6434046050154114}, {"name": "Übriges Europa", "schaetzung": -0.5767251425469277, "unten": -8.20115976549563, "oben": 7.047709480401775, "se": 3.702011119314065}, {"name": "Ausserhalb Europas", "schaetzung": 1.2453412875357928, "unten": -10.003384055850173, "oben": 12.49406663092176, "se": 5.461769738832077}]}, "robust": {"titel": "Unterschied seit 2018 unter verschiedenen Annahmen", "bereich": [-0.3, 0.05], "ticks": [-0.3, -0.2, -0.1, 0], "dezimalen": 1, "einheit": " je 100", "achse": "Einbürgerungen je 100 Ausländerinnen und Ausländer, je 10 Punkte Ja", "zeilen": [{"name": "Hauptschätzung", "hinweis": "Gemeinde und Kanton × Jahr", "schaetzung": -0.1628558579544693, "unten": -0.2558375355550282, "oben": -0.0698741803539104, "se": 0.0451468497524633, "placebo": false, "nur_tabelle": false, "einheit_tabelle": ""}, {"name": "Unsicherheit je Bezirk", "hinweis": "geklumpt nach Bezirk", "schaetzung": -0.1628558579544693, "unten": -0.2203390169466836, "oben": -0.105372698962255, "se": 0.0290787329579624, "placebo": false, "nur_tabelle": false, "einheit_tabelle": ""}, {"name": "Ungewichtet", "hinweis": "jede Gemeinde gleich", "schaetzung": -0.1056238112943709, "unten": -0.2363994107757362, "oben": 0.0251517881869944, "se": 0.0634975243879449, "placebo": false, "nur_tabelle": false, "einheit_tabelle": ""}, {"name": "Ohne 2017 und 2018", "hinweis": "Ansturm auf das alte Recht", "schaetzung": -0.1730734175133601, "unten": -0.2785290057324044, "oben": -0.0676178292943158, "se": 0.0512035028808107, "placebo": false, "nur_tabelle": false, "einheit_tabelle": ""}, {"name": "Ab 200 Ausländerinnen und Ausländern", "hinweis": "grössere Gemeinden", "schaetzung": -0.1638283308013778, "unten": -0.2596371110125182, "oben": -0.0680195505902374, "se": 0.0465195371473179, "placebo": false, "nur_tabelle": false, "einheit_tabelle": ""}, {"name": "Einwanderungswellen", "hinweis": "Einwanderung 1996–2016 in vier Wellen, je × ab 2018", "schaetzung": -0.1364208067601477, "unten": -0.233403013435496, "oben": -0.0394386000847995, "se": 0.0470892892709862, "placebo": false, "nur_tabelle": false, "einheit_tabelle": ""}, {"name": "Wohlstand und Grösse", "hinweis": "Einkommen 2016, Einwohner, Ausländeranteil, je × ab 2018", "schaetzung": -0.078077093579526, "unten": -0.1458286020288509, "oben": -0.0103255851302011, "se": 0.0328964506921956, "placebo": false, "nur_tabelle": false, "einheit_tabelle": ""}, {"name": "Alle Kontrollen", "hinweis": "Wellen, Einkommen, Grösse, Ausländeranteil", "schaetzung": -0.0646908900661413, "unten": -0.140844131220218, "oben": 0.0114623510879353, "se": 0.0369758755194318, "placebo": false, "nur_tabelle": false, "einheit_tabelle": ""}, {"name": "Klima: Einbürgerungsinitiative 2008", "hinweis": "Ja-Anteil in 10 Prozentpunkten", "schaetzung": -0.1268027530904125, "unten": -0.2166825388717545, "oben": -0.0369229673090706, "se": 0.0436407396507271, "placebo": false, "nur_tabelle": false, "einheit_tabelle": ""}, {"name": "Klima: Mittel der vier Vorlagen 2014–2026", "hinweis": "Ja-Anteil in 10 Prozentpunkten", "schaetzung": -0.1528883936109551, "unten": -0.2413294676058244, "oben": -0.0644473196160858, "se": 0.0429421793909304, "placebo": false, "nur_tabelle": false, "einheit_tabelle": ""}, {"name": "Klima: 10-Millionen-Initiative 2026", "hinweis": "Ja-Anteil in 10 Prozentpunkten", "schaetzung": -0.125721854446381, "unten": -0.1991759253950117, "oben": -0.0522677834977502, "se": 0.0356653051482981, "placebo": false, "nur_tabelle": false, "einheit_tabelle": ""}, {"name": "Placebo: Bruch 2015", "hinweis": "nur 2011–2017", "schaetzung": -0.0482785145951898, "unten": -0.1169011165697331, "oben": 0.0203440873793535, "se": 0.0333194063703275, "placebo": true, "nur_tabelle": false, "einheit_tabelle": ""}, {"name": "Poisson (relative Wirkung)", "hinweis": "Änderung in Prozent je 10 Punkte Ja", "schaetzung": -9.192635873150037, "unten": -13.726771754309356, "oben": -4.42020604371896, "se": 2.613367020745667, "placebo": false, "nur_tabelle": true, "einheit_tabelle": " %"}, {"name": "Ohne je einen Kanton", "hinweis": "kleinste und grösste Schätzung", "schaetzung": -0.1634083322633884, "unten": -0.1805298670438146, "oben": -0.128304837530088, "se": null, "placebo": false, "nur_tabelle": false, "einheit_tabelle": ""}]}, "ereignis": [[2011, -0.0237, -0.1046, 0.0572], [2012, 0.008, -0.1139, 0.13], [2013, 0.0267, -0.1048, 0.1581], [2014, 0.0507, -0.0199, 0.1212], [2015, -0.0564, -0.1838, 0.0709], [2016, 0.0, 0.0, 0.0], [2017, -0.0414, -0.1235, 0.0406], [2018, -0.1436, -0.2278, -0.0595], [2019, -0.1815, -0.3543, -0.0087], [2020, -0.1731, -0.2824, -0.0638], [2021, -0.171, -0.2697, -0.0724], [2022, -0.1586, -0.2998, -0.0173], [2023, -0.1025, -0.2597, 0.0547], [2024, -0.2373, -0.3814, -0.0932], [2025, -0.1769, -0.2777, -0.0761]]};
+
+const fmt = (v, d = 1) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(d).replace(".", ",");
+const zahl = (v, d = 0) => v.toLocaleString("de-CH", { minimumFractionDigits: d, maximumFractionDigits: d });
+const NS = "http://www.w3.org/2000/svg";
+function el(name, attrs = {}, parent) {
+  const e = document.createElementNS(NS, name);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function tooltip(host) {
+  const t = document.createElement("div");
+  t.className = "tip"; t.hidden = true; host.appendChild(t);
+  return {
+    show(html, x, y) {
+      t.innerHTML = html; t.hidden = false;
+      const w = host.clientWidth, tw = t.offsetWidth;
+      t.style.left = Math.min(Math.max(0, x - tw / 2), w - tw) + "px";
+      t.style.top = (y - t.offsetHeight - 10) + "px";
+    },
+    hide() { t.hidden = true; }
+  };
+}
+function breite(host) { return Math.max(300, Math.round(host.clientWidth || 860)); }
+function skala(d0, d1, r0, r1) { return v => r0 + (v - d0) / (d1 - d0) * (r1 - r0); }
+
+// Linien über die Jahre; hervorgehobene Reihen mit Beschriftung am Ende, die übrigen dünn und grau.
+function linien(host) {
+  const d = DATEN[host.dataset.daten], W = breite(host), schmal = W < 600, H = schmal ? 260 : 330;
+  const m = { l: 46, r: schmal ? 92 : 130, t: 14, b: 30 };
+  const j0 = d.jahre[0], j1 = d.jahre[d.jahre.length - 1];
+  const x = skala(j0, j1, m.l, W - m.r), y = skala(d.y[0], d.y[1], H - m.b, m.t);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": d.titel }, host);
+  for (const v of d.ticks) {
+    el("line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), class: "achse" }, svg);
+    el("text", { x: m.l - 8, y: y(v) + 4, "text-anchor": "end" }, svg).textContent = zahl(v, d.dezimalen);
+  }
+  for (const j of d.jahre) if (!schmal || j % 2 === 1 || j === j1)
+    el("text", { x: x(j), y: H - 8, "text-anchor": "middle" }, svg).textContent = j;
+  el("line", { x1: x(2017.5), x2: x(2017.5), y1: m.t, y2: H - m.b, class: "trenner" }, svg);
+  el("text", { x: x(2017.5) + 5, y: m.t + 10 }, svg).textContent = "neues Gesetz";
+  const reihen = [...d.reihen].sort((a, b) => (a.farbe ? 1 : 0) - (b.farbe ? 1 : 0));
+  for (const r of reihen) {
+    const pfad = r.werte.map((v, i) => (i ? "L" : "M") + x(d.jahre[i]).toFixed(1) + "," + y(v).toFixed(1)).join("");
+    el("path", { d: pfad, fill: "none", stroke: r.farbe || "var(--rule)", "stroke-width": r.farbe ? 2.4 : 1.5, "stroke-linejoin": "round" }, svg);
+  }
+  // Beschriftungen am Ende, ohne Überlappung.
+  const etiketten = d.reihen.filter(r => r.farbe).map(r => ({ r, y: y(r.werte[r.werte.length - 1]) })).sort((a, b) => a.y - b.y);
+  for (let i = 1; i < etiketten.length; i++) etiketten[i].y = Math.max(etiketten[i].y, etiketten[i - 1].y + 15);
+  for (const e of etiketten) {
+    el("circle", { cx: x(j1), cy: y(e.r.werte[e.r.werte.length - 1]), r: 4, fill: e.r.farbe, stroke: "var(--paper)", "stroke-width": 2 }, svg);
+    el("text", { x: x(j1) + 8, y: e.y + 4, class: "etikett" }, svg).textContent = e.r.kurz || e.r.name;
+  }
+  const tip = tooltip(host);
+  const linie = el("line", { y1: m.t, y2: H - m.b, stroke: "var(--ink-3)", "stroke-width": 1, visibility: "hidden" }, svg);
+  const fang = el("rect", { x: m.l, y: m.t, width: W - m.l - m.r, height: H - m.t - m.b, fill: "transparent" }, svg);
+  fang.addEventListener("pointermove", ev => {
+    const b = svg.getBoundingClientRect(), px = (ev.clientX - b.left) / b.width * W;
+    const j = Math.min(j1, Math.max(j0, Math.round(j0 + (px - m.l) / (W - m.l - m.r) * (j1 - j0)))), i = d.jahre.indexOf(j);
+    linie.setAttribute("x1", x(j)); linie.setAttribute("x2", x(j)); linie.setAttribute("visibility", "visible");
+    const zeilen = [...d.reihen].sort((a, b) => b.werte[i] - a.werte[i])
+      .map(r => `<span style="color:${r.farbe || "var(--ink-3)"}">●</span> ${r.name}: ${zahl(r.werte[i], d.dezimalen)}`).join("<br>");
+    tip.show(`<strong>${j}</strong><br>${zeilen}`, x(j) / W * b.width, m.t / H * b.height + 60);
+  });
+  fang.addEventListener("pointerleave", () => { tip.hide(); linie.setAttribute("visibility", "hidden"); });
+}
+
+function ereignis(host) {
+  const daten = DATEN.ereignis, W = breite(host), H = W < 600 ? 260 : 320, m = { l: 44, r: 8, t: 14, b: 30 };
+  const x = skala(2010.5, 2025.5, m.l, W - m.r), y = skala(-0.4, 0.2, H - m.b, m.t);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Unterschied der Einbürgerungsquote je 10 Prozentpunkte mehr Ja, je Jahr 2011 bis 2025" }, host);
+  el("rect", { x: x(2017.5), y: m.t, width: W - m.r - x(2017.5), height: H - m.t - m.b, fill: "var(--band)" }, svg);
+  for (const v of [-0.4, -0.3, -0.2, -0.1, 0, 0.1, 0.2]) {
+    el("line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), class: Math.abs(v) < 1e-9 ? "null" : "achse" }, svg);
+    el("text", { x: m.l - 8, y: y(v) + 4, "text-anchor": "end" }, svg).textContent = Math.abs(v) < 1e-9 ? "0" : fmt(v, 1);
+  }
+  el("line", { x1: x(2017.5), x2: x(2017.5), y1: m.t, y2: H - m.b, class: "trenner" }, svg);
+  el("text", { x: x(2017.5) + 6, y: m.t + 12 }, svg).textContent = "neues Gesetz";
+  for (const [j] of daten) if (W >= 600 || j % 2 === 1)
+    el("text", { x: x(j), y: H - 8, "text-anchor": "middle" }, svg).textContent = j;
+  const tip = tooltip(host);
+  for (const [j, s, u, o] of daten) {
+    const g = el("g", { tabindex: 0, role: "img", "aria-label": `${j}: ${fmt(s, 2)}` }, svg);
+    el("line", { x1: x(j), x2: x(j), y1: y(u), y2: y(o), stroke: "var(--series-1)", "stroke-width": 2, "stroke-linecap": "round" }, g);
+    el("circle", { cx: x(j), cy: y(s), r: 5, fill: "var(--series-1)", stroke: "var(--paper)", "stroke-width": 2 }, g);
+    const fang = el("rect", { x: x(j) - 14, y: m.t, width: 28, height: H - m.t - m.b, fill: "transparent" }, g);
+    const zeigen = () => {
+      const b = svg.getBoundingClientRect();
+      const was = j === 2016 ? "Bezugsjahr" : `${fmt(s, 2)} je 100 Ausländer<br><span style="color:var(--ink-3)">95 %: ${fmt(u, 2)} bis ${fmt(o, 2)}</span>`;
+      tip.show(`<strong>${j}</strong><br>${was}`, x(j) / W * b.width, y(Math.max(o, s)) / H * b.height);
+    };
+    fang.addEventListener("pointerenter", zeigen); g.addEventListener("focus", zeigen);
+    fang.addEventListener("pointerleave", () => tip.hide()); g.addEventListener("blur", () => tip.hide());
+  }
+}
+
+// Punkte mit Vertrauensbereich, eine Zeile je Schätzung.
+function punkte(host) {
+  const daten = DATEN[host.dataset.daten], zeilen = daten.zeilen.filter(z => !z.nur_tabelle);
+  const W = breite(host), schmal = W < 600, zh = schmal ? 50 : 36;
+  const m = { l: schmal ? 8 : 270, r: 12, t: 8, b: 46 }, H = m.t + zeilen.length * zh + m.b;
+  const [d0, d1] = daten.bereich, x = skala(d0, d1, m.l, W - m.r);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": daten.titel }, host);
+  for (const v of daten.ticks) {
+    el("line", { x1: x(v), x2: x(v), y1: m.t, y2: H - m.b, class: Math.abs(v) < 1e-9 ? "null" : "achse" }, svg);
+    el("text", { x: x(v), y: H - m.b + 18, "text-anchor": "middle" }, svg).textContent = Math.abs(v) < 1e-9 ? "0" : fmt(v, daten.dezimalen);
+  }
+  const tip = tooltip(host);
+  zeilen.forEach((z, i) => {
+    const yc = m.t + i * zh + zh / 2 + (schmal ? 8 : 0);
+    el("text", { x: 0, y: schmal ? yc - 14 : yc + 4, class: "zeilenname" }, svg).textContent = z.name;
+    const farbe = z.placebo ? "var(--ink-3)" : "var(--series-1)";
+    const g = el("g", { tabindex: 0, role: "img", "aria-label": `${z.name}: ${fmt(z.schaetzung, 2)}` }, svg);
+    el("line", { x1: x(z.unten), x2: x(z.oben), y1: yc, y2: yc, stroke: farbe, "stroke-width": 2, "stroke-linecap": "round" }, g);
+    el("circle", { cx: x(z.schaetzung), cy: yc, r: 5, fill: farbe, stroke: "var(--paper)", "stroke-width": 2 }, g);
+    const fang = el("rect", { x: m.l, y: yc - 10, width: W - m.l - m.r, height: 20, fill: "transparent" }, g);
+    const zeigen = () => {
+      const b = svg.getBoundingClientRect();
+      tip.show(`<strong>${z.name}</strong><br>${fmt(z.schaetzung, daten.dezimalen + 1)}${daten.einheit}<br><span style="color:var(--ink-3)">95 %: ${fmt(z.unten, daten.dezimalen + 1)} bis ${fmt(z.oben, daten.dezimalen + 1)}</span>`,
+        x(z.schaetzung) / W * b.width, (yc - 6) / H * b.height);
+    };
+    fang.addEventListener("pointerenter", zeigen); g.addEventListener("focus", zeigen);
+    fang.addEventListener("pointerleave", () => tip.hide()); g.addEventListener("blur", () => tip.hide());
+  });
+  el("text", { x: (m.l + W - m.r) / 2, y: H - 4, "text-anchor": "middle" }, svg).textContent = daten.achse;
+}
+
+function tabelle(host) {
+  const art = host.dataset.table, d = DATEN[host.dataset.daten];
+  let kopf, reihen;
+  if (art === "ereignis") {
+    kopf = ["Jahr", "Unterschied", "95 % von", "bis"];
+    reihen = DATEN.ereignis.map(([j, s, u, o]) => [String(j), fmt(s, 3), fmt(u, 3), fmt(o, 3)]);
+  } else if (art === "linien") {
+    kopf = ["", ...d.jahre.map(String)];
+    reihen = d.reihen.map(r => [r.name, ...r.werte.map(v => zahl(v, d.dezimalen))]);
+  } else {
+    const voll = host.dataset.voll === "1";
+    kopf = ["", "Schätzung", "95 %", ...(voll ? ["Standardfehler"] : [])];
+    reihen = d.zeilen.map(z => [z.name + (voll && z.hinweis ? ` <span style="color:var(--ink-3)">(${z.hinweis})</span>` : ""),
+      fmt(z.schaetzung, d.dezimalen + 2) + (z.einheit_tabelle || ""), `${fmt(z.unten, d.dezimalen + 2)} bis ${fmt(z.oben, d.dezimalen + 2)}`,
+      ...(voll ? [z.se === null ? "–" : zahl(z.se, d.dezimalen + 2)] : [])]);
+  }
+  host.innerHTML = `<table><thead><tr>${kopf.map(k => `<th scope="col">${k}</th>`).join("")}</tr></thead><tbody>${
+    reihen.map(r => `<tr>${r.map((c, i) => i ? `<td>${c}</td>` : `<th scope="row" style="font-weight:400">${c}</th>`).join("")}</tr>`).join("")}</tbody></table>`;
+}
+
+const ZEICHNER = { linien, ereignis, punkte };
+function zeichnen() {
+  document.querySelectorAll("[data-chart]").forEach(h => { h.replaceChildren(); ZEICHNER[h.dataset.chart](h); });
+}
+zeichnen();
+let letzteBreite = innerWidth, warten;
+addEventListener("resize", () => {
+  if (innerWidth === letzteBreite) return;
+  letzteBreite = innerWidth; clearTimeout(warten); warten = setTimeout(zeichnen, 150);
+});
+document.querySelectorAll("[data-table]").forEach(tabelle);
+</script>

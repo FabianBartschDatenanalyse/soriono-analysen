@@ -1,0 +1,4 @@
+# Aus dem veröffentlichten Modell neu erzeugbar (daten.py)
+ausgabe/panel.parquet
+ausgabe/gemeinden.parquet
+__pycache__/
